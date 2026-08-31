@@ -6,6 +6,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+
 /* =========================================================
    DATABASE CONNECTION
 ========================================================= */
@@ -40,11 +41,6 @@ app.use(
   })
 );
 
-
-/* =========================================================
-   STATIC FILES
-========================================================= */
-
 app.use(
   express.static(
     path.join(__dirname, "public")
@@ -56,27 +52,34 @@ app.use(
    HEALTH CHECK
 ========================================================= */
 
-app.get("/health", (req, res) => {
-  res.json({
-    status: "ok",
-    message: "Marc & Hannah Wedding Website is running.",
-  });
-});
+app.get(
+  "/health",
+  (req, res) => {
+    res.json({
+      status: "ok",
+      message:
+        "Marc & Hannah Wedding Website is running.",
+    });
+  }
+);
 
 
 /* =========================================================
    HOME PAGE
 ========================================================= */
 
-app.get("/", (req, res) => {
-  res.sendFile(
-    path.join(
-      __dirname,
-      "public",
-      "index.html"
-    )
-  );
-});
+app.get(
+  "/",
+  (req, res) => {
+    res.sendFile(
+      path.join(
+        __dirname,
+        "public",
+        "index.html"
+      )
+    );
+  }
+);
 
 
 /* =========================================================
@@ -86,23 +89,19 @@ app.get("/", (req, res) => {
 app.post(
   "/api/rsvp",
   async (req, res) => {
+
     try {
-      /* =================================================
-         CHECK DATABASE
-      ================================================= */
 
       if (!pool) {
-        return res.status(500).json({
-          success: false,
-          message:
-            "Database is not configured yet. Please connect PostgreSQL in Railway.",
-        });
+        return res
+          .status(500)
+          .json({
+            success: false,
+            message:
+              "Database is not configured yet.",
+          });
       }
 
-
-      /* =================================================
-         GET FORM DATA
-      ================================================= */
 
       const {
         fullName,
@@ -114,9 +113,9 @@ app.post(
       } = req.body;
 
 
-      /* =================================================
+      /* =============================================
          VALIDATION
-      ================================================= */
+      ============================================== */
 
       if (
         !fullName ||
@@ -124,17 +123,15 @@ app.post(
         !attendance ||
         !guestCount
       ) {
-        return res.status(400).json({
-          success: false,
-          message:
-            "Please complete all required fields.",
-        });
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message:
+              "Please complete all required fields.",
+          });
       }
 
-
-      /* =================================================
-         VALID ATTENDANCE
-      ================================================= */
 
       const validAttendance = [
         "Attending",
@@ -147,39 +144,39 @@ app.post(
           attendance
         )
       ) {
-        return res.status(400).json({
-          success: false,
-          message:
-            "Invalid attendance selection.",
-        });
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message:
+              "Invalid attendance selection.",
+          });
       }
 
-
-      /* =================================================
-         VALIDATE GUEST COUNT
-      ================================================= */
 
       const guestCountNumber =
         Number(guestCount);
 
 
       if (
-        !Number.isInteger(
+        Number.isNaN(
           guestCountNumber
         ) ||
         guestCountNumber < 1
       ) {
-        return res.status(400).json({
-          success: false,
-          message:
-            "Please select a valid number of guests.",
-        });
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message:
+              "Invalid number of guests.",
+          });
       }
 
 
-      /* =================================================
+      /* =============================================
          INSERT RSVP
-      ================================================= */
+      ============================================== */
 
       const query = `
         INSERT INTO rsvps (
@@ -198,27 +195,18 @@ app.post(
           $5,
           $6
         )
-        RETURNING
-          id,
-          full_name,
-          attendance,
-          guest_count
+        RETURNING id
       `;
 
 
       const values = [
         fullName.trim(),
-
         email.trim(),
-
         phone
           ? phone.trim()
           : null,
-
         attendance,
-
         guestCountNumber,
-
         message
           ? message.trim()
           : null,
@@ -232,64 +220,59 @@ app.post(
         );
 
 
-      /* =================================================
-         SUCCESS RESPONSE
-      ================================================= */
-
-      return res.status(201).json({
-        success: true,
-
-        message:
-          "Thank you! Your RSVP has been received. We look forward to celebrating with you.",
-
-        rsvp:
-          result.rows[0],
-      });
+      return res
+        .status(201)
+        .json({
+          success: true,
+          message:
+            "Thank you! Your RSVP has been received. We look forward to celebrating with you.",
+          rsvp:
+            result.rows[0],
+        });
 
 
     } catch (error) {
+
       console.error(
         "RSVP submission error:",
         error
       );
 
 
-      return res.status(500).json({
-        success: false,
+      return res
+        .status(500)
+        .json({
+          success: false,
+          message:
+            "Something went wrong while submitting your RSVP. Please try again.",
+        });
 
-        message:
-          "Something went wrong while submitting your RSVP. Please try again.",
-      });
     }
+
   }
 );
 
 
 /* =========================================================
    GET ALL RSVPS
-   ADMIN DASHBOARD
 ========================================================= */
 
 app.get(
   "/api/rsvps",
   async (req, res) => {
+
     try {
-      /* =================================================
-         CHECK DATABASE
-      ================================================= */
 
       if (!pool) {
-        return res.status(500).json({
-          success: false,
-          message:
-            "Database is not configured.",
-        });
+        return res
+          .status(500)
+          .json({
+            success: false,
+            message:
+              "Database is not configured.",
+          });
       }
 
-
-      /* =================================================
-         GET RSVP RECORDS
-      ================================================= */
 
       const result =
         await pool.query(`
@@ -306,64 +289,57 @@ app.get(
         `);
 
 
-      /* =================================================
-         SUCCESS RESPONSE
-      ================================================= */
-
       return res.json({
         success: true,
-
         total:
           result.rows.length,
-
         rsvps:
           result.rows,
       });
 
 
     } catch (error) {
+
       console.error(
         "Error retrieving RSVPs:",
         error
       );
 
 
-      return res.status(500).json({
-        success: false,
+      return res
+        .status(500)
+        .json({
+          success: false,
+          message:
+            "Unable to retrieve RSVP records.",
+        });
 
-        message:
-          "Unable to retrieve RSVP records.",
-      });
     }
+
   }
 );
 
 
 /* =========================================================
-   DELETE RSVP
-   ADMIN DASHBOARD
+   GET SINGLE RSVP
 ========================================================= */
 
-app.delete(
+app.get(
   "/api/rsvps/:id",
   async (req, res) => {
+
     try {
-      /* =================================================
-         CHECK DATABASE
-      ================================================= */
 
       if (!pool) {
-        return res.status(500).json({
-          success: false,
-          message:
-            "Database is not configured.",
-        });
+        return res
+          .status(500)
+          .json({
+            success: false,
+            message:
+              "Database is not configured.",
+          });
       }
 
-
-      /* =================================================
-         VALIDATE RSVP ID
-      ================================================= */
 
       const id =
         Number(
@@ -372,78 +348,167 @@ app.delete(
 
 
       if (
-        !Number.isInteger(id) ||
-        id <= 0
+        Number.isNaN(id)
       ) {
-        return res.status(400).json({
-          success: false,
-          message:
-            "Invalid RSVP ID.",
-        });
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message:
+              "Invalid RSVP ID.",
+          });
       }
 
 
-      /* =================================================
-         DELETE RSVP
-      ================================================= */
+      const result =
+        await pool.query(
+          `
+            SELECT
+              id,
+              full_name,
+              email,
+              phone,
+              attendance,
+              guest_count,
+              message
+            FROM rsvps
+            WHERE id = $1
+          `,
+          [id]
+        );
+
+
+      if (
+        result.rows.length === 0
+      ) {
+        return res
+          .status(404)
+          .json({
+            success: false,
+            message:
+              "RSVP record not found.",
+          });
+      }
+
+
+      return res.json({
+        success: true,
+        rsvp:
+          result.rows[0],
+      });
+
+
+    } catch (error) {
+
+      console.error(
+        "Error retrieving RSVP:",
+        error
+      );
+
+
+      return res
+        .status(500)
+        .json({
+          success: false,
+          message:
+            "Unable to retrieve RSVP.",
+        });
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   DELETE RSVP
+========================================================= */
+
+app.delete(
+  "/api/rsvps/:id",
+  async (req, res) => {
+
+    try {
+
+      if (!pool) {
+        return res
+          .status(500)
+          .json({
+            success: false,
+            message:
+              "Database is not configured.",
+          });
+      }
+
+
+      const id =
+        Number(
+          req.params.id
+        );
+
+
+      if (
+        Number.isNaN(id)
+      ) {
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message:
+              "Invalid RSVP ID.",
+          });
+      }
+
 
       const result =
         await pool.query(
           `
             DELETE FROM rsvps
             WHERE id = $1
-            RETURNING
-              id,
-              full_name
+            RETURNING id
           `,
           [id]
         );
 
 
-      /* =================================================
-         CHECK IF RSVP EXISTS
-      ================================================= */
-
       if (
-        result.rowCount === 0
+        result.rows.length === 0
       ) {
-        return res.status(404).json({
-          success: false,
-          message:
-            "RSVP record not found.",
-        });
+        return res
+          .status(404)
+          .json({
+            success: false,
+            message:
+              "RSVP record not found.",
+          });
       }
 
 
-      /* =================================================
-         SUCCESS RESPONSE
-      ================================================= */
-
       return res.json({
         success: true,
-
         message:
-          "RSVP record deleted successfully.",
-
-        deleted:
-          result.rows[0],
+          "RSVP deleted successfully.",
       });
 
 
     } catch (error) {
+
       console.error(
-        "Error deleting RSVP:",
+        "Delete RSVP error:",
         error
       );
 
 
-      return res.status(500).json({
-        success: false,
+      return res
+        .status(500)
+        .json({
+          success: false,
+          message:
+            "Unable to delete RSVP.",
+        });
 
-        message:
-          "Unable to delete RSVP record.",
-      });
     }
+
   }
 );
 
@@ -455,8 +520,10 @@ app.delete(
 app.listen(
   PORT,
   () => {
+
     console.log(
       `Wedding website running on port ${PORT}`
     );
+
   }
 );
