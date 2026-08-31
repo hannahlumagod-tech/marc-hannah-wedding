@@ -3220,3 +3220,50 @@ section:not(.hero) .section-divider {
   }
 
 }
+/* =========================================================
+   MOBILE NAVIGATION - GREEN INNER PAGES
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Keep the navbar green */
+  .inner-page .navbar {
+    background: #66704a !important;
+  }
+
+
+  /* Mobile dropdown navigation */
+  .inner-page .navbar nav,
+  .inner-page .navbar #navMenu,
+  .inner-page .navbar #mainNav {
+    background: #66704a !important;
+  }
+
+
+  /* Navigation links */
+  .inner-page .navbar nav a {
+    color: #ffffff !important;
+  }
+
+
+  /* Hover / active effect */
+  .inner-page .navbar nav a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #f3ead7 !important;
+  }
+
+
+  /* Hamburger menu */
+  .inner-page .menu-toggle {
+    color: #ffffff !important;
+    background: transparent;
+  }
+
+
+  /* Admin button */
+  .inner-page .admin-nav-button {
+    color: #ffffff !important;
+    border-color: #f3ead7 !important;
+  }
+
+}
