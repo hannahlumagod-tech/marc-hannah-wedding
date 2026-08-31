@@ -3271,3 +3271,37 @@ section:not(.hero) .section-divider {
   }
 
 }
+/* =========================================================
+   ADMIN DASHBOARD - MOBILE LOGOUT BUTTON
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .admin-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+
+  .logout-button,
+  #logoutButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    width: auto;
+    min-width: 100px;
+
+    padding: 12px 18px;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+
+    margin: 0;
+  }
+
+}
