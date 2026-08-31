@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Admin Login | Marc & Hannah Wedding</title>
+
+  <!-- GOOGLE FONTS -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- MAIN CSS -->
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+</head>
+
+
+<body class="admin-login-page">
+
+
+  <!-- =====================================================
+       LOGIN PAGE
+  ====================================================== -->
+
+  <main class="admin-login-container">
+
+
+    <section class="admin-login-card">
+
+
+      <!-- LOGO -->
+
+      <a
+        href="index.html"
+        class="admin-login-logo"
+      >
+        M<span>&</span>H
+      </a>
+
+
+      <p class="section-eyebrow">
+        ADMINISTRATION
+      </p>
+
+
+      <h1>
+        Welcome Back
+      </h1>
+
+
+      <div class="section-divider">
+
+        <span></span>
+
+        <span class="divider-icon">
+          ❦
+        </span>
+
+        <span></span>
+
+      </div>
+
+
+      <p class="admin-login-description">
+        Sign in to manage wedding RSVPs and guest information.
+      </p>
+
+
+      <!-- LOGIN FORM -->
+
+      <form
+        id="loginForm"
+        class="admin-login-form"
+      >
+
+
+        <!-- USERNAME -->
+
+        <div class="form-group">
+
+          <label for="username">
+            Username
+          </label>
+
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            autocomplete="username"
+            required
+          >
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="form-group">
+
+          <label for="password">
+            Password
+          </label>
+
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          id="loginButton"
+          class="admin-login-button"
+        >
+          Sign In
+        </button>
+
+
+      </form>
+
+
+      <!-- LOGIN MESSAGE -->
+
+      <div
+        id="loginMessage"
+        class="login-message"
+      ></div>
+
+
+      <!-- BACK HOME -->
+
+      <a
+        href="index.html"
+        class="admin-login-back"
+      >
+        ← Back to Wedding Website
+      </a>
+
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const loginButton =
+      document.getElementById("loginButton");
+
+    const loginMessage =
+      document.getElementById("loginMessage");
+
+
+    loginForm.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
+
+
+        const formData =
+          new FormData(loginForm);
+
+
+        const data = {
+
+          username:
+            formData.get("username"),
+
+          password:
+            formData.get("password"),
+
+        };
+
+
+        loginButton.disabled = true;
+
+        loginButton.textContent =
+          "Signing In...";
+
+
+        loginMessage.textContent =
+          "";
+
+        loginMessage.className =
+          "login-message";
+
+
+        try {
+
+          const response =
+            await fetch(
+              "/api/admin/login",
+              {
+                method: "POST",
+
+                headers: {
+                  "Content-Type":
+                    "application/json",
+                },
+
+                body:
+                  JSON.stringify(data),
+              }
+            );
+
+
+          const result =
+            await response.json();
+
+
+          if (
+            response.ok &&
+            result.success
+          ) {
+
+            loginMessage.textContent =
+              "Login successful. Redirecting...";
+
+            loginMessage.classList.add(
+              "success"
+            );
+
+
+            setTimeout(
+              () => {
+
+                window.location.href =
+                  "admin.html";
+
+              },
+              500
+            );
+
+
+          } else {
+
+            loginMessage.textContent =
+              result.message ||
+              "Invalid username or password.";
+
+            loginMessage.classList.add(
+              "error"
+            );
+
+          }
+
+
+        } catch (error) {
+
+          console.error(
+            "Login error:",
+            error
+          );
+
+
+          loginMessage.textContent =
+            "Unable to connect to the server.";
+
+          loginMessage.classList.add(
+            "error"
+          );
+
+        } finally {
+
+          loginButton.disabled =
+            false;
+
+          loginButton.textContent =
+            "Sign In";
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+</body>
+</html>
