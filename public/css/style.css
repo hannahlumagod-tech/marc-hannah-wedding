@@ -1,2249 +1,1749 @@
 /* =========================================================
-   MARC & HANNAH WEDDING WEBSITE
-   COMPLETE MAIN STYLESHEET
-   Theme: Burgundy • Olive Green • Champagne
+   ROOT
 ========================================================= */
 
-/* =========================
-   ROOT COLORS
-========================= */
-
 :root {
-  --burgundy: #6b1f2b;
-  --burgundy-dark: #421019;
-  --burgundy-light: #8d3847;
 
-  --olive: #68734b;
-  --olive-dark: #475134;
+  --burgundy:
+    #651c24;
 
-  --champagne: #e8d6b7;
-  --champagne-light: #f6eedf;
+  --dark-burgundy:
+    #3f0d13;
 
-  --cream: #fbf8f3;
-  --white: #ffffff;
+  --light-burgundy:
+    #8d3841;
 
-  --text: #3f3731;
-  --muted-text: #756b62;
+  --gold:
+    #b49a5c;
 
-  --shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+  --dark-gold:
+    #89733f;
+
+  --cream:
+    #f6f1e7;
+
+  --paper:
+    #fffaf0;
+
+  --olive:
+    #68704b;
+
+  --text:
+    #4b3834;
+
+  --white:
+    #ffffff;
+
 }
 
 
-/* =========================
+/* =========================================================
    RESET
-========================= */
+========================================================= */
 
 * {
+
   margin: 0;
+
   padding: 0;
+
   box-sizing: border-box;
+
 }
 
 
 html {
-  scroll-behavior: smooth;
+
+  scroll-behavior:
+    smooth;
+
 }
 
 
 body {
-  font-family: "Montserrat", sans-serif;
-  background: var(--cream);
-  color: var(--text);
-  overflow-x: hidden;
-}
 
+  min-height:
+    100vh;
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+  overflow-x:
+    hidden;
 
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 25px 8%;
-
-  z-index: 100;
-}
-
-
-.logo {
-  font-family: "Great Vibes", cursive;
-  font-size: 42px;
-  color: var(--white);
-
-  line-height: 1;
-}
-
-
-.logo span {
-  color: var(--champagne);
-}
-
-
-.navbar nav {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
-
-
-.navbar nav a {
-  color: #66704a;
-
-  font-size: 12px;
-
-  font-weight: 500;
-
-  letter-spacing: 1.5px;
-
-  text-transform: uppercase;
-
-  transition:
-    color 0.3s ease,
-    opacity 0.3s ease;
-}
-
-
-.navbar nav a:hover {
-  color: #7a1f2b;
-}
-
-
-.menu-toggle {
-  display: none;
-
-  border: none;
-  background: transparent;
-
-  color: var(--white);
-
-  font-size: 30px;
-  line-height: 1;
-
-  cursor: pointer;
-}
-
-
-/* =========================================================
-   HERO SECTION
-========================================================= */
-
-.hero {
-  min-height: 100vh;
-
-  position: relative;
-
-  display: flex;
-  align-items: center;
-
-  overflow: hidden;
-
-  /*
-     DARKER ON THE LEFT FOR TEXT
-     LIGHTER ON THE RIGHT FOR THE COUPLE PHOTO
-  */
-
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(30, 7, 12, 0.92) 0%,
-      rgba(35, 9, 15, 0.85) 35%,
-      rgba(35, 9, 15, 0.50) 55%,
-      rgba(35, 9, 15, 0.18) 75%,
-      rgba(35, 9, 15, 0.08) 100%
-    ),
-    url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-/* Additional subtle overlay */
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.10) 0%,
-      rgba(0, 0, 0, 0.25) 100%
-    );
-
-  pointer-events: none;
-}
-
-
-/* Optional overlay layer from HTML */
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
+  font-family:
+    "Montserrat",
+    sans-serif;
 
   background:
     radial-gradient(
-      circle at 70% 30%,
-      rgba(255, 255, 255, 0.06),
-      transparent 45%
+      circle at top,
+      #ffffff 0%,
+      #f7f1e6 45%,
+      #ebe2d3 100%
     );
 
-  pointer-events: none;
-}
+  color:
+    var(--text);
 
-
-/* HERO CONTENT */
-
-.hero-content {
-  position: relative;
-
-  z-index: 2;
-
-  width: 90%;
-  max-width: 950px;
-
-  margin-left: 4%;
-
-  padding: 150px 20px 80px;
-
-  color: var(--champagne);
-
-  text-align: left;
-}
-
-
-/* SAVE THE DATE */
-
-.hero .eyebrow {
-  color: var(--champagne-light);
-
-  font-size: 11px;
-  font-weight: 500;
-
-  letter-spacing: 6px;
-  text-transform: uppercase;
-
-  margin-bottom: 22px;
-
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.6);
-}
-
-
-/* WEDDING NAMES */
-
-.hero h1 {
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: clamp(58px, 8vw, 110px);
-  font-weight: 500;
-
-  line-height: 0.88;
-
-  color: var(--champagne-light);
-
-  text-shadow:
-    0 3px 18px rgba(0, 0, 0, 0.65);
-}
-
-
-.hero h1 .name {
-  display: block;
-
-  color: var(--champagne-light);
-}
-
-
-/* AMPERSAND */
-
-.ampersand {
-  display: block;
-
-  font-family: "Great Vibes", cursive;
-
-  color: var(--champagne);
-
-  font-size: clamp(65px, 6vw, 90px);
-
-  margin: 15px 0;
-
-  line-height: 0.7;
-
-  text-shadow:
-    0 3px 18px rgba(0, 0, 0, 0.55);
-}
-
-
-/* HERO DIVIDER */
-
-.hero-divider,
-.section-divider {
-  display: flex;
-
-  align-items: center;
-  justify-content: flex-start;
-
-  gap: 15px;
-
-  margin: 30px 0;
-}
-
-
-.hero-divider span:not(.divider-icon),
-.section-divider span {
-  width: 90px;
-  height: 1px;
-
-  background: currentColor;
-
-  opacity: 0.5;
-}
-
-
-.divider-icon {
-  font-size: 20px;
-  color: var(--champagne);
-}
-
-
-/* HERO DETAILS */
-
-.hero-date {
-  color: var(--champagne-light);
-
-  font-size: 16px;
-  font-weight: 500;
-
-  letter-spacing: 4px;
-
-  margin-bottom: 12px;
-
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.6);
-}
-
-
-.hero-time {
-  color: var(--champagne-light);
-
-  font-size: 14px;
-  font-weight: 500;
-
-  letter-spacing: 3px;
-
-  margin-bottom: 12px;
-
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.6);
-}
-
-
-.hero-location {
-  color: var(--champagne-light);
-
-  font-size: 12px;
-  font-weight: 500;
-
-  letter-spacing: 4px;
-  line-height: 1.8;
-
-  opacity: 1;
-
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 
 /* =========================================================
-   BUTTONS
+   MAIN PAGE
 ========================================================= */
 
-.primary-button,
-.secondary-button {
-  display: inline-block;
+.invitation-page {
 
-  padding: 16px 32px;
+  position:
+    relative;
 
-  margin-top: 35px;
+  width:
+    100%;
 
-  font-size: 11px;
-  font-weight: 600;
+  min-height:
+    100vh;
 
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  overflow:
+    hidden;
 
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
+  padding:
+    50px 20px 80px;
 
-  cursor: pointer;
-}
-
-
-/* HERO / PRIMARY BUTTON */
-
-.primary-button {
-  background: var(--burgundy);
-
-  color: var(--white);
-
-  border: 1px solid var(--champagne);
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-
-.primary-button:hover {
-  background: var(--olive);
-
-  transform: translateY(-3px);
-}
-
-
-/* SECONDARY BUTTON */
-
-.secondary-button {
-  border: 1px solid var(--burgundy);
-
-  color: var(--burgundy);
-
-  background: transparent;
-}
-
-
-.secondary-button:hover {
-  background: var(--burgundy);
-
-  color: var(--white);
-
-  transform: translateY(-3px);
-}
-
-
-/* TEXT BUTTON */
-
-.text-button {
-  display: inline-block;
-
-  margin-top: 25px;
-
-  color: var(--burgundy);
-
-  font-size: 11px;
-  font-weight: 600;
-
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  border-bottom: 1px solid var(--burgundy);
-
-  padding-bottom: 8px;
 }
 
 
 /* =========================================================
-   SCROLL DOWN INDICATOR
+   WELCOME SECTION
 ========================================================= */
 
-.scroll-down {
-  position: absolute;
+.welcome-section {
 
-  bottom: 30px;
-  left: 50%;
+  position:
+    relative;
 
-  z-index: 3;
+  z-index:
+    10;
 
-  transform: translateX(-50%);
+  text-align:
+    center;
 
-  font-size: 28px;
+  margin-bottom:
+    35px;
 
-  color: var(--champagne);
-
-  animation: bounce 2s infinite;
-}
-
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translate(-50%, 0);
-  }
-
-  50% {
-    transform: translate(-50%, 10px);
-  }
-}
-
-
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
-section {
-  padding: 100px 8%;
-}
-
-
-section h2 {
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: clamp(42px, 5vw, 65px);
-  font-weight: 500;
-
-  line-height: 1.1;
-
-  color: var(--burgundy);
-}
-
-
-.section-eyebrow {
-  color: var(--olive);
-
-  font-size: 11px;
-
-  letter-spacing: 5px;
-  text-transform: uppercase;
-
-  margin-bottom: 22px;
-}
-
-
-/* Center section dividers */
-
-section:not(.hero) .section-divider {
-  justify-content: center;
-}
-
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-.countdown-section {
-  text-align: center;
-
-  background: var(--champagne-light);
-}
-
-
-.countdown {
-  display: flex;
-
-  justify-content: center;
-
-  gap: 20px;
-
-  margin-top: 45px;
-
-  flex-wrap: wrap;
-}
-
-
-.time-box {
-  width: 135px;
-
-  padding: 28px 15px;
-
-  background: var(--white);
-
-  box-shadow: var(--shadow);
-
-  border-bottom: 3px solid var(--olive);
-
-  transition: transform 0.3s ease;
-}
-
-
-.time-box:hover {
-  transform: translateY(-5px);
-}
-
-
-.time-box span {
-  display: block;
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 55px;
-  font-weight: 600;
-
-  color: var(--burgundy);
-}
-
-
-.time-box small {
-  font-size: 9px;
-
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  color: var(--olive);
-
-  font-weight: 600;
-}
-
-
-/* =========================================================
-   INTRODUCTION
-========================================================= */
-
-.introduction {
-  display: flex;
-
-  justify-content: center;
-
-  text-align: center;
-
-  background: var(--cream);
-}
-
-
-.introduction-content {
-  max-width: 800px;
-}
-
-
-.introduction-content h2 {
-  color: var(--burgundy);
-}
-
-
-.introduction-content p {
-  line-height: 1.9;
-
-  color: var(--muted-text);
-
-  margin-top: 18px;
-}
-
-
-/* =========================================================
-   WEDDING DETAILS
-========================================================= */
-
-.wedding-preview {
-  text-align: center;
-
-  background: #f3eee6;
-}
-
-
-.details-grid {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 30px;
-
-  max-width: 1000px;
-
-  margin: 50px auto 0;
-}
-
-
-.detail-card {
-  background: var(--white);
-
-  padding: 55px 35px;
-
-  box-shadow: var(--shadow);
-
-  border-bottom: 3px solid transparent;
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease;
-}
-
-
-.detail-card:hover {
-  transform: translateY(-8px);
-
-  border-color: var(--olive);
-}
-
-
-.detail-icon {
-  font-size: 38px;
-
-  margin-bottom: 20px;
-}
-
-
-.detail-card h3 {
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 34px;
-  font-weight: 500;
-
-  color: var(--burgundy);
-
-  margin-bottom: 20px;
-}
-
-
-.detail-card p {
-  line-height: 1.8;
-
-  color: var(--muted-text);
-
-  margin-top: 7px;
-}
-
-
-.detail-date {
-  color: var(--burgundy) !important;
-
-  font-weight: 600;
-}
-
-
-.detail-time {
-  color: var(--olive) !important;
-
-  font-weight: 600;
-}
-
-
-.detail-location {
-  margin-top: 20px !important;
-}
-
-
-/* =========================================================
-   DRESS CODE
-========================================================= */
-
-.dress-code {
-  text-align: center;
-
-  background: var(--cream);
-}
-
-
-.dress-description {
-  max-width: 700px;
-
-  margin: 0 auto;
-
-  line-height: 1.9;
-
-  color: var(--muted-text);
-}
-
-
-.palette {
-  display: flex;
-
-  justify-content: center;
-
-  gap: 50px;
-
-  margin-top: 45px;
-
-  flex-wrap: wrap;
-}
-
-
-.palette-item {
-  text-align: center;
-}
-
-
-.color-circle {
-  width: 110px;
-  height: 110px;
-
-  border-radius: 50%;
-
-  border: 5px solid var(--white);
-
-  box-shadow: var(--shadow);
-}
-
-
-.color-circle.champagne {
-  background: var(--champagne);
-}
-
-
-.color-circle.olive {
-  background: var(--olive);
-}
-
-
-.color-circle.burgundy {
-  background: var(--burgundy);
-}
-
-
-.palette-item p {
-  margin-top: 15px;
-
-  font-size: 11px;
-
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-
-  color: var(--text);
-}
-
-
-/* =========================================================
-   RSVP PREVIEW
-========================================================= */
-
-.rsvp-preview {
-  position: relative;
-
-  text-align: center;
-
-  color: var(--white);
-
-  background:
-    linear-gradient(
-      rgba(66, 16, 25, 0.88),
-      rgba(66, 16, 25, 0.88)
-    ),
-    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85")
-    center/cover no-repeat;
-}
-
-
-.rsvp-preview h2 {
-  color: var(--white);
-}
-
-
-.rsvp-preview-content {
-  position: relative;
-
-  z-index: 2;
-
-  max-width: 800px;
-
-  margin: auto;
-}
-
-
-.rsvp-preview .section-eyebrow {
-  color: var(--champagne);
-}
-
-
-.rsvp-preview-content p {
-  line-height: 1.8;
-
-  margin-top: 20px;
-
-  color: rgba(255, 255, 255, 0.9);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-  background: var(--burgundy-dark);
-
-  color: var(--white);
-
-  text-align: center;
-
-  padding: 70px 20px;
-}
-
-
-.footer h2 {
-  font-family: "Great Vibes", cursive;
-
-  font-size: 60px;
-  font-weight: 400;
-
-  color: var(--white);
-}
-
-
-.footer h2 span {
-  color: var(--champagne);
-}
-
-
-.footer-date {
-  margin-top: 20px;
-
-  letter-spacing: 3px;
-
-  font-size: 11px;
-
-  color: var(--champagne);
-}
-
-
-.footer-message {
-  max-width: 500px;
-
-  margin: 25px auto;
-
-  line-height: 1.8;
-
-  opacity: 0.85;
-
-  font-size: 13px;
-}
-
-
-.copyright {
-  margin-top: 35px;
-
-  font-size: 10px;
-
-  opacity: 0.5;
-}
-
-
-/* =========================================================
-   MOBILE AND TABLET
-========================================================= */
-
-@media (max-width: 850px) {
-
-  .navbar {
-    padding: 20px;
-  }
-
-
-  .menu-toggle {
-    display: block;
-
-    position: relative;
-
-    z-index: 102;
-  }
-
-
-  .navbar nav {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    min-height: 100vh;
-
-    background: var(--burgundy-dark);
-
-    display: none;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    gap: 30px;
-
-    z-index: 101;
-  }
-
-
-  .navbar nav.active {
-    display: flex;
-  }
-
-
-  .navbar nav a {
-    font-size: 14px;
-  }
-
-
-  .hero {
-    background-position: 58% center;
-  }
-
-
-  .hero::before {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(30, 7, 12, 0.78),
-        rgba(30, 7, 12, 0.35)
-      );
-  }
-
-
-  .hero-content {
-    width: 100%;
-
-    margin-left: 0;
-
-    padding:
-      150px 30px
-      100px;
-  }
-
-
-  section {
-    padding: 75px 20px;
-  }
-
-
-  .details-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-  .time-box {
-    width: 135px;
-  }
-}
-
-
-/* =========================================================
-   MOBILE PHONE
-========================================================= */
-
-@media (max-width: 500px) {
-
-  .logo {
-    font-size: 36px;
-  }
-
-
-  .hero {
-    min-height: 100svh;
-
-    background-position: 62% center;
-  }
-
-
-  .hero-content {
-    padding:
-      135px 25px
-      90px;
-  }
-
-
-  .hero .eyebrow {
-    font-size: 10px;
-
-    letter-spacing: 4px;
-  }
-
-
-  .hero h1 {
-    font-size: 58px;
-
-    line-height: 0.9;
-  }
-
-
-  .ampersand {
-    font-size: 60px;
-
-    margin: 12px 0;
-  }
-
-
-  .hero-divider {
-    margin: 25px 0;
-  }
-
-
-  .hero-divider span:not(.divider-icon) {
-    width: 65px;
-  }
-
-
-  .hero-date {
-    font-size: 13px;
-
-    letter-spacing: 3px;
-  }
-
-
-  .hero-time {
-    font-size: 12px;
-
-    letter-spacing: 2px;
-  }
-
-
-  .hero-location {
-    font-size: 10px;
-
-    letter-spacing: 2.5px;
-  }
-
-
-  .primary-button {
-    padding: 15px 28px;
-
-    margin-top: 30px;
-  }
-
-
-  .time-box {
-    width: 130px;
-  }
-
-
-  .color-circle {
-    width: 90px;
-    height: 90px;
-  }
-
-
-  .footer h2 {
-    font-size: 50px;
-  }
-}
-/* =========================================================
-   RSVP PAGE
-========================================================= */
-
-.rsvp-page-hero {
-  min-height: 55vh;
-
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  padding: 150px 20px 80px;
-
-  background:
-    linear-gradient(
-      rgba(66, 16, 25, 0.82),
-      rgba(66, 16, 25, 0.82)
-    ),
-    url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png");
-
-  background-size: cover;
-  background-position: center;
-}
-
-
-.rsvp-page-content {
-  position: relative;
-
-  z-index: 2;
-
-  max-width: 700px;
-
-  color: var(--white);
-}
-
-
-.rsvp-page-content h1 {
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: clamp(65px, 8vw, 110px);
-  font-weight: 500;
-
-  color: var(--champagne-light);
-}
-
-
-.rsvp-page-content p {
-  line-height: 1.8;
-
-  color: var(--champagne-light);
-}
-
-
-.rsvp-wedding-date {
-  margin-top: 25px;
-
-  font-size: 12px;
-
-  font-weight: 600;
-
-  letter-spacing: 4px;
-}
-
-
-/* =========================================================
-   RSVP FORM SECTION
-========================================================= */
-
-.rsvp-section {
-  background: var(--cream);
-}
-
-
-.rsvp-container {
-  width: 100%;
-  max-width: 1000px;
-
-  margin: auto;
-}
-
-
-.rsvp-intro {
-  max-width: 700px;
-
-  margin: 0 auto 60px;
-
-  text-align: center;
-}
-
-
-.rsvp-intro p {
-  margin-top: 20px;
-
-  line-height: 1.9;
-
-  color: var(--muted-text);
-}
-
-
-/* =========================================================
-   RSVP FORM
-========================================================= */
-
-.rsvp-form {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 25px;
-
-  background: var(--white);
-
-  padding: 50px;
-
-  box-shadow: var(--shadow);
-}
-
-
-.form-group {
-  display: flex;
-
-  flex-direction: column;
-}
-
-
-.form-group-full {
-  grid-column: 1 / -1;
-}
-
-
-.form-group label {
-  margin-bottom: 10px;
-
-  color: var(--burgundy);
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  letter-spacing: 1px;
-
-  text-transform: uppercase;
-}
-
-
-.form-group label span {
-  color: var(--burgundy-light);
-}
-
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-
-  padding: 15px;
-
-  border:
-    1px solid
-    rgba(107, 31, 43, 0.2);
-
-  background: var(--cream);
-
-  color: var(--text);
-
-  font-family: "Montserrat", sans-serif;
-
-  outline: none;
-
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-
-.form-group textarea {
-  resize: vertical;
-}
-
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--olive);
-
-  box-shadow:
-    0 0 0 3px
-    rgba(104, 115, 75, 0.12);
-}
-
-
-.form-submit {
-  grid-column: 1 / -1;
-
-  text-align: center;
-
-  margin-top: 15px;
 }
 
 
-.rsvp-submit-button {
-  border: none;
+.monogram {
 
-  padding: 18px 45px;
+  display:
+    flex;
 
-  background: var(--burgundy);
+  align-items:
+    center;
 
-  color: var(--white);
+  justify-content:
+    center;
 
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition:
-    background 0.3s ease,
-    transform 0.3s ease;
-}
-
-
-.rsvp-submit-button:hover {
-  background: var(--olive);
-
-  transform: translateY(-3px);
-}
-
-
-.rsvp-submit-button:disabled {
-  opacity: 0.7;
-
-  cursor: not-allowed;
-
-  transform: none;
-}
-
-
-/* =========================================================
-   RSVP MESSAGE
-========================================================= */
-
-.rsvp-message {
-  display: none;
-
-  margin-top: 25px;
-
-  padding: 18px 25px;
-
-  text-align: center;
-
-  line-height: 1.7;
-}
-
-
-.rsvp-message.success {
-  display: block;
-
-  background:
-    rgba(104, 115, 75, 0.12);
-
-  color: var(--olive-dark);
-
-  border:
-    1px solid
-    rgba(104, 115, 75, 0.3);
-}
-
-
-.rsvp-message.error {
-  display: block;
-
-  background:
-    rgba(107, 31, 43, 0.08);
-
-  color: var(--burgundy);
-
-  border:
-    1px solid
-    rgba(107, 31, 43, 0.2);
-}
-
-
-/* =========================================================
-   RSVP DETAILS
-========================================================= */
-
-.rsvp-details {
-  background:
-    var(--champagne-light);
-}
-
-
-.rsvp-details-container {
-  max-width: 900px;
-
-  margin: auto;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 30px;
-}
-
-
-.rsvp-detail {
-  padding: 45px 30px;
-
-  background: var(--white);
-
-  text-align: center;
-
-  box-shadow: var(--shadow);
-}
-
-
-.rsvp-detail-icon {
-  margin-bottom: 15px;
-
-  font-size: 30px;
-
-  color: var(--olive);
-}
+  gap:
+    5px;
 
+  margin-bottom:
+    20px;
 
-.rsvp-detail h3 {
   font-family:
     "Cormorant Garamond",
     serif;
 
-  font-size: 35px;
-
-  font-weight: 500;
-
-  color: var(--burgundy);
-
-  margin-bottom: 20px;
 }
 
 
-.rsvp-detail p {
-  margin: 8px 0;
+.monogram-letter {
 
-  color: var(--muted-text);
+  font-size:
+    clamp(
+      45px,
+      6vw,
+      72px
+    );
 
-  line-height: 1.7;
+  font-weight:
+    600;
+
+  color:
+    var(--burgundy);
+
+}
+
+
+.monogram-ampersand {
+
+  font-size:
+    clamp(
+      42px,
+      5vw,
+      65px
+    );
+
+  font-family:
+    "Great Vibes",
+    cursive;
+
+  color:
+    var(--dark-gold);
+
 }
 
 
-.rsvp-detail strong {
-  display: block;
+.welcome-line {
 
-  margin-top: 18px;
+  display:
+    flex;
 
-  color: var(--olive);
+  align-items:
+    center;
 
-  font-size: 11px;
+  justify-content:
+    center;
 
-  letter-spacing: 1.5px;
+  gap:
+    15px;
 
-  text-transform: uppercase;
+}
+
+
+.welcome-line span {
+
+  width:
+    clamp(
+      30px,
+      6vw,
+      80px
+    );
+
+  height:
+    1px;
+
+  background:
+    var(--burgundy);
+
 }
 
 
-/* =========================================================
-   RSVP MOBILE
-========================================================= */
+.welcome-line p {
 
-@media (max-width: 700px) {
+  font-size:
+    clamp(
+      10px,
+      1.2vw,
+      15px
+    );
 
-  .rsvp-form {
-    grid-template-columns: 1fr;
+  letter-spacing:
+    4px;
 
-    padding: 30px 20px;
-  }
+  font-weight:
+    600;
 
+  color:
+    var(--burgundy);
 
-  .form-group-full {
-    grid-column: auto;
-  }
+  white-space:
+    nowrap;
 
-
-  .rsvp-details-container {
-    grid-template-columns: 1fr;
-  }
-
-
-  .rsvp-page-hero {
-    min-height: 50vh;
-  }
-
-}
-/* =========================================================
-   ADMIN DASHBOARD
-========================================================= */
-
-.admin-page {
-  min-height: 100vh;
-  background: #f7f4ef;
-  color: #2b2b2b;
-}
-
-.admin-header {
-  background: #5b1f2a;
-  color: #ffffff;
-  padding: 20px 0;
-}
-
-.admin-header-container {
-  width: min(1200px, 92%);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.admin-brand {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.admin-logo {
-  width: 58px;
-  height: 58px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  color: #ffffff;
-  text-decoration: none;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.admin-logo span,
-.admin-footer span {
-  color: #b5b78b;
-}
-
-.admin-eyebrow {
-  margin: 0 0 4px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  opacity: 0.8;
-}
-
-.admin-header h1 {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
-}
-
-.admin-back-button {
-  color: #ffffff;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 10px 16px;
-  border-radius: 4px;
-  font-size: 13px;
-}
-
-.admin-main {
-  padding: 60px 0;
-}
-
-.admin-container {
-  width: min(1200px, 92%);
-  margin: 0 auto;
-}
-
-.admin-intro {
-  margin-bottom: 35px;
-}
-
-.admin-intro h2 {
-  margin: 8px 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 42px;
-  color: #5b1f2a;
-}
-
-.admin-intro > p:last-child {
-  color: #666;
-}
-
-.admin-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.admin-stat-card {
-  background: #ffffff;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  border-radius: 8px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-}
-
-.admin-stat-icon {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #eef0e3;
-  color: #687044;
-  font-size: 24px;
-}
-
-.admin-stat-card p {
-  margin: 0 0 4px;
-  color: #777;
-  font-size: 13px;
-}
-
-.admin-stat-card h3 {
-  margin: 0;
-  color: #5b1f2a;
-  font-size: 30px;
-}
-
-.admin-rsvp-section {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-}
-
-.admin-section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-  margin-bottom: 25px;
-}
-
-.admin-section-header h2 {
-  margin: 8px 0 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 34px;
-  color: #5b1f2a;
-}
-
-.admin-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.admin-actions input {
-  min-width: 230px;
-  padding: 12px 14px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: inherit;
-}
-
-.admin-refresh-button {
-  border: none;
-  background: #687044;
-  color: #ffffff;
-  padding: 12px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.admin-loading,
-.admin-error,
-.admin-empty {
-  text-align: center;
-  padding: 30px;
-}
-
-.admin-error {
-  display: none;
-  color: #9b2635;
-  background: #fff0f1;
-  border-radius: 5px;
-}
-
-.admin-empty {
-  display: none;
-  color: #777;
-}
-
-.admin-empty h3 {
-  color: #5b1f2a;
-}
-
-.admin-empty-icon {
-  font-size: 35px;
-  color: #687044;
-}
-
-.admin-table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.admin-table th,
-.admin-table td {
-  padding: 16px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
-}
-
-.admin-table th {
-  background: #faf9f6;
-  color: #5b1f2a;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.admin-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  color: #666;
-}
-
-.attendance-badge {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.attendance-badge.attending {
-  background: #eef0e3;
-  color: #687044;
-}
-
-.attendance-badge.declined {
-  background: #f8e7e9;
-  color: #9b2635;
-}
-
-.admin-message-cell {
-  max-width: 280px;
-  color: #666;
-}
-
-.admin-footer {
-  text-align: center;
-  padding: 30px;
-  background: #2f1a1e;
-  color: #ffffff;
-}
-
-.admin-footer p {
-  margin: 0 0 5px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 24px;
-}
-
-.admin-footer small {
-  opacity: 0.65;
 }
 
 
 /* =========================================================
-   ADMIN RESPONSIVE
+   ENVELOPE SECTION
 ========================================================= */
 
-@media (max-width: 900px) {
+.envelope-section {
 
-  .admin-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  position:
+    relative;
 
-  .admin-section-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+  z-index:
+    5;
+
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  perspective:
+    1800px;
+
+}
+
+
+.envelope-wrapper {
+
+  width:
+    min(
+      760px,
+      90vw
+    );
+
+  height:
+    clamp(
+      280px,
+      42vw,
+      460px
+    );
+
+  position:
+    relative;
+
+  cursor:
+    pointer;
 
 }
 
-@media (max-width: 600px) {
 
-  .admin-header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.envelope {
 
-  .admin-stats-grid {
-    grid-template-columns: 1fr;
-  }
+  position:
+    relative;
 
-  .admin-actions {
-    width: 100%;
-    flex-direction: column;
-  }
+  width:
+    100%;
 
-  .admin-actions input {
-    min-width: auto;
-    width: 100%;
-    box-sizing: border-box;
-  }
+  height:
+    100%;
 
-  .admin-refresh-button {
-    width: 100%;
-  }
+  perspective:
+    1800px;
 
-  .admin-rsvp-section {
-    padding: 18px;
-  }
-
-  .admin-intro h2 {
-    font-size: 34px;
-  }
-
-}
-/* =========================================================
-   ADMIN DASHBOARD
-========================================================= */
-
-.admin-page {
-  min-height: 100vh;
-  background: #f7f4ee;
-  font-family: "Montserrat", sans-serif;
-  color: #2f2f2f;
-}
-
-.admin-header {
-  background: #6f1d2a;
-  padding: 20px 0;
-  color: #ffffff;
-}
-
-.admin-header-container {
-  width: min(1200px, 92%);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.admin-brand {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.admin-logo {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 42px;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.admin-logo span {
-  color: #a8a06b;
-}
-
-.admin-brand h1 {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 30px;
-}
-
-.admin-brand p {
-  margin: 4px 0 0;
-  font-size: 12px;
-  opacity: 0.8;
-}
-
-.admin-back-button {
-  color: #ffffff;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 10px 16px;
-  border-radius: 4px;
-  font-size: 13px;
-}
-
-.admin-main {
-  padding: 60px 0;
-}
-
-.admin-container {
-  width: min(1200px, 92%);
-  margin: 0 auto;
-}
-
-.admin-title-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-  margin-bottom: 35px;
-}
-
-.admin-eyebrow {
-  color: #747a4a;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-}
-
-.admin-title-section h2 {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 42px;
-  color: #6f1d2a;
-}
-
-.admin-title-section p {
-  margin: 8px 0 0;
-}
-
-.admin-refresh-button {
-  border: none;
-  background: #747a4a;
-  color: #ffffff;
-  padding: 12px 20px;
-  border-radius: 4px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.admin-statistics {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-bottom: 35px;
-}
-
-.admin-stat-card {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-}
-
-.admin-stat-card p {
-  margin: 0;
-  font-size: 12px;
-  color: #777777;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.admin-stat-card h3 {
-  margin: 10px 0 0;
-  font-size: 36px;
-  color: #6f1d2a;
-}
-
-.attending-stat {
-  color: #747a4a !important;
-}
-
-.not-attending-stat {
-  color: #8f2635 !important;
-}
-
-.guest-stat {
-  color: #6f1d2a !important;
-}
-
-.admin-table-card {
-  background: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-}
-
-.admin-table-header {
-  padding: 25px;
-  border-bottom: 1px solid #eeeeee;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-}
-
-.admin-table-header h3 {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
-  color: #6f1d2a;
-}
-
-.admin-table-header p {
-  margin: 5px 0 0;
-  font-size: 12px;
-  color: #777777;
-}
-
-.admin-search-container input {
-  padding: 11px 15px;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-  outline: none;
-  min-width: 220px;
-  font-family: "Montserrat", sans-serif;
-}
-
-.admin-table-wrapper {
-  overflow-x: auto;
-}
-
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.admin-table th {
-  background: #f5f1ea;
-  color: #6f1d2a;
-  text-align: left;
-  padding: 15px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.admin-table td {
-  padding: 18px 15px;
-  border-bottom: 1px solid #eeeeee;
-  font-size: 13px;
-  vertical-align: top;
-}
-
-.admin-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.admin-contact span:first-child {
-  color: #6f1d2a;
-}
-
-.admin-contact span:last-child {
-  color: #777777;
-  font-size: 11px;
-}
-
-.admin-attendance-badge {
-  display: inline-block;
-  padding: 7px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.admin-attending {
-  background: #eef0e5;
-  color: #747a4a;
-}
-
-.admin-not-attending {
-  background: #f6e9eb;
-  color: #8f2635;
-}
-
-.admin-message-cell {
-  max-width: 260px;
-  line-height: 1.6;
-  color: #666666;
-}
-
-.admin-loading {
-  text-align: center;
-  padding: 40px !important;
-  color: #777777;
-}
-
-.delete-rsvp-button {
-  border: none;
-  background: #8f2635;
-  color: #ffffff;
-  padding: 8px 14px;
-  border-radius: 4px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.delete-rsvp-button:hover {
-  transform: translateY(-1px);
-  opacity: 0.9;
-}
-
-.delete-rsvp-button:active {
-  transform: translateY(0);
-}
-
-.admin-footer {
-  background: #2d3a2a;
-  color: #ffffff;
-  text-align: center;
-  padding: 25px;
-  font-size: 12px;
-}
-
-.admin-footer p {
-  margin: 5px 0;
-  opacity: 0.8;
 }
 
 
 /* =========================================================
-   MOBILE RESPONSIVE
+   ENVELOPE BACK
 ========================================================= */
 
-@media (max-width: 900px) {
+.envelope-back {
 
-  .admin-statistics {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  border-radius:
+    3px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.05),
+      transparent 40%
+    ),
+
+    linear-gradient(
+      135deg,
+      var(--light-burgundy),
+      var(--dark-burgundy)
+    );
+
+  box-shadow:
+
+    0 30px 45px
+    rgba(
+      0,
+      0,
+      0,
+      0.28
+    );
 
 }
 
 
-@media (max-width: 650px) {
-
-  .admin-header-container,
-  .admin-title-section,
-  .admin-table-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .admin-statistics {
-    grid-template-columns: 1fr;
-  }
-
-  .admin-search-container,
-  .admin-search-container input {
-    width: 100%;
-  }
-
-}
 /* =========================================================
-   ADMIN NAVIGATION BUTTON
+   INVITATION CARD
 ========================================================= */
 
-.admin-nav-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.invitation-card {
 
-  padding: 9px 18px;
+  position:
+    absolute;
 
-  border: 1px solid #7a1f3d;
-  border-radius: 30px;
+  z-index:
+    2;
 
-  background: #7a1f3d;
-  color: #ffffff !important;
+  width:
+    76%;
 
-  font-size: 12px;
-  font-weight: 600;
+  height:
+    125%;
 
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  left:
+    12%;
+
+  bottom:
+    8%;
+
+  padding:
+    12px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.7),
+      transparent
+    ),
+
+    var(--paper);
+
+  box-shadow:
+
+    0 15px 35px
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
 
   transition:
-    background 0.3s ease,
-    transform 0.3s ease;
+
+    transform
+    1.2s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+
+    bottom
+    1.2s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+
 }
 
-.admin-nav-button:hover {
-  background: #5f1730;
-  transform: translateY(-2px);
+
+.invitation-border {
+
+  position:
+    relative;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  padding:
+    30px 20px;
+
+  border:
+
+    1px solid
+    rgba(
+      180,
+      154,
+      92,
+      0.65
+    );
+
+  text-align:
+    center;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
 }
-/* =========================================================
-   RESPONSIVE DESIGN
-========================================================= */
+
+
+.invitation-eyebrow {
+
+  font-size:
+    clamp(
+      7px,
+      0.8vw,
+      11px
+    );
+
+  letter-spacing:
+    2px;
+
+  margin-bottom:
+    12px;
+
+  color:
+    var(--text);
+
+}
+
+
+.couple-names {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  font-family:
+    "Great Vibes",
+    cursive;
+
+  font-size:
+    clamp(
+      38px,
+      6vw,
+      76px
+    );
+
+  line-height:
+    0.8;
+
+  color:
+    var(--burgundy);
+
+  margin-bottom:
+    18px;
+
+}
+
+
+.name-and {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    0.5em;
+
+  color:
+    var(--dark-gold);
+
+  margin:
+    6px 0;
+
+}
+
+
+.invitation-text {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      9px,
+      1vw,
+      13px
+    );
+
+  letter-spacing:
+    2px;
+
+  line-height:
+    1.5;
+
+  margin-bottom:
+    18px;
+
+}
+
+
+.date-decoration {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    10px;
+
+  width:
+    85%;
+
+}
+
+
+.date-decoration span {
+
+  flex:
+    1;
+
+  height:
+    1px;
+
+  background:
+    rgba(
+      137,
+      115,
+      63,
+      0.45
+    );
+
+}
+
+
+.date-decoration p {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      9px,
+      1vw,
+      13px
+    );
+
+  letter-spacing:
+    2px;
+
+}
 
 
 /* =========================================================
-   LARGE DESKTOP
+   WEDDING DATE
 ========================================================= */
 
-@media (min-width: 1200px) {
+.wedding-date {
 
-  .hero-content {
-    max-width: 1000px;
+  width:
+    90%;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  margin-top:
+    8px;
+
+}
+
+
+.wedding-date div {
+
+  padding:
+    6px 0;
+
+  border-top:
+    1px solid
+    rgba(
+      137,
+      115,
+      63,
+      0.5
+    );
+
+  border-bottom:
+    1px solid
+    rgba(
+      137,
+      115,
+      63,
+      0.5
+    );
+
+}
+
+
+.wedding-date span {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      7px,
+      0.9vw,
+      12px
+    );
+
+  letter-spacing:
+    1px;
+
+}
+
+
+.wedding-date strong {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      35px,
+      5vw,
+      60px
+    );
+
+  font-weight:
+    600;
+
+  color:
+    var(--burgundy);
+
+}
+
+
+.year {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      10px,
+      1vw,
+      14px
+    );
+
+  letter-spacing:
+    3px;
+
+  margin-top:
+    -8px;
+
+}
+
+
+.small-divider {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  width:
+    130px;
+
+  margin:
+    14px 0;
+
+}
+
+
+.small-divider span:first-child,
+.small-divider span:last-child {
+
+  flex:
+    1;
+
+  height:
+    1px;
+
+  background:
+    var(--gold);
+
+}
+
+
+.small-divider span:nth-child(2) {
+
+  color:
+    var(--dark-gold);
+
+}
+
+
+.venue {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      10px,
+      1vw,
+      15px
+    );
+
+  letter-spacing:
+    1.5px;
+
+  font-weight:
+    600;
+
+}
+
+
+.venue-location {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      10px,
+      1vw,
+      14px
+    );
+
+  margin-top:
+    4px;
+
+}
+
+
+.reception-text {
+
+  font-size:
+    clamp(
+      7px,
+      0.8vw,
+      10px
+    );
+
+  letter-spacing:
+    2px;
+
+  margin-top:
+    16px;
+
+}
+
+
+/* =========================================================
+   ENTER WEBSITE BUTTON
+========================================================= */
+
+.enter-website-button {
+
+  display:
+    inline-block;
+
+  margin-top:
+    18px;
+
+  padding:
+    10px 18px;
+
+  text-decoration:
+    none;
+
+  font-size:
+    clamp(
+      8px,
+      0.8vw,
+      10px
+    );
+
+  letter-spacing:
+    1.5px;
+
+  font-weight:
+    600;
+
+  color:
+    var(--paper);
+
+  background:
+    var(--burgundy);
+
+  transition:
+    all 0.3s ease;
+
+}
+
+
+.enter-website-button:hover {
+
+  background:
+    var(--olive);
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+/* =========================================================
+   ENVELOPE FRONT PANELS
+========================================================= */
+
+.envelope-left {
+
+  position:
+    absolute;
+
+  z-index:
+    5;
+
+  left:
+    0;
+
+  bottom:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  clip-path:
+
+    polygon(
+      0 0,
+      52% 55%,
+      0 100%
+    );
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #6e2029,
+      #3e0b11
+    );
+
+}
+
+
+.envelope-right {
+
+  position:
+    absolute;
+
+  z-index:
+    6;
+
+  inset:
+    0;
+
+  clip-path:
+
+    polygon(
+      100% 0,
+      48% 55%,
+      100% 100%
+    );
+
+  background:
+
+    linear-gradient(
+      225deg,
+      #6e2029,
+      #3e0b11
+    );
+
+}
+
+
+.envelope-bottom {
+
+  position:
+    absolute;
+
+  z-index:
+    7;
+
+  left:
+    0;
+
+  bottom:
+    0;
+
+  width:
+    100%;
+
+  height:
+    70%;
+
+  clip-path:
+
+    polygon(
+      0 100%,
+      50% 35%,
+      100% 100%
+    );
+
+  background:
+
+    linear-gradient(
+      to bottom,
+      #7e2932,
+      #4a0e15
+    );
+
+}
+
+
+/* =========================================================
+   ENVELOPE FLAP
+========================================================= */
+
+.envelope-flap {
+
+  position:
+    absolute;
+
+  z-index:
+    10;
+
+  top:
+    0;
+
+  left:
+    0;
+
+  width:
+    100%;
+
+  height:
+    58%;
+
+  transform-origin:
+    top;
+
+  transition:
+
+    transform
+    1s
+    cubic-bezier(
+      0.68,
+      -0.55,
+      0.265,
+      1.55
+    ),
+
+    z-index
+    0.3s;
+
+  clip-path:
+
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #8b313a,
+      #3f0b12
+    );
+
+  border-top:
+
+    2px solid
+    rgba(
+      180,
+      154,
+      92,
+      0.7
+    );
+
+}
+
+
+/* =========================================================
+   WAX SEAL
+========================================================= */
+
+.wax-seal {
+
+  position:
+    absolute;
+
+  z-index:
+    20;
+
+  left:
+    50%;
+
+  top:
+    48%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  width:
+    clamp(
+      70px,
+      9vw,
+      105px
+    );
+
+  aspect-ratio:
+    1;
+
+  border-radius:
+    50%;
+
+  border:
+
+    4px solid
+    var(--dark-gold);
+
+  background:
+
+    radial-gradient(
+      circle at 35% 30%,
+      #d5bc78,
+      #92773e 55%,
+      #5e4925
+    );
+
+  box-shadow:
+
+    0 8px 15px
+    rgba(
+      0,
+      0,
+      0,
+      0.45
+    ),
+
+    inset
+    0 2px 8px
+    rgba(
+      255,
+      255,
+      255,
+      0.4
+    );
+
+  cursor:
+    pointer;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  transition:
+
+    transform
+    0.4s ease,
+
+    opacity
+    0.4s ease;
+
+}
+
+
+.wax-seal:hover {
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(1.08);
+
+}
+
+
+.wax-seal span {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      20px,
+      2.5vw,
+      30px
+    );
+
+  color:
+    var(--paper);
+
+}
+
+
+.wax-seal small {
+
+  margin:
+    0 2px;
+
+  color:
+    var(--paper);
+
+  font-family:
+    "Great Vibes",
+    cursive;
+
+  font-size:
+    18px;
+
+}
+
+
+/* =========================================================
+   OPEN SECTION
+========================================================= */
+
+.open-section {
+
+  position:
+    relative;
+
+  z-index:
+    10;
+
+  text-align:
+    center;
+
+  margin-top:
+    25px;
+
+}
+
+
+.you-are-invited {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      20px,
+      2.5vw,
+      32px
+    );
+
+  letter-spacing:
+    5px;
+
+  color:
+    var(--burgundy);
+
+}
+
+
+.ornament {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    10px;
+
+  margin:
+    10px 0 20px;
+
+}
+
+
+.ornament span:first-child,
+.ornament span:last-child {
+
+  width:
+    45px;
+
+  height:
+    1px;
+
+  background:
+    var(--gold);
+
+}
+
+
+.ornament span:nth-child(2) {
+
+  color:
+    var(--dark-gold);
+
+}
+
+
+.open-button {
+
+  border:
+
+    1px solid
+    var(--burgundy);
+
+  background:
+    transparent;
+
+  color:
+    var(--burgundy);
+
+  padding:
+    15px 38px;
+
+  font-family:
+    "Montserrat",
+    sans-serif;
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    3px;
+
+  cursor:
+    pointer;
+
+  transition:
+    all 0.35s ease;
+
+}
+
+
+.open-button:hover {
+
+  background:
+    var(--burgundy);
+
+  color:
+    var(--white);
+
+}
+
+
+.click-message {
+
+  margin-top:
+    20px;
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    3px;
+
+  color:
+    var(--text);
+
+  opacity:
+    0.7;
+
+}
+
+
+.arrow {
+
+  margin-top:
+    8px;
+
+  font-size:
+    25px;
+
+  color:
+    var(--burgundy);
+
+  animation:
+    arrowBounce
+    1.5s
+    infinite;
+
+}
+
+
+@keyframes arrowBounce {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0);
+
   }
 
-  .details-grid {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+  50% {
+
+    transform:
+      translateY(8px);
+
   }
+
+}
+
+
+/* =========================================================
+   OPEN ENVELOPE ANIMATION
+========================================================= */
+
+.envelope-wrapper.open
+.envelope-flap {
+
+  transform:
+    rotateX(180deg);
+
+  z-index:
+    1;
+
+}
+
+
+.envelope-wrapper.open
+.wax-seal {
+
+  opacity:
+    0;
+
+  pointer-events:
+    none;
+
+  transform:
+
+    translate(
+      -50%,
+      -50%
+    )
+    scale(0.5);
+
+}
+
+
+.envelope-wrapper.open
+.invitation-card {
+
+  transform:
+    translateY(-55%);
+
+  bottom:
+    20%;
+
+  z-index:
+    15;
+
+}
+
+
+.envelope-wrapper.open {
+
+  height:
+    clamp(
+      520px,
+      75vw,
+      850px
+    );
+
+  transition:
+    height 1s ease;
+
+}
+
+
+/* =========================================================
+   INVITATION FLOWERS
+========================================================= */
+
+.invitation-flower {
+
+  position:
+    absolute;
+
+  font-size:
+    clamp(
+      25px,
+      4vw,
+      55px
+    );
+
+}
+
+
+.invitation-flower-top {
+
+  top:
+    -12px;
+
+  left:
+    -12px;
+
+}
+
+
+.invitation-flower-bottom {
+
+  bottom:
+    -12px;
+
+  right:
+    -12px;
+
+}
+
+
+/* =========================================================
+   FALLING PETALS
+========================================================= */
+
+.petals {
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  overflow:
+    hidden;
+
+  z-index:
+    1;
+
+}
+
+
+.petal {
+
+  position:
+    absolute;
+
+  width:
+    20px;
+
+  height:
+    13px;
+
+  border-radius:
+
+    100%
+    0
+    100%
+    0;
+
+  background:
+    rgba(
+      112,
+      23,
+      35,
+      0.7
+    );
+
+  filter:
+    blur(0.5px);
+
+  animation:
+
+    falling
+    linear
+    infinite;
+
+}
+
+
+.petal-1 {
+
+  left:
+    5%;
+
+  animation-duration:
+    9s;
+
+  animation-delay:
+    -2s;
+
+}
+
+
+.petal-2 {
+
+  left:
+    20%;
+
+  animation-duration:
+    12s;
+
+  animation-delay:
+    -6s;
+
+}
+
+
+.petal-3 {
+
+  left:
+    45%;
+
+  animation-duration:
+    10s;
+
+  animation-delay:
+    -4s;
+
+}
+
+
+.petal-4 {
+
+  left:
+    70%;
+
+  animation-duration:
+    14s;
+
+  animation-delay:
+    -8s;
+
+}
+
+
+.petal-5 {
+
+  left:
+    85%;
+
+  animation-duration:
+    11s;
+
+  animation-delay:
+    -3s;
+
+}
+
+
+.petal-6 {
+
+  left:
+    95%;
+
+  animation-duration:
+    13s;
+
+  animation-delay:
+    -7s;
+
+}
+
+
+@keyframes falling {
+
+  from {
+
+    transform:
+
+      translateY(-10vh)
+      rotate(0deg);
+
+  }
+
+  to {
+
+    transform:
+
+      translateY(110vh)
+      rotate(360deg);
+
+  }
+
+}
+
+
+/* =========================================================
+   BOTTOM FLOWERS
+========================================================= */
+
+.bottom-decoration {
+
+  position:
+    fixed;
+
+  left:
+    0;
+
+  bottom:
+    0;
+
+  width:
+    100%;
+
+  pointer-events:
+    none;
+
+  z-index:
+    2;
+
+  font-size:
+    clamp(
+      35px,
+      6vw,
+      80px
+    );
+
+}
+
+
+.bottom-left-flower {
+
+  position:
+    absolute;
+
+  left:
+    20px;
+
+  bottom:
+    15px;
+
+}
+
+
+.bottom-right-flower {
+
+  position:
+    absolute;
+
+  right:
+    20px;
+
+  bottom:
+    15px;
 
 }
 
@@ -2252,590 +1752,228 @@ section:not(.hero) .section-divider {
    TABLET
 ========================================================= */
 
-@media (max-width: 992px) {
+@media
+(
+  max-width:
+  768px
+) {
 
-  /* NAVIGATION */
-
-  .navbar {
-    padding: 18px 40px;
-  }
-
-
-  /* HERO */
-
-  .hero {
-    min-height: 90vh;
-  }
-
-
-  .hero-content {
-    padding: 120px 30px 80px;
-  }
-
-
-  .hero-content h1 {
-    font-size: clamp(3.5rem, 8vw, 6rem);
-  }
-
-
-  /* DETAILS */
-
-  .details-grid {
-    gap: 25px;
-    padding: 0 30px;
-  }
-
-
-  /* INTRODUCTION */
-
-  .introduction-content {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-
-  /* SECTIONS */
-
-  .wedding-preview,
-  .dress-code,
-  .countdown-section {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
-
-@media (max-width: 768px) {
-
-  /* NAVBAR */
-
-  .navbar {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-
-    padding: 15px 20px;
-
-    z-index: 9999;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-
-  /* LOGO */
-
-  .logo {
-    font-size: 1.8rem;
-  }
-
-
-  /* MENU BUTTON */
-
-  .menu-toggle {
-    display: block;
-
-    background: transparent;
-    border: none;
-
-    font-size: 1.8rem;
-
-    cursor: pointer;
-
-    z-index: 10000;
-  }
-
-
-  /* MOBILE MENU */
-
-  #navMenu {
-
-    position: absolute;
-
-    top: 100%;
-    left: 0;
-
-    width: 100%;
-
-    display: none;
-
-    flex-direction: column;
-
-    text-align: center;
-
-    padding: 20px 0 25px;
-
-    gap: 20px;
-
-    background: rgba(255, 255, 255, 0.98);
-
-    box-shadow:
-      0 10px 25px
-      rgba(0, 0, 0, 0.08);
-
-  }
-
-
-  #navMenu.active {
-    display: flex;
-  }
-
-
-  #navMenu a {
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
-  }
-
-
-  .admin-nav-button {
-    margin-top: 5px;
-  }
-
-
-  /* HERO */
-
-  .hero {
-    min-height: 100svh;
-  }
-
-
-  .hero-content {
+  .invitation-page {
 
     padding:
-      120px
-      20px
-      80px;
 
-    width: 100%;
-
-  }
-
-
-  .eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-  }
-
-
-  .hero-content h1 {
-
-    font-size:
-      clamp(
-        3.2rem,
-        13vw,
-        5.5rem
-      );
-
-    line-height: 0.9;
-
-  }
-
-
-  .hero-content .name {
-    display: block;
-  }
-
-
-  .hero-content .ampersand {
-
-    display: block;
-
-    margin:
-      10px
-      0;
-
-  }
-
-
-  .hero-date {
-
-    font-size: 0.8rem;
-
-    letter-spacing: 2px;
-
-  }
-
-
-  .hero-time {
-
-    font-size: 0.9rem;
-
-  }
-
-
-  .hero-location {
-
-    font-size: 0.75rem;
-
-    letter-spacing: 2px;
-
-  }
-
-
-  /* BUTTONS */
-
-  .primary-button,
-  .secondary-button {
-
-    width: 100%;
-
-    max-width: 320px;
-
-    padding:
-      16px
-      20px;
-
-    text-align: center;
-
-  }
-
-
-  /* SECTION HEADINGS */
-
-  h2 {
-
-    font-size:
-      clamp(
-        2.2rem,
-        9vw,
-        3.5rem
-      );
-
-    line-height: 1.1;
-
-  }
-
-
-  /* COUNTDOWN */
-
-  .countdown {
-
-    display: grid;
-
-    grid-template-columns:
-      repeat(2, 1fr);
-
-    gap: 15px;
-
-    max-width: 380px;
-
-    margin:
       35px
-      auto
-      0;
+      15px
+      70px;
 
   }
 
 
-  .time-box {
+  .welcome-line {
 
-    width: 100%;
-
-    padding:
-      20px
-      10px;
-
-  }
-
-
-  .time-box span {
-
-    font-size:
-      clamp(
-        2rem,
-        9vw,
-        3.5rem
-      );
-
-  }
-
-
-  /* INTRODUCTION */
-
-  .introduction {
-
-    padding:
-      80px
-      20px;
-
-  }
-
-
-  .introduction-content {
-
-    max-width: 100%;
-
-    padding: 0;
-
-  }
-
-
-  .introduction-content p {
-
-    font-size: 0.95rem;
-
-    line-height: 1.9;
-
-  }
-
-
-  /* WEDDING DETAILS */
-
-  .wedding-preview {
-
-    padding:
-      80px
-      20px;
-
-  }
-
-
-  .details-grid {
-
-    grid-template-columns:
-      1fr;
-
-    gap: 20px;
-
-    padding: 0;
-
-  }
-
-
-  .detail-card {
-
-    width: 100%;
-
-    padding:
-      35px
-      25px;
-
-  }
-
-
-  /* DRESS CODE */
-
-  .dress-code {
-
-    padding:
-      80px
-      20px;
-
-  }
-
-
-  .dress-description {
-
-    font-size: 0.95rem;
-
-    line-height: 1.8;
-
-  }
-
-
-  .palette {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: center;
-
-    gap: 25px;
-
-  }
-
-
-  .palette-item {
-
-    min-width: 80px;
-
-  }
-
-
-  .color-circle {
-
-    width: 65px;
-
-    height: 65px;
-
-  }
-
-
-  /* RSVP PREVIEW */
-
-  .rsvp-preview {
-
-    min-height: 600px;
-
-  }
-
-
-  .rsvp-preview-content {
-
-    padding:
-      80px
-      20px;
-
-    width: 100%;
-
-  }
-
-
-  /* FOOTER */
-
-  .footer {
-
-    padding:
-      60px
-      20px;
-
-  }
-
-
-  .footer h2 {
-
-    font-size:
-      clamp(
-        2.5rem,
-        10vw,
-        4rem
-      );
-
-  }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE PHONES
-========================================================= */
-
-@media (max-width: 480px) {
-
-  /* NAVBAR */
-
-  .navbar {
-
-    padding:
-      14px
-      16px;
-
-  }
-
-
-  /* HERO */
-
-  .hero-content {
-
-    padding-left: 16px;
-    padding-right: 16px;
-
-  }
-
-
-  .hero-content h1 {
-
-    font-size:
-      clamp(
-        2.8rem,
-        14vw,
-        4.5rem
-      );
-
-  }
-
-
-  /* COUNTDOWN */
-
-  .countdown {
-
-    gap: 10px;
-
-  }
-
-
-  .time-box {
-
-    padding:
-      16px
+    gap:
       8px;
 
   }
 
 
-  .time-box small {
+  .welcome-line p {
 
-    font-size: 0.6rem;
-
-    letter-spacing: 1px;
-
-  }
-
-
-  /* SECTION SPACING */
-
-  .countdown-section,
-  .introduction,
-  .wedding-preview,
-  .dress-code {
-
-    padding-top: 65px;
-    padding-bottom: 65px;
+    letter-spacing:
+      2px;
 
   }
 
 
-  /* CARDS */
+  .envelope-wrapper {
 
-  .detail-card {
+    width:
+      95vw;
+
+  }
+
+
+  .open-button {
 
     padding:
-      30px
+
+      14px
+      25px;
+
+    font-size:
+      10px;
+
+    letter-spacing:
+      2px;
+
+  }
+
+
+  .invitation-card {
+
+    width:
+      84%;
+
+    left:
+      8%;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media
+(
+  max-width:
+  500px
+) {
+
+  .invitation-page {
+
+    padding:
+
+      25px
+      10px
+      60px;
+
+  }
+
+
+  .welcome-section {
+
+    margin-bottom:
+      20px;
+
+  }
+
+
+  .welcome-line p {
+
+    font-size:
+      8px;
+
+    letter-spacing:
+      1.5px;
+
+  }
+
+
+  .welcome-line span {
+
+    width:
+      20px;
+
+  }
+
+
+  .envelope-wrapper {
+
+    width:
+      96vw;
+
+    height:
+      280px;
+
+  }
+
+
+  .invitation-card {
+
+    height:
+      135%;
+
+    padding:
+      7px;
+
+  }
+
+
+  .invitation-border {
+
+    padding:
+
+      25px
+      10px;
+
+  }
+
+
+  .envelope-wrapper.open {
+
+    height:
+      620px;
+
+  }
+
+
+  .envelope-wrapper.open
+  .invitation-card {
+
+    transform:
+      translateY(-45%);
+
+  }
+
+
+  .you-are-invited {
+
+    font-size:
       18px;
 
-  }
-
-
-  .detail-card h3 {
-
-    font-size: 1.5rem;
+    letter-spacing:
+      3px;
 
   }
 
 
-  /* PALETTE */
+  .open-button {
 
-  .palette {
+    width:
+      85%;
 
-    gap: 18px;
-
-  }
-
-
-  .color-circle {
-
-    width: 55px;
-    height: 55px;
+    max-width:
+      320px;
 
   }
 
 
-  /* BUTTONS */
+  .enter-website-button {
 
-  .primary-button,
-  .secondary-button {
+    padding:
 
-    font-size: 0.7rem;
+      9px
+      12px;
 
-    letter-spacing: 1.5px;
+    font-size:
+      7px;
+
+  }
+
+
+  .bottom-decoration {
+
+    font-size:
+      38px;
+
+  }
+
+
+  .bottom-left-flower {
+
+    left:
+      5px;
+
+  }
+
+
+  .bottom-right-flower {
+
+    right:
+      5px;
 
   }
 
@@ -2846,462 +1984,43 @@ section:not(.hero) .section-divider {
    VERY SMALL PHONES
 ========================================================= */
 
-@media (max-width: 360px) {
-
-  .hero-content h1 {
-
-    font-size: 2.6rem;
-
-  }
-
-
-  .countdown {
-
-    gap: 8px;
-
-  }
-
-
-  .time-box span {
-
-    font-size: 1.8rem;
-
-  }
-
-
-  .time-box small {
-
-    font-size: 0.55rem;
-
-  }
-
-}
-/* =========================================================
-   GLOBAL SCROLL ANIMATIONS
-========================================================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-  will-change:
-    opacity,
-    transform;
-}
-
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* =========================================================
-   REVEAL FROM LEFT
-========================================================= */
-
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-  will-change:
-    opacity,
-    transform;
-}
-
-
-.reveal-left.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-
-/* =========================================================
-   REVEAL FROM RIGHT
-========================================================= */
-
-.reveal-right {
-  opacity: 0;
-  transform: translateX(50px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-  will-change:
-    opacity,
-    transform;
-}
-
-
-/* =========================================================
-   ZOOM REVEAL
-========================================================= */
-
-.reveal-zoom {
-  opacity: 0;
-  transform: scale(0.92);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-  will-change:
-    opacity,
-    transform;
-}
-
-
-.reveal-zoom.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-
-/* =========================================================
-   STAGGER ANIMATION
-========================================================= */
-
-.delay-1 {
-  transition-delay: 0.1s;
-}
-
-
-.delay-2 {
-  transition-delay: 0.2s;
-}
-
-
-.delay-3 {
-  transition-delay: 0.3s;
-}
-
-
-.delay-4 {
-  transition-delay: 0.4s;
-}
-
-
-.delay-5 {
-  transition-delay: 0.5s;
-}
-
-
-/* =========================================================
-   REDUCE MOTION
-   Accessibility and mobile-friendly
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .reveal,
-  .reveal-left,
-  .reveal-right,
-  .reveal-zoom {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-}
-/* =========================================================
-   HERO ENTRANCE ANIMATIONS
-========================================================= */
-
-.hero-content .eyebrow,
-.hero-content h1,
-.hero-content .hero-divider,
-.hero-content .hero-event-details,
-.hero-content .primary-button {
-  opacity: 0;
-}
-
-
-/* SAVE THE DATE */
-
-.hero-content .eyebrow {
-  animation:
-    heroFadeUp
-    0.8s
-    ease
-    forwards;
-
-  animation-delay:
-    0.2s;
-}
-
-
-/* NAMES */
-
-.hero-content h1 {
-  animation:
-    heroFadeUp
-    1s
-    ease
-    forwards;
-
-  animation-delay:
-    0.5s;
-}
-
-
-/* DIVIDER */
-
-.hero-content .hero-divider {
-  animation:
-    heroFadeUp
-    0.8s
-    ease
-    forwards;
-
-  animation-delay:
-    0.9s;
-}
-
-
-/* DATE / TIME / LOCATION */
-
-.hero-content .hero-event-details {
-  animation:
-    heroFadeUp
-    0.8s
-    ease
-    forwards;
-
-  animation-delay:
-    1.2s;
-}
-
-
-/* RSVP BUTTON */
-
-.hero-content .primary-button {
-  animation:
-    heroFadeUp
-    0.8s
-    ease
-    forwards;
-
-  animation-delay:
-    1.5s;
-}
-
-
-/* =========================================================
-   HERO ANIMATION KEYFRAMES
-========================================================= */
-
-@keyframes heroFadeUp {
-
-  from {
-
-    opacity: 0;
-
-    transform:
-      translateY(30px);
-
-  }
-
-
-  to {
-
-    opacity: 1;
-
-    transform:
-      translateY(0);
-
-  }
-
-}
-
-
-/* =========================================================
-   RESPECT REDUCED MOTION
-========================================================= */
-
-@media (
-  prefers-reduced-motion: reduce
+@media
+(
+  max-width:
+  360px
 ) {
 
-  .hero-content .eyebrow,
-  .hero-content h1,
-  .hero-content .hero-divider,
-  .hero-content .hero-event-details,
-  .hero-content .primary-button {
+  .envelope-wrapper {
 
-    animation:
-      none;
-
-    opacity:
-      1;
-
-    transform:
-      none;
+    height:
+      245px;
 
   }
 
-}
-/* =========================================================
-   INNER PAGES - GREEN NAVBAR
-========================================================= */
 
-.inner-page .navbar {
-  background: #66704a;
-  background: linear-gradient(
-    135deg,
-    #596342,
-    #737d55
-  );
-  box-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.12);
-}
+  .envelope-wrapper.open {
 
+    height:
+      560px;
 
-/* NAVIGATION LINKS */
-
-.inner-page .navbar nav a {
-  color: #871c1c;
-}
-
-
-.inner-page .navbar nav a:hover {
-  color: #e8dfc8;
-}
-
-
-/* LOGO */
-
-.inner-page .navbar .logo {
-  color: #ffffff;
-}
-
-
-.inner-page .navbar .logo span {
-  color: #e8dfc8;
-}
-
-
-/* ADMIN BUTTON */
-
-.inner-page .navbar .admin-nav-button {
-  border-color: #e8dfc8;
-  color: #ffffff;
-}
-
-
-.inner-page .navbar .admin-nav-button:hover {
-  background: #e8dfc8;
-  color: #596342;
-}
-
-
-/* MOBILE MENU BUTTON */
-
-.inner-page .navbar .menu-toggle {
-  color: #c11c1c;
-}
-
-
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
-
-@media screen and (max-width: 768px) {
-
-  .inner-page .navbar nav {
-    background: #66704a;
   }
 
 
-  .inner-page .navbar nav a {
-    color: #942828;
+  .invitation-border {
+
+    padding:
+
+      18px
+      8px;
+
   }
 
 
-  .inner-page .navbar nav a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #e8dfc8;
-  }
+  .couple-names {
 
-}
-/* =========================================================
-   MOBILE NAVIGATION - GREEN INNER PAGES
-========================================================= */
+    font-size:
+      38px;
 
-@media (max-width: 768px) {
-
-  /* Keep the navbar green */
-  .inner-page .navbar {
-    background: #66704a !important;
-  }
-
-
-  /* Mobile dropdown navigation */
-  .inner-page .navbar nav,
-  .inner-page .navbar #navMenu,
-  .inner-page .navbar #mainNav {
-    background: #66704a !important;
-  }
-
-
-  /* Navigation links */
-  .inner-page .navbar nav a {
-    color: #ffffff !important;
-  }
-
-
-  /* Hover / active effect */
-  .inner-page .navbar nav a:hover {
-    background: rgba(255, 255, 255, 0.12);
-    color: #f3ead7 !important;
-  }
-
-
-  /* Hamburger menu */
-  .inner-page .menu-toggle {
-    color: #ffffff !important;
-    background: transparent;
-  }
-
-
-  /* Admin button */
-  .inner-page .admin-nav-button {
-    color: #ffffff !important;
-    border-color: #f3ead7 !important;
-  }
-
-}
-/* =========================================================
-   ADMIN DASHBOARD - MOBILE LOGOUT BUTTON
-========================================================= */
-
-@media (max-width: 768px) {
-
-  .admin-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-
-
-  .logout-button,
-  #logoutButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-
-    width: auto;
-    min-width: 100px;
-
-    padding: 12px 18px;
-
-    font-size: 14px;
-
-    white-space: nowrap;
-
-    margin: 0;
   }
 
 }
