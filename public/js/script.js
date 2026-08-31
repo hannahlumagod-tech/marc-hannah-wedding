@@ -1,5 +1,11 @@
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
 const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
+const navMenu =
+  document.getElementById("navMenu") ||
+  document.getElementById("mainNav");
 
 if (menuToggle && navMenu) {
   menuToggle.addEventListener("click", () => {
@@ -16,75 +22,138 @@ if (menuToggle && navMenu) {
 }
 
 
-const weddingDate = new Date(
-  "2027-02-22T14:00:00+08:00"
-).getTime();
+/* =========================================================
+   WEDDING COUNTDOWN
+========================================================= */
+
+const daysElement =
+  document.getElementById("days");
+
+const hoursElement =
+  document.getElementById("hours");
+
+const minutesElement =
+  document.getElementById("minutes");
+
+const secondsElement =
+  document.getElementById("seconds");
 
 
-function updateCountdown() {
-  const now = new Date().getTime();
+/*
+  Only run the countdown if the current page
+  actually contains the countdown elements.
+*/
 
-  const distance = weddingDate - now;
+if (
+  daysElement &&
+  hoursElement &&
+  minutesElement &&
+  secondsElement
+) {
+
+  const weddingDate = new Date(
+    "2027-02-22T14:00:00+08:00"
+  ).getTime();
 
 
-  if (distance <= 0) {
+  function updateCountdown() {
 
-    document.getElementById("days").textContent = "00";
+    const now =
+      new Date().getTime();
 
-    document.getElementById("hours").textContent = "00";
+    const distance =
+      weddingDate - now;
 
-    document.getElementById("minutes").textContent = "00";
 
-    document.getElementById("seconds").textContent = "00";
+    if (distance <= 0) {
 
-    return;
+      daysElement.textContent =
+        "00";
+
+      hoursElement.textContent =
+        "00";
+
+      minutesElement.textContent =
+        "00";
+
+      secondsElement.textContent =
+        "00";
+
+      return;
+    }
+
+
+    const days = Math.floor(
+      distance /
+      (1000 * 60 * 60 * 24)
+    );
+
+
+    const hours = Math.floor(
+      (
+        distance %
+        (1000 * 60 * 60 * 24)
+      ) /
+      (1000 * 60 * 60)
+    );
+
+
+    const minutes = Math.floor(
+      (
+        distance %
+        (1000 * 60 * 60)
+      ) /
+      (1000 * 60)
+    );
+
+
+    const seconds = Math.floor(
+      (
+        distance %
+        (1000 * 60)
+      ) /
+      1000
+    );
+
+
+    daysElement.textContent =
+      String(days).padStart(
+        2,
+        "0"
+      );
+
+
+    hoursElement.textContent =
+      String(hours).padStart(
+        2,
+        "0"
+      );
+
+
+    minutesElement.textContent =
+      String(minutes).padStart(
+        2,
+        "0"
+      );
+
+
+    secondsElement.textContent =
+      String(seconds).padStart(
+        2,
+        "0"
+      );
   }
 
 
-  const days = Math.floor(
-    distance / (1000 * 60 * 60 * 24)
-  );
+  updateCountdown();
 
 
-  const hours = Math.floor(
-    (distance % (1000 * 60 * 60 * 24)) /
-    (1000 * 60 * 60)
-  );
-
-
-  const minutes = Math.floor(
-    (distance % (1000 * 60 * 60)) /
-    (1000 * 60)
-  );
-
-
-  const seconds = Math.floor(
-    (distance % (1000 * 60)) /
+  setInterval(
+    updateCountdown,
     1000
   );
-
-
-  document.getElementById("days").textContent =
-    String(days).padStart(2, "0");
-
-
-  document.getElementById("hours").textContent =
-    String(hours).padStart(2, "0");
-
-
-  document.getElementById("minutes").textContent =
-    String(minutes).padStart(2, "0");
-
-
-  document.getElementById("seconds").textContent =
-    String(seconds).padStart(2, "0");
 }
 
-
-updateCountdown();
-
-
-setInterval(updateCountdown, 1000);
 
 /* =========================================================
    RSVP FORM
@@ -109,35 +178,47 @@ if (rsvpForm) {
     document.getElementById("rsvpMessage");
 
 
-  /* =====================================
+  /* =====================================================
      ATTENDANCE CHANGE
-  ===================================== */
+  ====================================================== */
 
-  attendance.addEventListener(
-    "change",
-    () => {
+  if (attendance && guestCount) {
 
-      if (
-        attendance.value === "Not Attending"
-      ) {
+    attendance.addEventListener(
+      "change",
+      () => {
 
-        guestCount.value = "1";
+        if (
+          attendance.value ===
+          "Not Attending"
+        ) {
 
-        guestCount.disabled = true;
+          /*
+            A declining guest does not need
+            to select the number of guests.
+          */
 
-      } else {
+          guestCount.value = "1";
 
-        guestCount.disabled = false;
+          guestCount.disabled = true;
+
+        } else {
+
+          guestCount.disabled = false;
+
+          guestCount.value = "";
+
+        }
 
       }
+    );
 
-    }
-  );
+  }
 
 
-  /* =====================================
-     FORM SUBMISSION
-  ===================================== */
+  /* =====================================================
+     RSVP FORM SUBMISSION
+  ====================================================== */
 
   rsvpForm.addEventListener(
     "submit",
@@ -149,6 +230,14 @@ if (rsvpForm) {
       const formData =
         new FormData(rsvpForm);
 
+
+      /*
+        Data sent to the Express API.
+
+        dietaryRequirements has been removed
+        because it was removed from the form
+        and PostgreSQL table.
+      */
 
       const data = {
 
@@ -167,30 +256,48 @@ if (rsvpForm) {
         guestCount:
           formData.get("guestCount"),
 
-        dietaryRequirements:
-          formData.get(
-            "dietaryRequirements"
-          ),
-
         message:
           formData.get("message"),
 
       };
 
 
-      submitButton.disabled = true;
+      /* =================================================
+         BUTTON LOADING STATE
+      ================================================= */
 
-      submitButton.textContent =
-        "Submitting...";
+      if (submitButton) {
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+          "Submitting...";
+
+      }
 
 
-      rsvpMessage.textContent = "";
+      /* =================================================
+         CLEAR PREVIOUS MESSAGE
+      ================================================= */
 
-      rsvpMessage.className =
-        "rsvp-message";
+      if (rsvpMessage) {
+
+        rsvpMessage.textContent =
+          "";
+
+        rsvpMessage.className =
+          "rsvp-message";
+
+      }
 
 
       try {
+
+        console.log(
+          "Submitting RSVP:",
+          data
+        );
+
 
         const response =
           await fetch(
@@ -204,7 +311,9 @@ if (rsvpForm) {
               },
 
               body:
-                JSON.stringify(data),
+                JSON.stringify(
+                  data
+                ),
             }
           );
 
@@ -213,33 +322,66 @@ if (rsvpForm) {
           await response.json();
 
 
+        console.log(
+          "RSVP Response:",
+          result
+        );
+
+
+        /* =============================================
+           SUCCESS
+        ============================================== */
+
         if (
           response.ok &&
           result.success
         ) {
 
-          rsvpMessage.textContent =
-            result.message;
+          if (rsvpMessage) {
 
+            rsvpMessage.textContent =
+              result.message;
 
-          rsvpMessage.classList.add(
-            "success"
-          );
+            rsvpMessage.classList.add(
+              "success"
+            );
+
+          }
 
 
           rsvpForm.reset();
 
 
+          /*
+            Make sure guest count is enabled
+            after resetting the form.
+          */
+
+          if (guestCount) {
+
+            guestCount.disabled =
+              false;
+
+          }
+
+
         } else {
 
-          rsvpMessage.textContent =
-            result.message ||
-            "Unable to submit your RSVP.";
+          /* ===========================================
+             SERVER ERROR
+          ============================================ */
 
+          if (rsvpMessage) {
 
-          rsvpMessage.classList.add(
-            "error"
-          );
+            rsvpMessage.textContent =
+              result.message ||
+              "Unable to submit your RSVP.";
+
+            rsvpMessage.classList.add(
+              "error"
+            );
+
+          }
 
         }
 
@@ -252,21 +394,29 @@ if (rsvpForm) {
         );
 
 
-        rsvpMessage.textContent =
-          "Unable to connect to the server. Please try again.";
+        if (rsvpMessage) {
 
+          rsvpMessage.textContent =
+            "Unable to connect to the server. Please try again.";
 
-        rsvpMessage.classList.add(
-          "error"
-        );
+          rsvpMessage.classList.add(
+            "error"
+          );
+
+        }
 
 
       } finally {
 
-        submitButton.disabled = false;
+        if (submitButton) {
 
-        submitButton.textContent =
-          "Confirm RSVP";
+          submitButton.disabled =
+            false;
+
+          submitButton.textContent =
+            "Confirm RSVP";
+
+        }
 
       }
 
