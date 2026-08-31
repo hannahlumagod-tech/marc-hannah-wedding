@@ -1,3 +1,13 @@
+/* =========================================================
+   MARC & HANNAH WEDDING WEBSITE
+   COMPLETE MAIN STYLESHEET
+   Theme: Burgundy • Olive Green • Champagne
+========================================================= */
+
+/* =========================
+   ROOT COLORS
+========================= */
+
 :root {
   --burgundy: #6b1f2b;
   --burgundy-dark: #421019;
@@ -49,22 +59,25 @@ a {
 }
 
 
-/* =========================
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 .navbar {
   position: absolute;
-
   top: 0;
   left: 0;
 
   width: 100%;
 
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   padding: 25px 8%;
@@ -75,10 +88,10 @@ a {
 
 .logo {
   font-family: "Great Vibes", cursive;
-
   font-size: 42px;
-
   color: var(--white);
+
+  line-height: 1;
 }
 
 
@@ -89,9 +102,7 @@ a {
 
 .navbar nav {
   display: flex;
-
   align-items: center;
-
   gap: 28px;
 }
 
@@ -100,12 +111,12 @@ a {
   color: var(--white);
 
   font-size: 12px;
+  font-weight: 500;
 
   letter-spacing: 1.5px;
-
   text-transform: uppercase;
 
-  transition: 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 
@@ -118,54 +129,90 @@ a {
   display: none;
 
   border: none;
-
   background: transparent;
 
   color: var(--white);
 
   font-size: 30px;
+  line-height: 1;
 
   cursor: pointer;
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* =========================================================
+   HERO SECTION
+========================================================= */
 
 .hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 100vh;
 
-    background-image:
-        linear-gradient(
-            rgba(25, 8, 12, 0.45),
-            rgba(25, 8, 12, 0.65)
-        ),
-        url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png");
+  position: relative;
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  /*
+     DARKER ON THE LEFT FOR TEXT
+     LIGHTER ON THE RIGHT FOR THE COUPLE PHOTO
+  */
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(30, 7, 12, 0.92) 0%,
+      rgba(35, 9, 15, 0.85) 35%,
+      rgba(35, 9, 15, 0.50) 55%,
+      rgba(35, 9, 15, 0.18) 75%,
+      rgba(35, 9, 15, 0.08) 100%
+    ),
+    url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 
+/* Additional subtle overlay */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.10) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* Optional overlay layer from HTML */
+
 .hero-overlay {
   position: absolute;
-
   inset: 0;
 
   background:
     radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.05),
-      transparent 60%
+      circle at 70% 30%,
+      rgba(255, 255, 255, 0.06),
+      transparent 45%
     );
+
+  pointer-events: none;
 }
 
+
+/* HERO CONTENT */
 
 .hero-content {
   position: relative;
@@ -173,40 +220,61 @@ a {
   z-index: 2;
 
   width: 90%;
-
   max-width: 950px;
 
-  padding: 100px 20px 50px;
+  margin-left: 4%;
+
+  padding: 150px 20px 80px;
+
+  color: var(--champagne);
+
+  text-align: left;
 }
 
 
-.eyebrow,
-.section-eyebrow {
+/* SAVE THE DATE */
+
+.hero .eyebrow {
+  color: var(--champagne-light);
+
   font-size: 11px;
+  font-weight: 500;
 
-  letter-spacing: 5px;
-
+  letter-spacing: 6px;
   text-transform: uppercase;
 
   margin-bottom: 22px;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
+
+/* WEDDING NAMES */
 
 .hero h1 {
   font-family: "Cormorant Garamond", serif;
 
-  font-size: clamp(60px, 9vw, 115px);
-
+  font-size: clamp(58px, 8vw, 110px);
   font-weight: 500;
 
-  line-height: 0.9;
+  line-height: 0.88;
+
+  color: var(--champagne-light);
+
+  text-shadow:
+    0 3px 18px rgba(0, 0, 0, 0.65);
 }
 
 
 .hero h1 .name {
   display: block;
+
+  color: var(--champagne-light);
 }
 
+
+/* AMPERSAND */
 
 .ampersand {
   display: block;
@@ -215,30 +283,35 @@ a {
 
   color: var(--champagne);
 
-  font-size: 75px;
+  font-size: clamp(65px, 6vw, 90px);
 
-  margin: 10px 0;
+  margin: 15px 0;
+
+  line-height: 0.7;
+
+  text-shadow:
+    0 3px 18px rgba(0, 0, 0, 0.55);
 }
 
+
+/* HERO DIVIDER */
 
 .hero-divider,
 .section-divider {
   display: flex;
 
-  justify-content: center;
-
   align-items: center;
+  justify-content: flex-start;
 
   gap: 15px;
 
-  margin: 28px 0;
+  margin: 30px 0;
 }
 
 
 .hero-divider span:not(.divider-icon),
 .section-divider span {
   width: 90px;
-
   height: 1px;
 
   background: currentColor;
@@ -249,41 +322,61 @@ a {
 
 .divider-icon {
   font-size: 20px;
-
   color: var(--champagne);
 }
 
 
+/* HERO DETAILS */
+
 .hero-date {
+  color: var(--champagne-light);
+
   font-size: 16px;
+  font-weight: 500;
 
   letter-spacing: 4px;
 
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 
 .hero-time {
+  color: var(--champagne-light);
+
   font-size: 14px;
+  font-weight: 500;
 
   letter-spacing: 3px;
 
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 
 .hero-location {
+  color: var(--champagne-light);
+
   font-size: 12px;
+  font-weight: 500;
 
   letter-spacing: 4px;
+  line-height: 1.8;
 
-  opacity: 0.9;
+  opacity: 1;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 
-/* =========================
+/* =========================================================
    BUTTONS
-========================= */
+========================================================= */
 
 .primary-button,
 .secondary-button {
@@ -294,14 +387,22 @@ a {
   margin-top: 35px;
 
   font-size: 11px;
+  font-weight: 600;
 
   letter-spacing: 2px;
-
   text-transform: uppercase;
 
-  transition: 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+
+  cursor: pointer;
 }
 
+
+/* HERO / PRIMARY BUTTON */
 
 .primary-button {
   background: var(--burgundy);
@@ -309,6 +410,9 @@ a {
   color: var(--white);
 
   border: 1px solid var(--champagne);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -319,10 +423,14 @@ a {
 }
 
 
+/* SECONDARY BUTTON */
+
 .secondary-button {
   border: 1px solid var(--burgundy);
 
   color: var(--burgundy);
+
+  background: transparent;
 }
 
 
@@ -330,8 +438,12 @@ a {
   background: var(--burgundy);
 
   color: var(--white);
+
+  transform: translateY(-3px);
 }
 
+
+/* TEXT BUTTON */
 
 .text-button {
   display: inline-block;
@@ -341,8 +453,10 @@ a {
   color: var(--burgundy);
 
   font-size: 11px;
+  font-weight: 600;
 
   letter-spacing: 2px;
+  text-transform: uppercase;
 
   border-bottom: 1px solid var(--burgundy);
 
@@ -350,12 +464,17 @@ a {
 }
 
 
+/* =========================================================
+   SCROLL DOWN INDICATOR
+========================================================= */
+
 .scroll-down {
   position: absolute;
 
   bottom: 30px;
-
   left: 50%;
+
+  z-index: 3;
 
   transform: translateX(-50%);
 
@@ -368,7 +487,6 @@ a {
 
 
 @keyframes bounce {
-
   0%,
   100% {
     transform: translate(-50%, 0);
@@ -377,13 +495,12 @@ a {
   50% {
     transform: translate(-50%, 10px);
   }
-
 }
 
 
-/* =========================
+/* =========================================================
    GENERAL SECTIONS
-========================= */
+========================================================= */
 
 section {
   padding: 100px 8%;
@@ -394,21 +511,36 @@ section h2 {
   font-family: "Cormorant Garamond", serif;
 
   font-size: clamp(42px, 5vw, 65px);
-
   font-weight: 500;
 
   line-height: 1.1;
+
+  color: var(--burgundy);
 }
 
 
 .section-eyebrow {
   color: var(--olive);
+
+  font-size: 11px;
+
+  letter-spacing: 5px;
+  text-transform: uppercase;
+
+  margin-bottom: 22px;
 }
 
 
-/* =========================
+/* Center section dividers */
+
+section:not(.hero) .section-divider {
+  justify-content: center;
+}
+
+
+/* =========================================================
    COUNTDOWN
-========================= */
+========================================================= */
 
 .countdown-section {
   text-align: center;
@@ -440,6 +572,13 @@ section h2 {
   box-shadow: var(--shadow);
 
   border-bottom: 3px solid var(--olive);
+
+  transition: transform 0.3s ease;
+}
+
+
+.time-box:hover {
+  transform: translateY(-5px);
 }
 
 
@@ -449,6 +588,7 @@ section h2 {
   font-family: "Cormorant Garamond", serif;
 
   font-size: 55px;
+  font-weight: 600;
 
   color: var(--burgundy);
 }
@@ -458,6 +598,7 @@ section h2 {
   font-size: 9px;
 
   letter-spacing: 2px;
+  text-transform: uppercase;
 
   color: var(--olive);
 
@@ -465,9 +606,9 @@ section h2 {
 }
 
 
-/* =========================
+/* =========================================================
    INTRODUCTION
-========================= */
+========================================================= */
 
 .introduction {
   display: flex;
@@ -485,6 +626,11 @@ section h2 {
 }
 
 
+.introduction-content h2 {
+  color: var(--burgundy);
+}
+
+
 .introduction-content p {
   line-height: 1.9;
 
@@ -494,9 +640,9 @@ section h2 {
 }
 
 
-/* =========================
-   WEDDING PREVIEW
-========================= */
+/* =========================================================
+   WEDDING DETAILS
+========================================================= */
 
 .wedding-preview {
   text-align: center;
@@ -525,12 +671,18 @@ section h2 {
 
   box-shadow: var(--shadow);
 
-  transition: 0.3s ease;
+  border-bottom: 3px solid transparent;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 
 .detail-card:hover {
   transform: translateY(-8px);
+
+  border-color: var(--olive);
 }
 
 
@@ -545,7 +697,6 @@ section h2 {
   font-family: "Cormorant Garamond", serif;
 
   font-size: 34px;
-
   font-weight: 500;
 
   color: var(--burgundy);
@@ -582,9 +733,9 @@ section h2 {
 }
 
 
-/* =========================
+/* =========================================================
    DRESS CODE
-========================= */
+========================================================= */
 
 .dress-code {
   text-align: center;
@@ -624,7 +775,6 @@ section h2 {
 
 .color-circle {
   width: 110px;
-
   height: 110px;
 
   border-radius: 50%;
@@ -636,7 +786,7 @@ section h2 {
 
 
 .color-circle.champagne {
-  background: #e8d6b7;
+  background: var(--champagne);
 }
 
 
@@ -656,14 +806,15 @@ section h2 {
   font-size: 11px;
 
   letter-spacing: 1.5px;
-
   text-transform: uppercase;
+
+  color: var(--text);
 }
 
 
-/* =========================
+/* =========================================================
    RSVP PREVIEW
-========================= */
+========================================================= */
 
 .rsvp-preview {
   position: relative;
@@ -679,6 +830,11 @@ section h2 {
     ),
     url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85")
     center/cover no-repeat;
+}
+
+
+.rsvp-preview h2 {
+  color: var(--white);
 }
 
 
@@ -702,12 +858,14 @@ section h2 {
   line-height: 1.8;
 
   margin-top: 20px;
+
+  color: rgba(255, 255, 255, 0.9);
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 .footer {
   background: var(--burgundy-dark);
@@ -724,8 +882,9 @@ section h2 {
   font-family: "Great Vibes", cursive;
 
   font-size: 60px;
-
   font-weight: 400;
+
+  color: var(--white);
 }
 
 
@@ -740,6 +899,8 @@ section h2 {
   letter-spacing: 3px;
 
   font-size: 11px;
+
+  color: var(--champagne);
 }
 
 
@@ -750,7 +911,7 @@ section h2 {
 
   line-height: 1.8;
 
-  opacity: 0.8;
+  opacity: 0.85;
 
   font-size: 13px;
 }
@@ -765,9 +926,9 @@ section h2 {
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   MOBILE AND TABLET
+========================================================= */
 
 @media (max-width: 850px) {
 
@@ -786,14 +947,12 @@ section h2 {
 
 
   .navbar nav {
-    position: absolute;
+    position: fixed;
 
     top: 0;
-
     left: 0;
 
     width: 100%;
-
     min-height: 100vh;
 
     background: var(--burgundy-dark);
@@ -805,6 +964,8 @@ section h2 {
     justify-content: center;
 
     gap: 30px;
+
+    z-index: 101;
   }
 
 
@@ -815,6 +976,32 @@ section h2 {
 
   .navbar nav a {
     font-size: 14px;
+  }
+
+
+  .hero {
+    background-position: 58% center;
+  }
+
+
+  .hero::before {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(30, 7, 12, 0.78),
+        rgba(30, 7, 12, 0.35)
+      );
+  }
+
+
+  .hero-content {
+    width: 100%;
+
+    margin-left: 0;
+
+    padding:
+      150px 30px
+      100px;
   }
 
 
@@ -831,19 +1018,90 @@ section h2 {
   .time-box {
     width: 135px;
   }
-
 }
 
 
+/* =========================================================
+   MOBILE PHONE
+========================================================= */
+
 @media (max-width: 500px) {
+
+  .logo {
+    font-size: 36px;
+  }
+
+
+  .hero {
+    min-height: 100svh;
+
+    background-position: 62% center;
+  }
+
+
+  .hero-content {
+    padding:
+      135px 25px
+      90px;
+  }
+
+
+  .hero .eyebrow {
+    font-size: 10px;
+
+    letter-spacing: 4px;
+  }
+
 
   .hero h1 {
     font-size: 58px;
+
+    line-height: 0.9;
   }
 
 
   .ampersand {
     font-size: 60px;
+
+    margin: 12px 0;
+  }
+
+
+  .hero-divider {
+    margin: 25px 0;
+  }
+
+
+  .hero-divider span:not(.divider-icon) {
+    width: 65px;
+  }
+
+
+  .hero-date {
+    font-size: 13px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .hero-time {
+    font-size: 12px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .hero-location {
+    font-size: 10px;
+
+    letter-spacing: 2.5px;
+  }
+
+
+  .primary-button {
+    padding: 15px 28px;
+
+    margin-top: 30px;
   }
 
 
@@ -854,8 +1112,11 @@ section h2 {
 
   .color-circle {
     width: 90px;
-
     height: 90px;
   }
 
+
+  .footer h2 {
+    font-size: 50px;
+  }
 }
