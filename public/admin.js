@@ -1,30 +1,8 @@
 /* =========================================================
-   ADMIN DASHBOARD
+   ADMIN AUTHENTICATION
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadRSVPs();
-
-  const refreshButton =
-    document.getElementById("refreshButton");
-
-  if (refreshButton) {
-    refreshButton.addEventListener(
-      "click",
-      loadRSVPs
-    );
-  }
-
-  const searchInput =
-    document.getElementById("searchInput");
-
-  if (searchInput) {
-    searchInput.addEventListener(
-      "input",
-      searchRSVPs
-    );
-  }
-});
+const ADMIN_TOKEN_KEY = "adminToken";
 
 
 /* =========================================================
@@ -35,20 +13,277 @@ let allRSVPs = [];
 
 
 /* =========================================================
+   GET ADMIN TOKEN
+========================================================= */
+
+function getAdminToken() {
+  return localStorage.getItem(
+    ADMIN_TOKEN_KEY
+  );
+}
+
+
+/* =========================================================
+   LOGOUT ADMIN
+========================================================= */
+
+function logoutAdmin() {
+  localStorage.removeItem(
+    ADMIN_TOKEN_KEY
+  );
+
+  window.location.href =
+    "/login.html";
+}
+
+
+/* =========================================================
+   AUTHENTICATED FETCH
+========================================================= */
+
+async function authenticatedFetch(
+  url,
+  options = {}
+) {
+
+  const token =
+    getAdminToken();
+
+
+  if (!token) {
+
+    window.location.href =
+      "/login.html";
+
+    return null;
+
+  }
+
+
+  const headers = {
+    ...(options.headers || {}),
+    Authorization:
+      `Bearer ${token}`,
+  };
+
+
+  const response =
+    await fetch(
+      url,
+      {
+        ...options,
+        headers,
+      }
+    );
+
+
+  /*
+    If the token is expired or invalid,
+    automatically log out the admin.
+  */
+
+  if (
+    response.status === 401 ||
+    response.status === 403
+  ) {
+
+    localStorage.removeItem(
+      ADMIN_TOKEN_KEY
+    );
+
+    window.location.href =
+      "/login.html";
+
+    return null;
+
+  }
+
+
+  return response;
+
+}
+
+
+/* =========================================================
+   ADMIN DASHBOARD INITIALIZATION
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    const token =
+      getAdminToken();
+
+
+    /*
+      Prevent direct access to admin.html
+      without authentication.
+    */
+
+    if (!token) {
+
+      window.location.href =
+        "/login.html";
+
+      return;
+
+    }
+
+
+    /*
+      LOAD RSVPS
+    */
+
+    loadRSVPs();
+
+
+    /*
+      REFRESH BUTTON
+    */
+
+    const refreshButton =
+      document.getElementById(
+        "refreshButton"
+      );
+
+
+    if (refreshButton) {
+
+      refreshButton.addEventListener(
+        "click",
+        loadRSVPs
+      );
+
+    }
+
+
+    /*
+      SEARCH INPUT
+    */
+
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
+
+
+    if (searchInput) {
+
+      searchInput.addEventListener(
+        "input",
+        searchRSVPs
+      );
+
+    }
+
+
+    /*
+      LOGOUT BUTTON
+
+      Your admin.html should contain:
+
+      <button id="logoutButton">
+        Logout
+      </button>
+    */
+
+    const logoutButton =
+      document.getElementById(
+        "logoutButton"
+      );
+
+
+    if (logoutButton) {
+
+      logoutButton.addEventListener(
+        "click",
+        () => {
+
+          const confirmed =
+            confirm(
+              "Are you sure you want to log out?"
+            );
+
+
+          if (confirmed) {
+
+            logoutAdmin();
+
+          }
+
+        }
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
    LOAD RSVPS
 ========================================================= */
 
 async function loadRSVPs() {
 
+  const tableBody =
+    document.getElementById(
+      "rsvpTableBody"
+    );
+
+
   try {
 
+    /*
+      Show loading message.
+    */
+
+    if (tableBody) {
+
+      tableBody.innerHTML = `
+        <tr>
+          <td
+            colspan="6"
+            style="
+              text-align: center;
+              padding: 30px;
+            "
+          >
+            Loading RSVP records...
+          </td>
+        </tr>
+      `;
+
+    }
+
+
+    /*
+      Send authenticated request.
+    */
+
     const response =
-      await fetch("/api/rsvps");
+      await authenticatedFetch(
+        "/api/rsvps"
+      );
+
+
+    /*
+      Stop if authentication redirected.
+    */
+
+    if (!response) {
+      return;
+    }
 
 
     const result =
       await response.json();
 
+
+    /*
+      HANDLE SERVER ERROR
+    */
 
     if (
       !response.ok ||
@@ -63,14 +298,26 @@ async function loadRSVPs() {
     }
 
 
-    allRSVPs =
-      result.rsvps;
+    /*
+      SAVE RSVP DATA
+    */
 
+    allRSVPs =
+      result.rsvps || [];
+
+
+    /*
+      UPDATE DASHBOARD
+    */
 
     updateDashboardStats(
       allRSVPs
     );
 
+
+    /*
+      DISPLAY TABLE
+    */
 
     displayRSVPs(
       allRSVPs
@@ -85,12 +332,6 @@ async function loadRSVPs() {
     );
 
 
-    const tableBody =
-      document.getElementById(
-        "rsvpTableBody"
-      );
-
-
     if (tableBody) {
 
       tableBody.innerHTML = `
@@ -98,11 +339,14 @@ async function loadRSVPs() {
           <td
             colspan="6"
             style="
-              text-align:center;
-              padding:30px;
+              text-align: center;
+              padding: 30px;
             "
           >
-            Unable to load RSVP records.
+            ${escapeHTML(
+              error.message ||
+              "Unable to load RSVP records."
+            )}
           </td>
         </tr>
       `;
@@ -122,9 +366,17 @@ function updateDashboardStats(
   rsvps
 ) {
 
+  /*
+    TOTAL RSVPS
+  */
+
   const totalRSVPs =
     rsvps.length;
 
+
+  /*
+    ATTENDING
+  */
 
   const attending =
     rsvps.filter(
@@ -134,6 +386,10 @@ function updateDashboardStats(
     ).length;
 
 
+  /*
+    NOT ATTENDING
+  */
+
   const notAttending =
     rsvps.filter(
       (rsvp) =>
@@ -141,6 +397,12 @@ function updateDashboardStats(
         "Not Attending"
     ).length;
 
+
+  /*
+    TOTAL GUESTS
+
+    Only count guests who are attending.
+  */
 
   const totalGuests =
     rsvps
@@ -158,7 +420,7 @@ function updateDashboardStats(
           return (
             total +
             Number(
-              rsvp.guest_count
+              rsvp.guest_count || 0
             )
           );
 
@@ -166,6 +428,10 @@ function updateDashboardStats(
         0
       );
 
+
+  /*
+    DASHBOARD ELEMENTS
+  */
 
   const totalElement =
     document.getElementById(
@@ -191,6 +457,10 @@ function updateDashboardStats(
     );
 
 
+  /*
+    UPDATE VALUES
+  */
+
   if (totalElement) {
 
     totalElement.textContent =
@@ -207,9 +477,7 @@ function updateDashboardStats(
   }
 
 
-  if (
-    notAttendingElement
-  ) {
+  if (notAttendingElement) {
 
     notAttendingElement.textContent =
       notAttending;
@@ -246,9 +514,17 @@ function displayRSVPs(
   }
 
 
+  /*
+    CLEAR TABLE
+  */
+
   tableBody.innerHTML =
     "";
 
+
+  /*
+    NO RECORDS
+  */
 
   if (
     rsvps.length === 0
@@ -259,8 +535,8 @@ function displayRSVPs(
         <td
           colspan="6"
           style="
-            text-align:center;
-            padding:30px;
+            text-align: center;
+            padding: 30px;
           "
         >
           No RSVP records found.
@@ -273,6 +549,10 @@ function displayRSVPs(
 
   }
 
+
+  /*
+    CREATE ROWS
+  */
 
   rsvps.forEach(
     (rsvp) => {
@@ -292,12 +572,16 @@ function displayRSVPs(
 
       row.innerHTML = `
 
+        <!-- GUEST -->
+
         <td>
           ${escapeHTML(
             rsvp.full_name
           )}
         </td>
 
+
+        <!-- CONTACT -->
 
         <td>
 
@@ -320,6 +604,8 @@ function displayRSVPs(
         </td>
 
 
+        <!-- ATTENDANCE -->
+
         <td>
 
           <span
@@ -336,10 +622,16 @@ function displayRSVPs(
         </td>
 
 
+        <!-- GUEST COUNT -->
+
         <td>
-          ${rsvp.guest_count}
+          ${Number(
+            rsvp.guest_count
+          )}
         </td>
 
+
+        <!-- MESSAGE -->
 
         <td>
           ${
@@ -352,15 +644,13 @@ function displayRSVPs(
         </td>
 
 
+        <!-- ACTION -->
+
         <td>
 
           <button
             class="delete-button"
-            onclick="
-              deleteRSVP(
-                ${rsvp.id}
-              )
-            "
+            data-rsvp-id="${rsvp.id}"
           >
             Delete
           </button>
@@ -368,6 +658,32 @@ function displayRSVPs(
         </td>
 
       `;
+
+
+      /*
+        DELETE BUTTON EVENT
+      */
+
+      const deleteButton =
+        row.querySelector(
+          ".delete-button"
+        );
+
+
+      if (deleteButton) {
+
+        deleteButton.addEventListener(
+          "click",
+          () => {
+
+            deleteRSVP(
+              rsvp.id
+            );
+
+          }
+        );
+
+      }
 
 
       tableBody.appendChild(
@@ -398,27 +714,42 @@ function searchRSVPs(
     allRSVPs.filter(
       (rsvp) => {
 
+        const fullName =
+          (
+            rsvp.full_name ||
+            ""
+          )
+            .toLowerCase();
+
+
+        const email =
+          (
+            rsvp.email ||
+            ""
+          )
+            .toLowerCase();
+
+
+        const phone =
+          (
+            rsvp.phone ||
+            ""
+          )
+            .toLowerCase();
+
+
         return (
 
-          rsvp.full_name
-            .toLowerCase()
-            .includes(
-              searchTerm
-            ) ||
+          fullName.includes(
+            searchTerm
+          ) ||
 
-          rsvp.email
-            .toLowerCase()
-            .includes(
-              searchTerm
-            ) ||
+          email.includes(
+            searchTerm
+          ) ||
 
-          (
-            rsvp.phone &&
-            rsvp.phone
-              .toLowerCase()
-              .includes(
-                searchTerm
-              )
+          phone.includes(
+            searchTerm
           )
 
         );
@@ -455,8 +786,12 @@ async function deleteRSVP(
 
   try {
 
+    /*
+      Send authenticated DELETE request.
+    */
+
     const response =
-      await fetch(
+      await authenticatedFetch(
         `/api/rsvps/${id}`,
         {
           method:
@@ -465,9 +800,18 @@ async function deleteRSVP(
       );
 
 
+    if (!response) {
+      return;
+    }
+
+
     const result =
       await response.json();
 
+
+    /*
+      HANDLE ERROR
+    */
 
     if (
       !response.ok ||
@@ -486,6 +830,10 @@ async function deleteRSVP(
       "RSVP deleted successfully."
     );
 
+
+    /*
+      RELOAD DATA
+    */
 
     loadRSVPs();
 
@@ -520,7 +868,9 @@ function escapeHTML(
     value === null ||
     value === undefined
   ) {
+
     return "";
+
   }
 
 
@@ -531,7 +881,7 @@ function escapeHTML(
 
 
   div.textContent =
-    value;
+    String(value);
 
 
   return div.innerHTML;
