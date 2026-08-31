@@ -1,0 +1,21 @@
+{
+  "name": "marc-hannah-wedding",
+  "version": "1.0.0",
+  "description": "Wedding website for Marc Jundel B. Verra and Hannah Rey Leizel Q. Lumagod",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "wedding",
+    "rsvp",
+    "marc",
+    "hannah"
+  ],
+  "author": "Marc Jundel B. Verra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
