@@ -1,61 +1,470 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Engagement, pre-wedding, and wedding memories of Marc and Hannah"
+  >
 
   <title>Gallery | Marc & Hannah</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- =====================================================
+       GOOGLE FONTS
+  ====================================================== -->
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- =====================================================
+       MAIN CSS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
 </head>
+
 
 <body>
 
-  <section class="introduction">
 
-```
-<div class="introduction-content">
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
 
-  <p class="section-eyebrow">
-    OUR MEMORIES
-  </p>
+  <header class="navbar">
 
-  <h2>
-    Wedding Gallery
-  </h2>
 
-  <div class="section-divider">
-    <span></span>
-    ❦
-    <span></span>
-  </div>
+    <!-- LOGO -->
 
-  <p>
-    Our engagement and pre-wedding memories will be shared here.
-  </p>
+    <a
+      href="index.html"
+      class="logo"
+      aria-label="Marc and Hannah Wedding Home"
+    >
+      M<span>&</span>H
+    </a>
 
-  <p>
-    In the next phase, we will connect this gallery to
-    Cloudinary and display your wedding photos beautifully.
-  </p>
 
-  <a href="index.html" class="secondary-button">
-    BACK TO HOME
-  </a>
+    <!-- MOBILE MENU BUTTON -->
 
-</div>
-```
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      ☰
+    </button>
+
+
+    <!-- NAVIGATION -->
+
+    <nav
+      id="mainNav"
+      aria-label="Main Navigation"
+    >
+
+      <a href="index.html">
+        Home
+      </a>
+
+
+      <a href="story.html">
+        Our Story
+      </a>
+
+
+      <a href="wedding.html">
+        Wedding Details
+      </a>
+
+
+      <a
+        href="gallery.html"
+        aria-current="page"
+      >
+        Gallery
+      </a>
+
+
+      <a href="rsvp.html">
+        RSVP
+      </a>
+
+
+      <a
+        href="login.html"
+        class="admin-nav-button"
+      >
+        Admin
+      </a>
+
+    </nav>
+
+
+  </header>
+
+
+  <!-- =====================================================
+       GALLERY HERO
+  ====================================================== -->
+
+  <section class="gallery-page-hero">
+
+
+    <div class="gallery-page-overlay"></div>
+
+
+    <div class="gallery-page-content">
+
+
+      <p class="section-eyebrow">
+        OUR MEMORIES
+      </p>
+
+
+      <h1>
+        Moments We Will
+        <br>
+        Always Remember
+      </h1>
+
+
+      <div class="section-divider">
+
+        <span></span>
+
+        <span class="divider-icon">
+          ❦
+        </span>
+
+        <span></span>
+
+      </div>
+
+
+      <p>
+        A collection of beautiful moments,
+        memories, and the beginning of our forever.
+      </p>
+
+
+    </div>
+
 
   </section>
 
+
+  <!-- =====================================================
+       GALLERY INTRODUCTION
+  ====================================================== -->
+
+  <section class="gallery-introduction">
+
+
+    <div class="gallery-introduction-content">
+
+
+      <p class="section-eyebrow">
+        OUR JOURNEY
+      </p>
+
+
+      <h2>
+        Captured With Love
+      </h2>
+
+
+      <div class="section-divider">
+
+        <span></span>
+
+        <span class="divider-icon">
+          ❦
+        </span>
+
+        <span></span>
+
+      </div>
+
+
+      <p>
+        Our engagement and pre-wedding memories will be shared
+        here as we prepare to celebrate one of the most beautiful
+        days of our lives.
+      </p>
+
+
+      <p>
+        Every photograph represents a moment, a memory,
+        and a part of the journey that brought us here.
+      </p>
+
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       PHOTO GALLERY
+  ====================================================== -->
+
+  <section class="gallery-section">
+
+
+    <div class="gallery-container">
+
+
+      <div class="gallery-grid">
+
+
+        <!-- PHOTO 1 -->
+
+        <div class="gallery-item gallery-placeholder">
+
+          <div class="gallery-placeholder-content">
+
+            <span>
+              ♡
+            </span>
+
+            <p>
+              Engagement Memories
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- PHOTO 2 -->
+
+        <div class="gallery-item gallery-placeholder">
+
+          <div class="gallery-placeholder-content">
+
+            <span>
+              ❦
+            </span>
+
+            <p>
+              Our Journey
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- PHOTO 3 -->
+
+        <div class="gallery-item gallery-placeholder">
+
+          <div class="gallery-placeholder-content">
+
+            <span>
+              ✦
+            </span>
+
+            <p>
+              Beautiful Moments
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- PHOTO 4 -->
+
+        <div class="gallery-item gallery-placeholder">
+
+          <div class="gallery-placeholder-content">
+
+            <span>
+              ♡
+            </span>
+
+            <p>
+              Pre-Wedding Memories
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- PHOTO 5 -->
+
+        <div class="gallery-item gallery-placeholder">
+
+          <div class="gallery-placeholder-content">
+
+            <span>
+              ❦
+            </span>
+
+            <p>
+              Our Favorite Moments
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- PHOTO 6 -->
+
+        <div class="gallery-item gallery-placeholder">
+
+          <div class="gallery-placeholder-content">
+
+            <span>
+              ✦
+            </span>
+
+            <p>
+              Forever Begins
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       GALLERY MESSAGE
+  ====================================================== -->
+
+  <section class="gallery-message">
+
+
+    <div class="gallery-message-content">
+
+
+      <p class="section-eyebrow">
+        MORE MEMORIES TO COME
+      </p>
+
+
+      <h2>
+        Our Story Is Still Being Written
+      </h2>
+
+
+      <div class="section-divider">
+
+        <span></span>
+
+        <span class="divider-icon">
+          ❦
+        </span>
+
+        <span></span>
+
+      </div>
+
+
+      <p>
+        More memories will be added as we continue
+        our journey together and celebrate our wedding day
+        with the people we love.
+      </p>
+
+
+      <a
+        href="rsvp.html"
+        class="primary-button"
+      >
+        RSVP NOW
+      </a>
+
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer">
+
+
+    <h2>
+      Marc <span>&</span> Hannah
+    </h2>
+
+
+    <p class="footer-date">
+      FEBRUARY 22, 2027
+    </p>
+
+
+    <p class="footer-message">
+      We cannot wait to celebrate this beautiful
+      beginning with you.
+    </p>
+
+
+    <p class="copyright">
+      © 2027 Marc & Hannah Wedding
+    </p>
+
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="js/script.js"></script>
+
+
 </body>
+
 </html>

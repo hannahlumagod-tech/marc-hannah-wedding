@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- =====================================================
+       META
+  ====================================================== -->
+
   <meta charset="UTF-8">
 
   <meta
@@ -15,7 +20,15 @@
 
   <title>Marc & Hannah | February 22, 2027</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <!-- =====================================================
+       GOOGLE FONTS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
   <link
     rel="preconnect"
@@ -28,32 +41,61 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- =====================================================
+       CSS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
 </head>
+
 
 <body>
 
-  <!-- =========================
+
+  <!-- =====================================================
        NAVIGATION
-  ========================== -->
+  ====================================================== -->
 
   <header class="navbar">
 
-    <a href="index.html" class="logo">
+    <a
+      href="index.html"
+      class="logo"
+      aria-label="Marc and Hannah Wedding Home"
+    >
       M <span>&</span> H
     </a>
+
+
+    <!-- MOBILE MENU BUTTON -->
 
     <button
       class="menu-toggle"
       id="menuToggle"
+      type="button"
       aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navMenu"
     >
       ☰
     </button>
 
-    <nav id="navMenu">
 
-      <a href="index.html">Home</a>
+    <!-- NAVIGATION LINKS -->
+
+    <nav
+      id="navMenu"
+      aria-label="Main Navigation"
+    >
+
+      <a href="index.html">
+        Home
+      </a>
 
       <a href="story.html">
         Our Story
@@ -70,522 +112,605 @@
       <a href="rsvp.html">
         RSVP
       </a>
+
       <a
-  href="login.html"
-  class="admin-nav-button"
->
-  Admin
-</a>
+        href="login.html"
+        class="admin-nav-button"
+      >
+        Admin
+      </a>
 
     </nav>
 
   </header>
 
 
-  <!-- =========================
-       HERO SECTION
-  ========================== -->
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
 
-  <section class="hero">
+  <main>
 
-    <div class="hero-overlay"></div>
 
-    <div class="hero-content">
+    <!-- ===================================================
+         HERO SECTION
+    ==================================================== -->
 
-      <p class="eyebrow">
-        SAVE THE DATE
-      </p>
+    <section class="hero">
 
-      <h1>
+      <div
+        class="hero-overlay"
+        aria-hidden="true"
+      ></div>
 
-        <span class="name">
-          Marc Jundel
-        </span>
 
-        <span class="ampersand">
-          &
-        </span>
+      <div class="hero-content reveal">
 
-        <span class="name">
-          Hannah Rey Leizel
-        </span>
+        <p class="eyebrow">
+          SAVE THE DATE
+        </p>
 
-      </h1>
 
-      <div class="hero-divider">
+        <h1>
 
-        <span></span>
+          <span class="name">
+            Marc Jundel
+          </span>
 
-        <span class="divider-icon">
-          ❦
-        </span>
+          <span
+            class="ampersand"
+            aria-hidden="true"
+          >
+            &
+          </span>
 
-        <span></span>
+          <span class="name">
+            Hannah Rey Leizel
+          </span>
 
-      </div>
+        </h1>
 
-      <p class="hero-date">
 
-        FEBRUARY 22, 2027
+        <div
+          class="hero-divider"
+          aria-hidden="true"
+        >
 
-      </p>
+          <span></span>
 
-      <p class="hero-time">
+          <span class="divider-icon">
+            ❦
+          </span>
 
-        2:00 PM
+          <span></span>
 
-      </p>
-
-      <p class="hero-location">
-
-        ABUYOG, LEYTE
-
-      </p>
-
-      <a
-        href="rsvp.html"
-        class="primary-button"
-      >
-        RSVP NOW
-      </a>
-
-    </div>
-
-    <a
-      href="#countdown"
-      class="scroll-down"
-    >
-      ↓
-    </a>
-
-  </section>
-
-
-  <!-- =========================
-       COUNTDOWN
-  ========================== -->
-
-  <section
-    class="countdown-section"
-    id="countdown"
-  >
-
-    <p class="section-eyebrow">
-
-      COUNTING DOWN TO
-
-    </p>
-
-    <h2>
-
-      Our Forever Begins
-
-    </h2>
-
-    <div class="section-divider">
-
-      <span></span>
-      ❦
-      <span></span>
-
-    </div>
-
-    <div
-      class="countdown"
-      id="countdownTimer"
-    >
-
-      <div class="time-box">
-
-        <span id="days">
-          00
-        </span>
-
-        <small>
-          DAYS
-        </small>
-
-      </div>
-
-
-      <div class="time-box">
-
-        <span id="hours">
-          00
-        </span>
-
-        <small>
-          HOURS
-        </small>
-
-      </div>
-
-
-      <div class="time-box">
-
-        <span id="minutes">
-          00
-        </span>
-
-        <small>
-          MINUTES
-        </small>
-
-      </div>
-
-
-      <div class="time-box">
-
-        <span id="seconds">
-          00
-        </span>
-
-        <small>
-          SECONDS
-        </small>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       INTRODUCTION
-  ========================== -->
-
-  <section class="introduction">
-
-    <div class="introduction-content">
-
-      <p class="section-eyebrow">
-
-        TOGETHER WITH OUR FAMILIES
-
-      </p>
-
-      <h2>
-
-        We Invite You To Celebrate With Us
-
-      </h2>
-
-      <div class="section-divider">
-
-        <span></span>
-        ❦
-        <span></span>
-
-      </div>
-
-      <p>
-
-        With joyful hearts and surrounded by the love of our family
-        and friends, we invite you to join us as we celebrate one of
-        the most meaningful days of our lives.
-
-      </p>
-
-      <p>
-
-        As we begin a new chapter together, your presence would make
-        our celebration even more special.
-
-      </p>
-
-      <a
-        href="story.html"
-        class="text-button"
-      >
-
-        READ OUR STORY
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       WEDDING DETAILS
-  ========================== -->
-
-  <section class="wedding-preview">
-
-    <p class="section-eyebrow">
-
-      THE WEDDING
-
-    </p>
-
-    <h2>
-
-      Celebrate With Us
-
-    </h2>
-
-    <div class="section-divider">
-
-      <span></span>
-      ❦
-      <span></span>
-
-    </div>
-
-
-    <div class="details-grid">
-
-      <!-- Ceremony -->
-
-      <article class="detail-card">
-
-        <div class="detail-icon">
-          ⛪
         </div>
 
-        <h3>
 
-          Wedding Ceremony
+        <div class="hero-event-details">
 
-        </h3>
+          <p class="hero-date">
+            FEBRUARY 22, 2027
+          </p>
 
-        <p class="detail-date">
+          <p class="hero-time">
+            2:00 PM
+          </p>
 
-          February 22, 2027
+          <p class="hero-location">
+            ABUYOG, LEYTE
+          </p>
 
-        </p>
-
-        <p class="detail-time">
-
-          2:00 PM
-
-        </p>
-
-        <p class="detail-location">
-
-          St. Francis Xavier Parish Church
-
-          <br>
-
-          Abuyog, Leyte
-
-        </p>
-
-      </article>
-
-
-      <!-- Reception -->
-
-      <article class="detail-card">
-
-        <div class="detail-icon">
-          🥂
         </div>
 
-        <h3>
 
-          Wedding Reception
-
-        </h3>
-
-        <p class="detail-date">
-
-          Following the Ceremony
-
-        </p>
-
-        <p class="detail-location">
-
-          Alumni Gym
-
-          <br>
-
-          Notre Dame of Abuyog
-
-        </p>
-
-      </article>
-
-    </div>
-
-
-    <a
-      href="wedding.html"
-      class="secondary-button"
-    >
-
-      VIEW WEDDING DETAILS
-
-    </a>
-
-  </section>
-
-
-  <!-- =========================
-       DRESS CODE
-  ========================== -->
-
-  <section class="dress-code">
-
-    <p class="section-eyebrow">
-
-      DRESS CODE
-
-    </p>
-
-    <h2>
-
-      Champagne Elegance
-
-    </h2>
-
-    <div class="section-divider">
-
-      <span></span>
-      ❦
-      <span></span>
-
-    </div>
-
-    <p class="dress-description">
-
-      We kindly invite our beloved guests to wear
-      Champagne-colored attire as we celebrate our special day.
-
-    </p>
-
-
-    <div class="palette">
-
-      <div class="palette-item">
-
-        <div class="color-circle champagne"></div>
-
-        <p>
-
-          Champagne
-
-        </p>
+        <a
+          href="rsvp.html"
+          class="primary-button"
+        >
+          RSVP NOW
+        </a>
 
       </div>
 
 
-      <div class="palette-item">
-
-        <div class="color-circle olive"></div>
-
-        <p>
-
-          Olive Green
-
-        </p>
-
-      </div>
-
-
-      <div class="palette-item">
-
-        <div class="color-circle burgundy"></div>
-
-        <p>
-
-          Burgundy
-
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       RSVP CALL TO ACTION
-  ========================== -->
-
-  <section class="rsvp-preview">
-
-    <div class="rsvp-preview-overlay"></div>
-
-    <div class="rsvp-preview-content">
-
-      <p class="section-eyebrow">
-
-        WILL YOU JOIN US?
-
-      </p>
-
-      <h2>
-
-        Your Presence Is Our Greatest Gift
-
-      </h2>
-
-      <div class="section-divider">
-
-        <span></span>
-        ❦
-        <span></span>
-
-      </div>
-
-      <p>
-
-        Kindly let us know if you will be joining us
-        on our special day.
-
-      </p>
+      <!-- SCROLL DOWN -->
 
       <a
-        href="rsvp.html"
-        class="primary-button"
+        href="#countdown"
+        class="scroll-down"
+        aria-label="Scroll to countdown"
       >
-
-        CONFIRM YOUR ATTENDANCE
-
+        ↓
       </a>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- =========================
+    <!-- ===================================================
+         COUNTDOWN
+    ==================================================== -->
+
+    <section
+      class="countdown-section reveal"
+      id="countdown"
+    >
+
+      <div class="section-container">
+
+        <p class="section-eyebrow">
+          COUNTING DOWN TO
+        </p>
+
+
+        <h2>
+          Our Forever Begins
+        </h2>
+
+
+        <div
+          class="section-divider"
+          aria-hidden="true"
+        >
+
+          <span></span>
+
+          <span class="divider-icon">
+            ❦
+          </span>
+
+          <span></span>
+
+        </div>
+
+
+        <div
+          class="countdown"
+          id="countdownTimer"
+        >
+
+          <div class="time-box reveal-zoom delay-1">
+
+            <span id="days">
+              00
+            </span>
+
+            <small>
+              DAYS
+            </small>
+
+          </div>
+
+
+          <div class="time-box reveal-zoom delay-2">
+
+            <span id="hours">
+              00
+            </span>
+
+            <small>
+              HOURS
+            </small>
+
+          </div>
+
+
+          <div class="time-box reveal-zoom delay-3">
+
+            <span id="minutes">
+              00
+            </span>
+
+            <small>
+              MINUTES
+            </small>
+
+          </div>
+
+
+          <div class="time-box reveal-zoom delay-4">
+
+            <span id="seconds">
+              00
+            </span>
+
+            <small>
+              SECONDS
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         INTRODUCTION
+    ==================================================== -->
+
+    <section class="introduction reveal">
+
+      <div class="introduction-content">
+
+        <p class="section-eyebrow">
+          TOGETHER WITH OUR FAMILIES
+        </p>
+
+
+        <h2>
+          We Invite You To Celebrate With Us
+        </h2>
+
+
+        <div
+          class="section-divider"
+          aria-hidden="true"
+        >
+
+          <span></span>
+
+          <span class="divider-icon">
+            ❦
+          </span>
+
+          <span></span>
+
+        </div>
+
+
+        <p>
+          With joyful hearts and surrounded by the love of our family
+          and friends, we invite you to join us as we celebrate one of
+          the most meaningful days of our lives.
+        </p>
+
+
+        <p>
+          As we begin a new chapter together, your presence would make
+          our celebration even more special.
+        </p>
+
+
+        <a
+          href="story.html"
+          class="text-button"
+        >
+          READ OUR STORY
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         WEDDING DETAILS
+    ==================================================== -->
+
+    <section class="wedding-preview reveal">
+
+      <div class="section-container">
+
+        <p class="section-eyebrow">
+          THE WEDDING
+        </p>
+
+
+        <h2>
+          Celebrate With Us
+        </h2>
+
+
+        <div
+          class="section-divider"
+          aria-hidden="true"
+        >
+
+          <span></span>
+
+          <span class="divider-icon">
+            ❦
+          </span>
+
+          <span></span>
+
+        </div>
+
+
+        <div class="details-grid">
+
+
+          <!-- CEREMONY -->
+
+          <article class="detail-card reveal-zoom delay-1">
+
+            <div
+              class="detail-icon"
+              aria-hidden="true"
+            >
+              ⛪
+            </div>
+
+
+            <h3>
+              Wedding Ceremony
+            </h3>
+
+
+            <p class="detail-date">
+              February 22, 2027
+            </p>
+
+
+            <p class="detail-time">
+              2:00 PM
+            </p>
+
+
+            <p class="detail-location">
+
+              St. Francis Xavier Parish Church
+
+              <br>
+
+              Abuyog, Leyte
+
+            </p>
+
+          </article>
+
+
+          <!-- RECEPTION -->
+
+          <article class="detail-card reveal-zoom delay-2">
+
+            <div
+              class="detail-icon"
+              aria-hidden="true"
+            >
+              🥂
+            </div>
+
+
+            <h3>
+              Wedding Reception
+            </h3>
+
+
+            <p class="detail-date">
+              Following the Ceremony
+            </p>
+
+
+            <p class="detail-location">
+
+              Alumni Gym
+
+              <br>
+
+              Notre Dame of Abuyog
+
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <a
+          href="wedding.html"
+          class="secondary-button"
+        >
+          VIEW WEDDING DETAILS
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DRESS CODE
+    ==================================================== -->
+
+    <section class="dress-code reveal">
+
+      <div class="section-container">
+
+        <p class="section-eyebrow">
+          DRESS CODE
+        </p>
+
+
+        <h2>
+          Champagne Elegance
+        </h2>
+
+
+        <div
+          class="section-divider"
+          aria-hidden="true"
+        >
+
+          <span></span>
+
+          <span class="divider-icon">
+            ❦
+          </span>
+
+          <span></span>
+
+        </div>
+
+
+        <p class="dress-description">
+
+          We kindly invite our beloved guests to wear
+          Champagne-colored attire as we celebrate our special day.
+
+        </p>
+
+
+        <div class="palette">
+
+
+          <!-- CHAMPAGNE -->
+
+          <div class="palette-item reveal-zoom delay-1">
+
+            <div
+              class="color-circle champagne"
+              aria-label="Champagne color"
+              role="img"
+            ></div>
+
+            <p>
+              Champagne
+            </p>
+
+          </div>
+
+
+          <!-- OLIVE -->
+
+          <div class="palette-item reveal-zoom delay-2">
+
+            <div
+              class="color-circle olive"
+              aria-label="Olive green color"
+              role="img"
+            ></div>
+
+            <p>
+              Olive Green
+            </p>
+
+          </div>
+
+
+          <!-- BURGUNDY -->
+
+          <div class="palette-item reveal-zoom delay-3">
+
+            <div
+              class="color-circle burgundy"
+              aria-label="Burgundy color"
+              role="img"
+            ></div>
+
+            <p>
+              Burgundy
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         RSVP CALL TO ACTION
+    ==================================================== -->
+
+    <section class="rsvp-preview reveal">
+
+      <div
+        class="rsvp-preview-overlay"
+        aria-hidden="true"
+      ></div>
+
+
+      <div class="rsvp-preview-content">
+
+        <p class="section-eyebrow">
+          WILL YOU JOIN US?
+        </p>
+
+
+        <h2>
+          Your Presence Is Our Greatest Gift
+        </h2>
+
+
+        <div
+          class="section-divider"
+          aria-hidden="true"
+        >
+
+          <span></span>
+
+          <span class="divider-icon">
+            ❦
+          </span>
+
+          <span></span>
+
+        </div>
+
+
+        <p>
+          Kindly let us know if you will be joining us
+          on our special day.
+        </p>
+
+
+        <a
+          href="rsvp.html"
+          class="primary-button"
+        >
+          CONFIRM YOUR ATTENDANCE
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
        FOOTER
-  ========================== -->
+  ====================================================== -->
 
   <footer class="footer">
 
-    <h2>
+    <div class="footer-content">
 
-      Marc <span>&</span> Hannah
+      <h2>
+        Marc <span>&</span> Hannah
+      </h2>
 
-    </h2>
 
-    <p class="footer-date">
+      <p class="footer-date">
+        FEBRUARY 22, 2027
+      </p>
 
-      FEBRUARY 22, 2027
 
-    </p>
+      <p class="footer-message">
+        We cannot wait to celebrate this beautiful
+        beginning with you.
+      </p>
 
-    <p class="footer-message">
 
-      We cannot wait to celebrate this beautiful
-      beginning with you.
+      <p class="copyright">
+        © 2027 Marc & Hannah Wedding
+      </p>
 
-    </p>
-
-    <p class="copyright">
-
-      © 2027 Marc & Hannah Wedding
-
-    </p>
+    </div>
 
   </footer>
 
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
 
   <script src="js/script.js"></script>
 

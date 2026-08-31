@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 
+  <!-- =====================================================
+       META
+  ====================================================== -->
+
   <meta charset="UTF-8">
 
   <meta
@@ -9,9 +13,17 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="RSVP for the wedding of Marc Jundel B. Verra and Hannah Rey Leizel Q. Lumagod"
+  >
+
   <title>RSVP | Marc & Hannah Wedding</title>
 
-  <!-- GOOGLE FONTS -->
+
+  <!-- =====================================================
+       GOOGLE FONTS
+  ====================================================== -->
 
   <link
     rel="preconnect"
@@ -29,7 +41,10 @@
     rel="stylesheet"
   >
 
-  <!-- MAIN CSS -->
+
+  <!-- =====================================================
+       MAIN CSS
+  ====================================================== -->
 
   <link
     rel="stylesheet"
@@ -38,7 +53,9 @@
 
 </head>
 
+
 <body>
+
 
   <!-- =====================================================
        NAVIGATION
@@ -46,22 +63,38 @@
 
   <header class="navbar">
 
+
+    <!-- LOGO -->
+
     <a
       href="index.html"
       class="logo"
+      aria-label="Marc and Hannah Wedding Home"
     >
       M<span>&</span>H
     </a>
 
+
+    <!-- MOBILE MENU BUTTON -->
+
     <button
       class="menu-toggle"
       id="menuToggle"
+      type="button"
       aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mainNav"
     >
       ☰
     </button>
 
-    <nav id="mainNav">
+
+    <!-- NAVIGATION -->
+
+    <nav
+      id="mainNav"
+      aria-label="Main navigation"
+    >
 
       <a href="index.html">
         Home
@@ -72,350 +105,449 @@
       </a>
 
       <a href="wedding.html">
-        Wedding
+        Wedding Details
       </a>
 
       <a href="gallery.html">
         Gallery
       </a>
 
-      <a href="rsvp.html">
+      <a
+        href="rsvp.html"
+        aria-current="page"
+      >
         RSVP
       </a>
 
+      <a
+        href="login.html"
+        class="admin-nav-button"
+      >
+        Admin
+      </a>
+
     </nav>
+
 
   </header>
 
 
   <!-- =====================================================
-       RSVP HERO
+       MAIN CONTENT
   ====================================================== -->
 
-  <section class="rsvp-page-hero">
+  <main>
 
-    <div class="rsvp-page-overlay"></div>
 
-    <div class="rsvp-page-content">
+    <!-- ===================================================
+         RSVP HERO
+    ==================================================== -->
 
-      <p class="section-eyebrow">
-        WE WOULD LOVE TO CELEBRATE WITH YOU
-      </p>
-
-      <h1>
-        RSVP
-      </h1>
-
-      <div class="section-divider">
-
-        <span></span>
-
-        <span class="divider-icon">
-          ❦
-        </span>
-
-        <span></span>
-
-      </div>
-
-      <p>
-        Please let us know if you will be joining us
-        on our special day.
-      </p>
-
-      <p class="rsvp-wedding-date">
-        FEBRUARY 22, 2027
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       RSVP FORM
-  ====================================================== -->
-
-  <section class="rsvp-section">
-
-    <div class="rsvp-container">
-
-
-      <!-- FORM INTRO -->
-
-      <div class="rsvp-intro">
-
-        <p class="section-eyebrow">
-          SAVE YOUR SEAT
-        </p>
-
-        <h2>
-          Will You Join Us?
-        </h2>
-
-        <p>
-          Your presence would mean so much to us.
-          Please complete the form below to confirm
-          your attendance.
-        </p>
-
-      </div>
-
-
-      <!-- RSVP FORM -->
-
-      <form
-        id="rsvpForm"
-        class="rsvp-form"
-      >
-
-
-        <!-- FULL NAME -->
-
-        <div class="form-group">
-
-          <label for="fullName">
-            Full Name
-            <span>*</span>
-          </label>
-
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            placeholder="Enter your full name"
-            required
-          >
-
-        </div>
-
-
-        <!-- EMAIL -->
-
-        <div class="form-group">
-
-          <label for="email">
-            Email Address
-            <span>*</span>
-          </label>
-
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@email.com"
-            required
-          >
-
-        </div>
-
-
-        <!-- PHONE -->
-
-        <div class="form-group">
-
-          <label for="phone">
-            Phone Number
-          </label>
-
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="09XXXXXXXXX"
-          >
-
-        </div>
-
-
-        <!-- ATTENDANCE -->
-
-        <div class="form-group">
-
-          <label for="attendance">
-            Will you attend?
-            <span>*</span>
-          </label>
-
-          <select
-            id="attendance"
-            name="attendance"
-            required
-          >
-
-            <option value="">
-              Select your answer
-            </option>
-
-            <option value="Attending">
-              Joyfully Accepts
-            </option>
-
-            <option value="Not Attending">
-              Regretfully Declines
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <!-- NUMBER OF GUESTS -->
-
-        <div
-          class="form-group"
-          id="guestCountGroup"
-        >
-
-          <label for="guestCount">
-            Number of Guests
-            <span>*</span>
-          </label>
-
-          <select
-            id="guestCount"
-            name="guestCount"
-            required
-          >
-
-            <option value="">
-              Select number
-            </option>
-
-            <option value="1">
-              1 Guest
-            </option>
-
-            <option value="2">
-              2 Guests
-            </option>
-
-            <option value="3">
-              3 Guests
-            </option>
-
-            <option value="4">
-              4 Guests
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <!-- MESSAGE -->
-
-        <div class="form-group form-group-full">
-
-          <label for="message">
-            Message for the Couple
-          </label>
-
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            placeholder="Leave a message for Marc & Hannah..."
-          ></textarea>
-
-        </div>
-
-
-        <!-- SUBMIT -->
-
-        <div class="form-submit">
-
-          <button
-            type="submit"
-            id="submitButton"
-            class="rsvp-submit-button"
-          >
-            Confirm RSVP
-          </button>
-
-        </div>
-
-      </form>
-
-
-      <!-- SUCCESS / ERROR MESSAGE -->
+    <section class="rsvp-page-hero">
 
       <div
-        id="rsvpMessage"
-        class="rsvp-message"
+        class="rsvp-page-overlay"
+        aria-hidden="true"
       ></div>
 
-    </div>
 
-  </section>
+      <div class="rsvp-page-content">
 
-
-  <!-- =====================================================
-       WEDDING INFORMATION
-  ====================================================== -->
-
-  <section class="rsvp-details">
-
-    <div class="rsvp-details-container">
+        <p class="section-eyebrow">
+          WE WOULD LOVE TO CELEBRATE WITH YOU
+        </p>
 
 
-      <!-- CEREMONY -->
+        <h1>
+          RSVP
+        </h1>
 
-      <div class="rsvp-detail">
 
-        <div class="rsvp-detail-icon">
-          ♡
+        <div
+          class="section-divider"
+          aria-hidden="true"
+        >
+
+          <span></span>
+
+          <span class="divider-icon">
+            ❦
+          </span>
+
+          <span></span>
+
         </div>
 
-        <h3>
-          Ceremony
-        </h3>
 
-        <p>
-          St. Francis Xavier Parish Church
+        <p class="rsvp-hero-description">
+          Please let us know if you will be joining us
+          on our special day.
         </p>
 
-        <p>
-          Abuyog, Leyte
-        </p>
 
-        <strong>
-          2:00 PM
-        </strong>
+        <p class="rsvp-wedding-date">
+          FEBRUARY 22, 2027
+        </p>
 
       </div>
 
+    </section>
 
-      <!-- RECEPTION -->
 
-      <div class="rsvp-detail">
+    <!-- ===================================================
+         RSVP FORM
+    ==================================================== -->
 
-        <div class="rsvp-detail-icon">
-          ✦
+    <section class="rsvp-section">
+
+      <div class="rsvp-container">
+
+
+        <!-- FORM INTRO -->
+
+        <div class="rsvp-intro">
+
+          <p class="section-eyebrow">
+            SAVE YOUR SEAT
+          </p>
+
+
+          <h2>
+            Will You Join Us?
+          </h2>
+
+
+          <div
+            class="section-divider"
+            aria-hidden="true"
+          >
+
+            <span></span>
+
+            <span class="divider-icon">
+              ❦
+            </span>
+
+            <span></span>
+
+          </div>
+
+
+          <p>
+            Your presence would mean so much to us.
+            Please complete the form below to confirm
+            your attendance.
+          </p>
+
         </div>
 
-        <h3>
-          Reception
-        </h3>
 
-        <p>
-          Alumni Gym
-        </p>
+        <!-- RSVP FORM -->
 
-        <p>
-          Notre Dame of Abuyog
-        </p>
+        <form
+          id="rsvpForm"
+          class="rsvp-form"
+          novalidate
+        >
 
-        <strong>
-          Following the Ceremony
-        </strong>
+
+          <!-- FULL NAME -->
+
+          <div class="form-group">
+
+            <label for="fullName">
+
+              Full Name
+
+              <span aria-hidden="true">
+                *
+              </span>
+
+            </label>
+
+
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            >
+
+          </div>
+
+
+          <!-- EMAIL -->
+
+          <div class="form-group">
+
+            <label for="email">
+
+              Email Address
+
+              <span aria-hidden="true">
+                *
+              </span>
+
+            </label>
+
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@email.com"
+              autocomplete="email"
+              required
+            >
+
+          </div>
+
+
+          <!-- PHONE -->
+
+          <div class="form-group">
+
+            <label for="phone">
+              Phone Number
+            </label>
+
+
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="09XXXXXXXXX"
+              autocomplete="tel"
+              inputmode="tel"
+            >
+
+          </div>
+
+
+          <!-- ATTENDANCE -->
+
+          <div class="form-group">
+
+            <label for="attendance">
+
+              Will you attend?
+
+              <span aria-hidden="true">
+                *
+              </span>
+
+            </label>
+
+
+            <select
+              id="attendance"
+              name="attendance"
+              required
+            >
+
+              <option value="">
+                Select your answer
+              </option>
+
+              <option value="Attending">
+                Joyfully Accepts
+              </option>
+
+              <option value="Not Attending">
+                Regretfully Declines
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- NUMBER OF GUESTS -->
+
+          <div
+            class="form-group"
+            id="guestCountGroup"
+          >
+
+            <label for="guestCount">
+
+              Number of Guests
+
+              <span aria-hidden="true">
+                *
+              </span>
+
+            </label>
+
+
+            <select
+              id="guestCount"
+              name="guestCount"
+              required
+            >
+
+              <option value="">
+                Select number
+              </option>
+
+              <option value="1">
+                1 Guest
+              </option>
+
+              <option value="2">
+                2 Guests
+              </option>
+
+              <option value="3">
+                3 Guests
+              </option>
+
+              <option value="4">
+                4 Guests
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- MESSAGE -->
+
+          <div class="form-group form-group-full">
+
+            <label for="message">
+              Message for the Couple
+            </label>
+
+
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Leave a message for Marc & Hannah..."
+            ></textarea>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+
+          <div class="form-submit">
+
+            <button
+              type="submit"
+              id="submitButton"
+              class="rsvp-submit-button"
+            >
+              Confirm RSVP
+            </button>
+
+          </div>
+
+
+        </form>
+
+
+        <!-- SUCCESS / ERROR MESSAGE -->
+
+        <div
+          id="rsvpMessage"
+          class="rsvp-message"
+          role="status"
+          aria-live="polite"
+        ></div>
+
 
       </div>
 
+    </section>
 
-    </div>
 
-  </section>
+    <!-- ===================================================
+         WEDDING INFORMATION
+    ==================================================== -->
+
+    <section class="rsvp-details">
+
+      <div class="rsvp-details-container">
+
+
+        <!-- CEREMONY -->
+
+        <article class="rsvp-detail">
+
+          <div
+            class="rsvp-detail-icon"
+            aria-hidden="true"
+          >
+            ♡
+          </div>
+
+
+          <h3>
+            Ceremony
+          </h3>
+
+
+          <p>
+            St. Francis Xavier Parish Church
+          </p>
+
+
+          <p>
+            Abuyog, Leyte
+          </p>
+
+
+          <strong>
+            2:00 PM
+          </strong>
+
+        </article>
+
+
+        <!-- RECEPTION -->
+
+        <article class="rsvp-detail">
+
+          <div
+            class="rsvp-detail-icon"
+            aria-hidden="true"
+          >
+            ✦
+          </div>
+
+
+          <h3>
+            Reception
+          </h3>
+
+
+          <p>
+            Alumni Gym
+          </p>
+
+
+          <p>
+            Notre Dame of Abuyog
+          </p>
+
+
+          <strong>
+            Following the Ceremony
+          </strong>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
 
 
   <!-- =====================================================
@@ -424,22 +556,29 @@
 
   <footer class="footer">
 
-    <h2>
-      Marc <span>&</span> Hannah
-    </h2>
+    <div class="footer-content">
 
-    <p class="footer-date">
-      FEBRUARY 22, 2027
-    </p>
+      <h2>
+        Marc <span>&</span> Hannah
+      </h2>
 
-    <p class="footer-message">
-      Thank you for being part of our journey
-      and celebrating this beautiful new chapter with us.
-    </p>
 
-    <p class="copyright">
-      © 2027 Marc & Hannah Wedding
-    </p>
+      <p class="footer-date">
+        FEBRUARY 22, 2027
+      </p>
+
+
+      <p class="footer-message">
+        Thank you for being part of our journey
+        and celebrating this beautiful new chapter with us.
+      </p>
+
+
+      <p class="copyright">
+        © 2027 Marc & Hannah Wedding
+      </p>
+
+    </div>
 
   </footer>
 
@@ -449,6 +588,7 @@
   ====================================================== -->
 
   <script src="js/script.js"></script>
+
 
 </body>
 </html>

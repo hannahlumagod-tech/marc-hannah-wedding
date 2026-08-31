@@ -2220,3 +2220,920 @@ section:not(.hero) .section-divider {
   background: #5f1730;
   transform: translateY(-2px);
 }
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .hero-content {
+    max-width: 1000px;
+  }
+
+  .details-grid {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 992px) {
+
+  /* NAVIGATION */
+
+  .navbar {
+    padding: 18px 40px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 90vh;
+  }
+
+
+  .hero-content {
+    padding: 120px 30px 80px;
+  }
+
+
+  .hero-content h1 {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+  }
+
+
+  /* DETAILS */
+
+  .details-grid {
+    gap: 25px;
+    padding: 0 30px;
+  }
+
+
+  /* INTRODUCTION */
+
+  .introduction-content {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+
+  /* SECTIONS */
+
+  .wedding-preview,
+  .dress-code,
+  .countdown-section {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+
+  .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    padding: 15px 20px;
+
+    z-index: 9999;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  /* LOGO */
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+
+  /* MENU BUTTON */
+
+  .menu-toggle {
+    display: block;
+
+    background: transparent;
+    border: none;
+
+    font-size: 1.8rem;
+
+    cursor: pointer;
+
+    z-index: 10000;
+  }
+
+
+  /* MOBILE MENU */
+
+  #navMenu {
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    display: none;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 20px 0 25px;
+
+    gap: 20px;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    box-shadow:
+      0 10px 25px
+      rgba(0, 0, 0, 0.08);
+
+  }
+
+
+  #navMenu.active {
+    display: flex;
+  }
+
+
+  #navMenu a {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+  }
+
+
+  .admin-nav-button {
+    margin-top: 5px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 100svh;
+  }
+
+
+  .hero-content {
+
+    padding:
+      120px
+      20px
+      80px;
+
+    width: 100%;
+
+  }
+
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+  }
+
+
+  .hero-content h1 {
+
+    font-size:
+      clamp(
+        3.2rem,
+        13vw,
+        5.5rem
+      );
+
+    line-height: 0.9;
+
+  }
+
+
+  .hero-content .name {
+    display: block;
+  }
+
+
+  .hero-content .ampersand {
+
+    display: block;
+
+    margin:
+      10px
+      0;
+
+  }
+
+
+  .hero-date {
+
+    font-size: 0.8rem;
+
+    letter-spacing: 2px;
+
+  }
+
+
+  .hero-time {
+
+    font-size: 0.9rem;
+
+  }
+
+
+  .hero-location {
+
+    font-size: 0.75rem;
+
+    letter-spacing: 2px;
+
+  }
+
+
+  /* BUTTONS */
+
+  .primary-button,
+  .secondary-button {
+
+    width: 100%;
+
+    max-width: 320px;
+
+    padding:
+      16px
+      20px;
+
+    text-align: center;
+
+  }
+
+
+  /* SECTION HEADINGS */
+
+  h2 {
+
+    font-size:
+      clamp(
+        2.2rem,
+        9vw,
+        3.5rem
+      );
+
+    line-height: 1.1;
+
+  }
+
+
+  /* COUNTDOWN */
+
+  .countdown {
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 15px;
+
+    max-width: 380px;
+
+    margin:
+      35px
+      auto
+      0;
+
+  }
+
+
+  .time-box {
+
+    width: 100%;
+
+    padding:
+      20px
+      10px;
+
+  }
+
+
+  .time-box span {
+
+    font-size:
+      clamp(
+        2rem,
+        9vw,
+        3.5rem
+      );
+
+  }
+
+
+  /* INTRODUCTION */
+
+  .introduction {
+
+    padding:
+      80px
+      20px;
+
+  }
+
+
+  .introduction-content {
+
+    max-width: 100%;
+
+    padding: 0;
+
+  }
+
+
+  .introduction-content p {
+
+    font-size: 0.95rem;
+
+    line-height: 1.9;
+
+  }
+
+
+  /* WEDDING DETAILS */
+
+  .wedding-preview {
+
+    padding:
+      80px
+      20px;
+
+  }
+
+
+  .details-grid {
+
+    grid-template-columns:
+      1fr;
+
+    gap: 20px;
+
+    padding: 0;
+
+  }
+
+
+  .detail-card {
+
+    width: 100%;
+
+    padding:
+      35px
+      25px;
+
+  }
+
+
+  /* DRESS CODE */
+
+  .dress-code {
+
+    padding:
+      80px
+      20px;
+
+  }
+
+
+  .dress-description {
+
+    font-size: 0.95rem;
+
+    line-height: 1.8;
+
+  }
+
+
+  .palette {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 25px;
+
+  }
+
+
+  .palette-item {
+
+    min-width: 80px;
+
+  }
+
+
+  .color-circle {
+
+    width: 65px;
+
+    height: 65px;
+
+  }
+
+
+  /* RSVP PREVIEW */
+
+  .rsvp-preview {
+
+    min-height: 600px;
+
+  }
+
+
+  .rsvp-preview-content {
+
+    padding:
+      80px
+      20px;
+
+    width: 100%;
+
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+
+    padding:
+      60px
+      20px;
+
+  }
+
+
+  .footer h2 {
+
+    font-size:
+      clamp(
+        2.5rem,
+        10vw,
+        4rem
+      );
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+  /* NAVBAR */
+
+  .navbar {
+
+    padding:
+      14px
+      16px;
+
+  }
+
+
+  /* HERO */
+
+  .hero-content {
+
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+
+
+  .hero-content h1 {
+
+    font-size:
+      clamp(
+        2.8rem,
+        14vw,
+        4.5rem
+      );
+
+  }
+
+
+  /* COUNTDOWN */
+
+  .countdown {
+
+    gap: 10px;
+
+  }
+
+
+  .time-box {
+
+    padding:
+      16px
+      8px;
+
+  }
+
+
+  .time-box small {
+
+    font-size: 0.6rem;
+
+    letter-spacing: 1px;
+
+  }
+
+
+  /* SECTION SPACING */
+
+  .countdown-section,
+  .introduction,
+  .wedding-preview,
+  .dress-code {
+
+    padding-top: 65px;
+    padding-bottom: 65px;
+
+  }
+
+
+  /* CARDS */
+
+  .detail-card {
+
+    padding:
+      30px
+      18px;
+
+  }
+
+
+  .detail-card h3 {
+
+    font-size: 1.5rem;
+
+  }
+
+
+  /* PALETTE */
+
+  .palette {
+
+    gap: 18px;
+
+  }
+
+
+  .color-circle {
+
+    width: 55px;
+    height: 55px;
+
+  }
+
+
+  /* BUTTONS */
+
+  .primary-button,
+  .secondary-button {
+
+    font-size: 0.7rem;
+
+    letter-spacing: 1.5px;
+
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .hero-content h1 {
+
+    font-size: 2.6rem;
+
+  }
+
+
+  .countdown {
+
+    gap: 8px;
+
+  }
+
+
+  .time-box span {
+
+    font-size: 1.8rem;
+
+  }
+
+
+  .time-box small {
+
+    font-size: 0.55rem;
+
+  }
+
+}
+/* =========================================================
+   GLOBAL SCROLL ANIMATIONS
+========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  will-change:
+    opacity,
+    transform;
+}
+
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   REVEAL FROM LEFT
+========================================================= */
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  will-change:
+    opacity,
+    transform;
+}
+
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   REVEAL FROM RIGHT
+========================================================= */
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  will-change:
+    opacity,
+    transform;
+}
+
+
+/* =========================================================
+   ZOOM REVEAL
+========================================================= */
+
+.reveal-zoom {
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  will-change:
+    opacity,
+    transform;
+}
+
+
+.reveal-zoom.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* =========================================================
+   STAGGER ANIMATION
+========================================================= */
+
+.delay-1 {
+  transition-delay: 0.1s;
+}
+
+
+.delay-2 {
+  transition-delay: 0.2s;
+}
+
+
+.delay-3 {
+  transition-delay: 0.3s;
+}
+
+
+.delay-4 {
+  transition-delay: 0.4s;
+}
+
+
+.delay-5 {
+  transition-delay: 0.5s;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   Accessibility and mobile-friendly
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-zoom {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+}
+/* =========================================================
+   HERO ENTRANCE ANIMATIONS
+========================================================= */
+
+.hero-content .eyebrow,
+.hero-content h1,
+.hero-content .hero-divider,
+.hero-content .hero-event-details,
+.hero-content .primary-button {
+  opacity: 0;
+}
+
+
+/* SAVE THE DATE */
+
+.hero-content .eyebrow {
+  animation:
+    heroFadeUp
+    0.8s
+    ease
+    forwards;
+
+  animation-delay:
+    0.2s;
+}
+
+
+/* NAMES */
+
+.hero-content h1 {
+  animation:
+    heroFadeUp
+    1s
+    ease
+    forwards;
+
+  animation-delay:
+    0.5s;
+}
+
+
+/* DIVIDER */
+
+.hero-content .hero-divider {
+  animation:
+    heroFadeUp
+    0.8s
+    ease
+    forwards;
+
+  animation-delay:
+    0.9s;
+}
+
+
+/* DATE / TIME / LOCATION */
+
+.hero-content .hero-event-details {
+  animation:
+    heroFadeUp
+    0.8s
+    ease
+    forwards;
+
+  animation-delay:
+    1.2s;
+}
+
+
+/* RSVP BUTTON */
+
+.hero-content .primary-button {
+  animation:
+    heroFadeUp
+    0.8s
+    ease
+    forwards;
+
+  animation-delay:
+    1.5s;
+}
+
+
+/* =========================================================
+   HERO ANIMATION KEYFRAMES
+========================================================= */
+
+@keyframes heroFadeUp {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(30px);
+
+  }
+
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   RESPECT REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  .hero-content .eyebrow,
+  .hero-content h1,
+  .hero-content .hero-divider,
+  .hero-content .hero-event-details,
+  .hero-content .primary-button {
+
+    animation:
+      none;
+
+    opacity:
+      1;
+
+    transform:
+      none;
+
+  }
+
+}

@@ -1,67 +1,373 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="The love story of Marc Jundel B. Verra and Hannah Rey Leizel Q. Lumagod"
+  >
 
   <title>Our Story | Marc & Hannah</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- =====================================================
+       GOOGLE FONTS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- =====================================================
+       MAIN CSS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
 </head>
+
 
 <body>
 
-  <section class="introduction">
 
-```
-<div class="introduction-content">
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
 
-  <p class="section-eyebrow">
-    OUR STORY
-  </p>
+  <header class="navbar">
 
-  <h2>
-    Two Hearts, One Beautiful Journey
-  </h2>
 
-  <div class="section-divider">
-    <span></span>
-    ❦
-    <span></span>
-  </div>
+    <!-- LOGO -->
 
-  <p>
-    Every love story is beautiful, but ours is our favorite.
-  </p>
+    <a
+      href="index.html"
+      class="logo"
+      aria-label="Marc and Hannah Wedding Home"
+    >
+      M<span>&</span>H
+    </a>
 
-  <p>
-    With grateful hearts and surrounded by the love of our
-    family and friends, we are preparing to begin a beautiful
-    new chapter together.
-  </p>
 
-  <p>
-    Our journey, our memories, and the moments that brought us
-    together will soon be shared here.
-  </p>
+    <!-- MOBILE MENU BUTTON -->
 
-  <a href="index.html" class="secondary-button">
-    BACK TO HOME
-  </a>
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      ☰
+    </button>
 
-</div>
-```
+
+    <!-- NAVIGATION -->
+
+    <nav
+      id="mainNav"
+      aria-label="Main Navigation"
+    >
+
+      <a href="index.html">
+        Home
+      </a>
+
+
+      <a
+        href="story.html"
+        aria-current="page"
+      >
+        Our Story
+      </a>
+
+
+      <a href="wedding.html">
+        Wedding Details
+      </a>
+
+
+      <a href="gallery.html">
+        Gallery
+      </a>
+
+
+      <a href="rsvp.html">
+        RSVP
+      </a>
+
+
+      <a
+        href="login.html"
+        class="admin-nav-button"
+      >
+        Admin
+      </a>
+
+    </nav>
+
+
+  </header>
+
+
+  <!-- =====================================================
+       STORY HERO
+  ====================================================== -->
+
+  <section class="story-page-hero">
+
+
+    <div class="story-page-overlay"></div>
+
+
+    <div class="story-page-content">
+
+
+      <p class="section-eyebrow">
+        OUR STORY
+      </p>
+
+
+      <h1>
+        Two Hearts,
+        <br>
+        One Beautiful Journey
+      </h1>
+
+
+      <div class="section-divider">
+
+        <span></span>
+
+        <span class="divider-icon">
+          ❦
+        </span>
+
+        <span></span>
+
+      </div>
+
+
+      <p>
+        Every love story is beautiful,
+        but ours is our favorite.
+      </p>
+
+
+    </div>
+
 
   </section>
 
+
+  <!-- =====================================================
+       STORY CONTENT
+  ====================================================== -->
+
+  <section class="introduction story-introduction">
+
+
+    <div class="introduction-content">
+
+
+      <p class="section-eyebrow">
+        OUR JOURNEY
+      </p>
+
+
+      <h2>
+        A Beautiful Chapter Begins
+      </h2>
+
+
+      <div class="section-divider">
+
+        <span></span>
+
+        <span class="divider-icon">
+          ❦
+        </span>
+
+        <span></span>
+
+      </div>
+
+
+      <p>
+        Every love story is beautiful,
+        but ours is our favorite.
+      </p>
+
+
+      <p>
+        With grateful hearts and surrounded by the love of our
+        family and friends, we are preparing to begin a beautiful
+        new chapter together.
+      </p>
+
+
+      <p>
+        Our journey, our memories, and the moments that brought us
+        together will soon be shared here.
+      </p>
+
+
+      <a
+        href="gallery.html"
+        class="primary-button"
+      >
+        VIEW OUR MEMORIES
+      </a>
+
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       LOVE QUOTE
+  ====================================================== -->
+
+  <section class="story-quote">
+
+
+    <div class="story-quote-content">
+
+
+      <span class="quote-mark">
+        “
+      </span>
+
+
+      <h2>
+        And so, together,
+        we begin our forever.
+      </h2>
+
+
+      <span class="quote-mark quote-mark-bottom">
+        ”
+      </span>
+
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       CALL TO ACTION
+  ====================================================== -->
+
+  <section class="story-cta">
+
+
+    <p class="section-eyebrow">
+      CELEBRATE WITH US
+    </p>
+
+
+    <h2>
+      Our Next Chapter Begins
+    </h2>
+
+
+    <div class="section-divider">
+
+      <span></span>
+
+      <span class="divider-icon">
+        ❦
+      </span>
+
+      <span></span>
+
+    </div>
+
+
+    <p>
+      We would be honored to have you with us
+      as we celebrate the beginning of our forever.
+    </p>
+
+
+    <a
+      href="rsvp.html"
+      class="primary-button"
+    >
+      RSVP NOW
+    </a>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer">
+
+
+    <h2>
+      Marc <span>&</span> Hannah
+    </h2>
+
+
+    <p class="footer-date">
+      FEBRUARY 22, 2027
+    </p>
+
+
+    <p class="footer-message">
+      We cannot wait to celebrate this beautiful
+      beginning with you.
+    </p>
+
+
+    <p class="copyright">
+      © 2027 Marc & Hannah Wedding
+    </p>
+
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="js/script.js"></script>
+
+
 </body>
+
 </html>

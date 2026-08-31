@@ -1,100 +1,452 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Wedding details for Marc Jundel B. Verra and Hannah Rey Leizel Q. Lumagod"
+  >
 
   <title>Wedding Details | Marc & Hannah</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- =====================================================
+       GOOGLE FONTS
+  ====================================================== -->
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- =====================================================
+       MAIN CSS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
 </head>
+
 
 <body>
 
-  <section class="wedding-preview">
 
-```
-<p class="section-eyebrow">
-  SAVE THE DATE
-</p>
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
 
-<h2>
-  Wedding Details
-</h2>
+  <header class="navbar">
 
-<div class="section-divider">
-  <span></span>
-  ❦
-  <span></span>
-</div>
 
-<div class="details-grid">
+    <!-- LOGO -->
 
-  <article class="detail-card">
+    <a
+      href="index.html"
+      class="logo"
+      aria-label="Marc and Hannah Wedding Home"
+    >
+      M<span>&</span>H
+    </a>
 
-    <div class="detail-icon">
-      ⛪
+
+    <!-- MOBILE MENU BUTTON -->
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      ☰
+    </button>
+
+
+    <!-- NAVIGATION -->
+
+    <nav
+      id="mainNav"
+      aria-label="Main Navigation"
+    >
+
+      <a href="index.html">
+        Home
+      </a>
+
+
+      <a href="story.html">
+        Our Story
+      </a>
+
+
+      <a
+        href="wedding.html"
+        aria-current="page"
+      >
+        Wedding Details
+      </a>
+
+
+      <a href="gallery.html">
+        Gallery
+      </a>
+
+
+      <a href="rsvp.html">
+        RSVP
+      </a>
+
+
+      <a
+        href="login.html"
+        class="admin-nav-button"
+      >
+        Admin
+      </a>
+
+    </nav>
+
+
+  </header>
+
+
+  <!-- =====================================================
+       WEDDING HERO
+  ====================================================== -->
+
+  <section class="wedding-page-hero">
+
+    <div class="wedding-page-overlay"></div>
+
+
+    <div class="wedding-page-content">
+
+      <p class="section-eyebrow">
+        SAVE THE DATE
+      </p>
+
+
+      <h1>
+        Wedding Details
+      </h1>
+
+
+      <div class="section-divider">
+
+        <span></span>
+
+        <span class="divider-icon">
+          ❦
+        </span>
+
+        <span></span>
+
+      </div>
+
+
+      <p>
+        We would be honored to have you join us
+        as we celebrate the beginning of our forever.
+      </p>
+
+
+      <p class="wedding-page-date">
+        FEBRUARY 22, 2027
+      </p>
+
     </div>
 
-    <h3>
-      Wedding Ceremony
-    </h3>
-
-    <p class="detail-date">
-      February 22, 2027
-    </p>
-
-    <p class="detail-time">
-      2:00 PM
-    </p>
-
-    <p class="detail-location">
-      St. Francis Xavier Parish Church
-      <br>
-      Abuyog, Leyte
-    </p>
-
-  </article>
-
-  <article class="detail-card">
-
-    <div class="detail-icon">
-      🥂
-    </div>
-
-    <h3>
-      Wedding Reception
-    </h3>
-
-    <p class="detail-date">
-      Following the Ceremony
-    </p>
-
-    <p class="detail-location">
-      Alumni Gym
-      <br>
-      Notre Dame of Abuyog
-    </p>
-
-  </article>
-
-</div>
-
-<a href="index.html" class="secondary-button">
-  BACK TO HOME
-</a>
-```
 
   </section>
 
+
+  <!-- =====================================================
+       WEDDING DETAILS
+  ====================================================== -->
+
+  <section class="wedding-preview wedding-details-page">
+
+
+    <p class="section-eyebrow">
+      THE CELEBRATION
+    </p>
+
+
+    <h2>
+      Celebrate With Us
+    </h2>
+
+
+    <div class="section-divider">
+
+      <span></span>
+
+      <span class="divider-icon">
+        ❦
+      </span>
+
+      <span></span>
+
+    </div>
+
+
+    <!-- DETAILS GRID -->
+
+    <div class="details-grid">
+
+
+      <!-- CEREMONY -->
+
+      <article class="detail-card">
+
+
+        <div class="detail-icon">
+          ⛪
+        </div>
+
+
+        <h3>
+          Wedding Ceremony
+        </h3>
+
+
+        <p class="detail-date">
+          February 22, 2027
+        </p>
+
+
+        <p class="detail-time">
+          2:00 PM
+        </p>
+
+
+        <p class="detail-location">
+
+          St. Francis Xavier Parish Church
+
+          <br>
+
+          Abuyog, Leyte
+
+        </p>
+
+
+      </article>
+
+
+      <!-- RECEPTION -->
+
+      <article class="detail-card">
+
+
+        <div class="detail-icon">
+          🥂
+        </div>
+
+
+        <h3>
+          Wedding Reception
+        </h3>
+
+
+        <p class="detail-date">
+          Following the Ceremony
+        </p>
+
+
+        <p class="detail-location">
+
+          Alumni Gym
+
+          <br>
+
+          Notre Dame of Abuyog
+
+        </p>
+
+
+      </article>
+
+
+    </div>
+
+
+    <!-- RSVP BUTTON -->
+
+    <a
+      href="rsvp.html"
+      class="primary-button"
+    >
+      RSVP NOW
+    </a>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       ADDITIONAL INFORMATION
+  ====================================================== -->
+
+  <section class="wedding-extra-info">
+
+
+    <div class="wedding-extra-container">
+
+
+      <!-- DRESS CODE -->
+
+      <article class="wedding-info-card">
+
+
+        <div class="wedding-info-icon">
+          ✦
+        </div>
+
+
+        <h3>
+          Dress Code
+        </h3>
+
+
+        <p>
+          Champagne Elegance
+        </p>
+
+
+        <span class="wedding-info-small">
+          Champagne · Olive Green · Burgundy
+        </span>
+
+
+      </article>
+
+
+      <!-- LOCATION -->
+
+      <article class="wedding-info-card">
+
+
+        <div class="wedding-info-icon">
+          ♡
+        </div>
+
+
+        <h3>
+          Location
+        </h3>
+
+
+        <p>
+          Abuyog, Leyte
+        </p>
+
+
+        <span class="wedding-info-small">
+          Philippines
+        </span>
+
+
+      </article>
+
+
+      <!-- RSVP -->
+
+      <article class="wedding-info-card">
+
+
+        <div class="wedding-info-icon">
+          ❦
+        </div>
+
+
+        <h3>
+          RSVP
+        </h3>
+
+
+        <p>
+          Please Confirm
+        </p>
+
+
+        <span class="wedding-info-small">
+          We look forward to celebrating with you
+        </span>
+
+
+      </article>
+
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer">
+
+
+    <h2>
+      Marc <span>&</span> Hannah
+    </h2>
+
+
+    <p class="footer-date">
+      FEBRUARY 22, 2027
+    </p>
+
+
+    <p class="footer-message">
+      We cannot wait to celebrate this beautiful
+      beginning with you.
+    </p>
+
+
+    <p class="copyright">
+      © 2027 Marc & Hannah Wedding
+    </p>
+
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="js/script.js"></script>
+
+
 </body>
+
 </html>

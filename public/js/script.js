@@ -2,23 +2,108 @@
    MOBILE NAVIGATION
 ========================================================= */
 
-const menuToggle = document.getElementById("menuToggle");
+const menuToggle =
+  document.getElementById("menuToggle");
+
 const navMenu =
   document.getElementById("navMenu") ||
   document.getElementById("mainNav");
 
+
 if (menuToggle && navMenu) {
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-  });
 
-  const navLinks = navMenu.querySelectorAll("a");
+  menuToggle.addEventListener(
+    "click",
+    () => {
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-    });
-  });
+      const isOpen =
+        navMenu.classList.toggle(
+          "active"
+        );
+
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+
+      menuToggle.textContent =
+        isOpen
+          ? "✕"
+          : "☰";
+
+    }
+  );
+
+
+  /* =====================================================
+     CLOSE MOBILE MENU WHEN A LINK IS CLICKED
+  ====================================================== */
+
+  const navLinks =
+    navMenu.querySelectorAll("a");
+
+
+  navLinks.forEach(
+    (link) => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          navMenu.classList.remove(
+            "active"
+          );
+
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+
+          menuToggle.textContent =
+            "☰";
+
+        }
+      );
+
+    }
+  );
+
+
+  /* =====================================================
+     CLOSE MENU WHEN SCREEN RETURNS TO DESKTOP
+  ====================================================== */
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      if (
+        window.innerWidth > 768
+      ) {
+
+        navMenu.classList.remove(
+          "active"
+        );
+
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+
+        menuToggle.textContent =
+          "☰";
+
+      }
+
+    }
+  );
+
 }
 
 
@@ -39,11 +124,6 @@ const secondsElement =
   document.getElementById("seconds");
 
 
-/*
-  Only run the countdown if the current page
-  actually contains the countdown elements.
-*/
-
 if (
   daysElement &&
   hoursElement &&
@@ -51,9 +131,10 @@ if (
   secondsElement
 ) {
 
-  const weddingDate = new Date(
-    "2027-02-22T14:00:00+08:00"
-  ).getTime();
+  const weddingDate =
+    new Date(
+      "2027-02-22T14:00:00+08:00"
+    ).getTime();
 
 
   function updateCountdown() {
@@ -61,9 +142,14 @@ if (
     const now =
       new Date().getTime();
 
+
     const distance =
       weddingDate - now;
 
+
+    /* =====================================================
+       WEDDING DAY HAS ARRIVED
+    ====================================================== */
 
     if (distance <= 0) {
 
@@ -80,41 +166,54 @@ if (
         "00";
 
       return;
+
     }
 
 
-    const days = Math.floor(
-      distance /
-      (1000 * 60 * 60 * 24)
-    );
+    /* =====================================================
+       CALCULATE TIME
+    ====================================================== */
 
-
-    const hours = Math.floor(
-      (
-        distance %
+    const days =
+      Math.floor(
+        distance /
         (1000 * 60 * 60 * 24)
-      ) /
-      (1000 * 60 * 60)
-    );
+      );
 
 
-    const minutes = Math.floor(
-      (
-        distance %
+    const hours =
+      Math.floor(
+        (
+          distance %
+          (1000 * 60 * 60 * 24)
+        ) /
         (1000 * 60 * 60)
-      ) /
-      (1000 * 60)
-    );
+      );
 
 
-    const seconds = Math.floor(
-      (
-        distance %
+    const minutes =
+      Math.floor(
+        (
+          distance %
+          (1000 * 60 * 60)
+        ) /
         (1000 * 60)
-      ) /
-      1000
-    );
+      );
 
+
+    const seconds =
+      Math.floor(
+        (
+          distance %
+          (1000 * 60)
+        ) /
+        1000
+      );
+
+
+    /* =====================================================
+       UPDATE DISPLAY
+    ====================================================== */
 
     daysElement.textContent =
       String(days).padStart(
@@ -142,16 +241,22 @@ if (
         2,
         "0"
       );
+
   }
 
 
+  /* INITIAL LOAD */
+
   updateCountdown();
 
+
+  /* UPDATE EVERY SECOND */
 
   setInterval(
     updateCountdown,
     1000
   );
+
 }
 
 
@@ -168,11 +273,14 @@ if (rsvpForm) {
   const attendance =
     document.getElementById("attendance");
 
+
   const guestCount =
     document.getElementById("guestCount");
 
+
   const submitButton =
     document.getElementById("submitButton");
+
 
   const rsvpMessage =
     document.getElementById("rsvpMessage");
@@ -182,7 +290,10 @@ if (rsvpForm) {
      ATTENDANCE CHANGE
   ====================================================== */
 
-  if (attendance && guestCount) {
+  if (
+    attendance &&
+    guestCount
+  ) {
 
     attendance.addEventListener(
       "change",
@@ -194,19 +305,26 @@ if (rsvpForm) {
         ) {
 
           /*
-            A declining guest does not need
-            to select the number of guests.
+            A guest who cannot attend
+            does not need to choose
+            the number of guests.
           */
 
-          guestCount.value = "1";
+          guestCount.value =
+            "1";
 
-          guestCount.disabled = true;
+
+          guestCount.disabled =
+            true;
 
         } else {
 
-          guestCount.disabled = false;
+          guestCount.disabled =
+            false;
 
-          guestCount.value = "";
+
+          guestCount.value =
+            "";
 
         }
 
@@ -228,36 +346,46 @@ if (rsvpForm) {
 
 
       const formData =
-        new FormData(rsvpForm);
+        new FormData(
+          rsvpForm
+        );
 
 
-      /*
-        Data sent to the Express API.
-
-        dietaryRequirements has been removed
-        because it was removed from the form
-        and PostgreSQL table.
-      */
+      /* =================================================
+         FORM DATA
+      ================================================= */
 
       const data = {
 
         fullName:
-          formData.get("fullName"),
+          formData
+            .get("fullName")
+            ?.trim(),
 
         email:
-          formData.get("email"),
+          formData
+            .get("email")
+            ?.trim(),
 
         phone:
-          formData.get("phone"),
+          formData
+            .get("phone")
+            ?.trim(),
 
         attendance:
-          formData.get("attendance"),
+          formData.get(
+            "attendance"
+          ),
 
         guestCount:
-          formData.get("guestCount"),
+          formData.get(
+            "guestCount"
+          ),
 
         message:
-          formData.get("message"),
+          formData
+            .get("message")
+            ?.trim(),
 
       };
 
@@ -268,7 +396,9 @@ if (rsvpForm) {
 
       if (submitButton) {
 
-        submitButton.disabled = true;
+        submitButton.disabled =
+          true;
+
 
         submitButton.textContent =
           "Submitting...";
@@ -285,6 +415,7 @@ if (rsvpForm) {
         rsvpMessage.textContent =
           "";
 
+
         rsvpMessage.className =
           "rsvp-message";
 
@@ -293,17 +424,12 @@ if (rsvpForm) {
 
       try {
 
-        console.log(
-          "Submitting RSVP:",
-          data
-        );
-
-
         const response =
           await fetch(
             "/api/rsvp",
             {
-              method: "POST",
+              method:
+                "POST",
 
               headers: {
                 "Content-Type":
@@ -318,14 +444,12 @@ if (rsvpForm) {
           );
 
 
+        /*
+          Read the response safely.
+        */
+
         const result =
           await response.json();
-
-
-        console.log(
-          "RSVP Response:",
-          result
-        );
 
 
         /* =============================================
@@ -340,7 +464,9 @@ if (rsvpForm) {
           if (rsvpMessage) {
 
             rsvpMessage.textContent =
-              result.message;
+              result.message ||
+              "Thank you! Your RSVP has been received.";
+
 
             rsvpMessage.classList.add(
               "success"
@@ -349,13 +475,12 @@ if (rsvpForm) {
           }
 
 
+          /* RESET FORM */
+
           rsvpForm.reset();
 
 
-          /*
-            Make sure guest count is enabled
-            after resetting the form.
-          */
+          /* ENABLE GUEST COUNT AGAIN */
 
           if (guestCount) {
 
@@ -376,6 +501,7 @@ if (rsvpForm) {
             rsvpMessage.textContent =
               result.message ||
               "Unable to submit your RSVP.";
+
 
             rsvpMessage.classList.add(
               "error"
@@ -399,6 +525,7 @@ if (rsvpForm) {
           rsvpMessage.textContent =
             "Unable to connect to the server. Please try again.";
 
+
           rsvpMessage.classList.add(
             "error"
           );
@@ -408,10 +535,15 @@ if (rsvpForm) {
 
       } finally {
 
+        /* =============================================
+           RESTORE BUTTON
+        ============================================== */
+
         if (submitButton) {
 
           submitButton.disabled =
             false;
+
 
           submitButton.textContent =
             "Confirm RSVP";
@@ -419,6 +551,73 @@ if (rsvpForm) {
         }
 
       }
+
+    }
+  );
+
+}
+/* =========================================================
+   SCROLL REVEAL ANIMATIONS
+========================================================= */
+
+const revealElements =
+  document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right, .reveal-zoom"
+  );
+
+
+if (
+  revealElements.length > 0
+) {
+
+  const revealObserver =
+    new IntersectionObserver(
+      (
+        entries
+      ) => {
+
+        entries.forEach(
+          (
+            entry
+          ) => {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              entry.target.classList.add(
+                "active"
+              );
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          }
+        );
+
+      },
+      {
+
+        threshold: 0.15,
+
+        rootMargin:
+          "0px 0px -50px 0px",
+
+      }
+    );
+
+
+  revealElements.forEach(
+    (
+      element
+    ) => {
+
+      revealObserver.observe(
+        element
+      );
 
     }
   );
