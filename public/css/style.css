@@ -1120,3 +1120,407 @@ section:not(.hero) .section-divider {
     font-size: 50px;
   }
 }
+/* =========================================================
+   RSVP PAGE
+========================================================= */
+
+.rsvp-page-hero {
+  min-height: 55vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 150px 20px 80px;
+
+  background:
+    linear-gradient(
+      rgba(66, 16, 25, 0.82),
+      rgba(66, 16, 25, 0.82)
+    ),
+    url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png");
+
+  background-size: cover;
+  background-position: center;
+}
+
+
+.rsvp-page-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 700px;
+
+  color: var(--white);
+}
+
+
+.rsvp-page-content h1 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(65px, 8vw, 110px);
+  font-weight: 500;
+
+  color: var(--champagne-light);
+}
+
+
+.rsvp-page-content p {
+  line-height: 1.8;
+
+  color: var(--champagne-light);
+}
+
+
+.rsvp-wedding-date {
+  margin-top: 25px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   RSVP FORM SECTION
+========================================================= */
+
+.rsvp-section {
+  background: var(--cream);
+}
+
+
+.rsvp-container {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: auto;
+}
+
+
+.rsvp-intro {
+  max-width: 700px;
+
+  margin: 0 auto 60px;
+
+  text-align: center;
+}
+
+
+.rsvp-intro p {
+  margin-top: 20px;
+
+  line-height: 1.9;
+
+  color: var(--muted-text);
+}
+
+
+/* =========================================================
+   RSVP FORM
+========================================================= */
+
+.rsvp-form {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 25px;
+
+  background: var(--white);
+
+  padding: 50px;
+
+  box-shadow: var(--shadow);
+}
+
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+
+.form-group label {
+  margin-bottom: 10px;
+
+  color: var(--burgundy);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.form-group label span {
+  color: var(--burgundy-light);
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  padding: 15px;
+
+  border:
+    1px solid
+    rgba(107, 31, 43, 0.2);
+
+  background: var(--cream);
+
+  color: var(--text);
+
+  font-family: "Montserrat", sans-serif;
+
+  outline: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.form-group textarea {
+  resize: vertical;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--olive);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(104, 115, 75, 0.12);
+}
+
+
+.form-submit {
+  grid-column: 1 / -1;
+
+  text-align: center;
+
+  margin-top: 15px;
+}
+
+
+.rsvp-submit-button {
+  border: none;
+
+  padding: 18px 45px;
+
+  background: var(--burgundy);
+
+  color: var(--white);
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.rsvp-submit-button:hover {
+  background: var(--olive);
+
+  transform: translateY(-3px);
+}
+
+
+.rsvp-submit-button:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   RSVP MESSAGE
+========================================================= */
+
+.rsvp-message {
+  display: none;
+
+  margin-top: 25px;
+
+  padding: 18px 25px;
+
+  text-align: center;
+
+  line-height: 1.7;
+}
+
+
+.rsvp-message.success {
+  display: block;
+
+  background:
+    rgba(104, 115, 75, 0.12);
+
+  color: var(--olive-dark);
+
+  border:
+    1px solid
+    rgba(104, 115, 75, 0.3);
+}
+
+
+.rsvp-message.error {
+  display: block;
+
+  background:
+    rgba(107, 31, 43, 0.08);
+
+  color: var(--burgundy);
+
+  border:
+    1px solid
+    rgba(107, 31, 43, 0.2);
+}
+
+
+/* =========================================================
+   RSVP DETAILS
+========================================================= */
+
+.rsvp-details {
+  background:
+    var(--champagne-light);
+}
+
+
+.rsvp-details-container {
+  max-width: 900px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 30px;
+}
+
+
+.rsvp-detail {
+  padding: 45px 30px;
+
+  background: var(--white);
+
+  text-align: center;
+
+  box-shadow: var(--shadow);
+}
+
+
+.rsvp-detail-icon {
+  margin-bottom: 15px;
+
+  font-size: 30px;
+
+  color: var(--olive);
+}
+
+
+.rsvp-detail h3 {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 35px;
+
+  font-weight: 500;
+
+  color: var(--burgundy);
+
+  margin-bottom: 20px;
+}
+
+
+.rsvp-detail p {
+  margin: 8px 0;
+
+  color: var(--muted-text);
+
+  line-height: 1.7;
+}
+
+
+.rsvp-detail strong {
+  display: block;
+
+  margin-top: 18px;
+
+  color: var(--olive);
+
+  font-size: 11px;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   RSVP MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .rsvp-form {
+    grid-template-columns: 1fr;
+
+    padding: 30px 20px;
+  }
+
+
+  .form-group-full {
+    grid-column: auto;
+  }
+
+
+  .rsvp-details-container {
+    grid-template-columns: 1fr;
+  }
+
+
+  .rsvp-page-hero {
+    min-height: 50vh;
+  }
+
+}

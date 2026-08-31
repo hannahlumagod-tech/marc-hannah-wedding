@@ -16,6 +16,7 @@
   "author": "Marc Jundel B. Verra",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pg": "^8.23.0"
   }
 }
