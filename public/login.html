@@ -11,7 +11,10 @@
 
   <title>Admin Login | Marc & Hannah Wedding</title>
 
-  <!-- GOOGLE FONTS -->
+
+  <!-- =====================================================
+       GOOGLE FONTS
+  ====================================================== -->
 
   <link
     rel="preconnect"
@@ -29,12 +32,364 @@
     rel="stylesheet"
   >
 
-  <!-- MAIN CSS -->
 
-  <link
-    rel="stylesheet"
-    href="css/style.css"
-  >
+  <!-- =====================================================
+       LOGIN PAGE STYLES
+  ====================================================== -->
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    body {
+      min-height: 100vh;
+      font-family: "Montserrat", sans-serif;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(72, 20, 35, 0.96),
+          rgba(126, 48, 68, 0.92)
+        );
+      color: #2f1b20;
+    }
+
+
+    /* =====================================================
+       PAGE CONTAINER
+    ====================================================== */
+
+    .admin-login-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+
+
+    .admin-login-container {
+      width: 100%;
+      max-width: 480px;
+    }
+
+
+    /* =====================================================
+       LOGIN CARD
+    ====================================================== */
+
+    .admin-login-card {
+      position: relative;
+      width: 100%;
+      padding: 55px 45px 40px;
+      text-align: center;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+
+    .admin-login-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 7px;
+      background:
+        linear-gradient(
+          90deg,
+          #5d1f32,
+          #a45b70,
+          #5d1f32
+        );
+    }
+
+
+    /* =====================================================
+       LOGO
+    ====================================================== */
+
+    .admin-login-logo {
+      display: inline-block;
+      margin-bottom: 22px;
+      text-decoration: none;
+      font-family:
+        "Cormorant Garamond",
+        serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: #5d1f32;
+      letter-spacing: 2px;
+    }
+
+
+    .admin-login-logo span {
+      padding: 0 4px;
+      font-family:
+        "Great Vibes",
+        cursive;
+      font-size: 62px;
+      font-weight: 400;
+      color: #b27a88;
+    }
+
+
+    /* =====================================================
+       TEXT
+    ====================================================== */
+
+    .section-eyebrow {
+      margin-bottom: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #a45b70;
+    }
+
+
+    h1 {
+      margin-bottom: 18px;
+      font-family:
+        "Cormorant Garamond",
+        serif;
+      font-size: 42px;
+      font-weight: 600;
+      color: #4d1b2b;
+    }
+
+
+    .admin-login-description {
+      max-width: 340px;
+      margin: 18px auto 30px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #6f6266;
+    }
+
+
+    /* =====================================================
+       DIVIDER
+    ====================================================== */
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 8px 0;
+    }
+
+
+    .section-divider span:first-child,
+    .section-divider span:last-child {
+      width: 65px;
+      height: 1px;
+      background: #d8b8c0;
+    }
+
+
+    .divider-icon {
+      font-size: 22px;
+      color: #a45b70;
+    }
+
+
+    /* =====================================================
+       FORM
+    ====================================================== */
+
+    .admin-login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: left;
+    }
+
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #56333d;
+    }
+
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #d8c3c8;
+      border-radius: 9px;
+      outline: none;
+      font-family:
+        "Montserrat",
+        sans-serif;
+      font-size: 14px;
+      color: #3d252c;
+      transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+
+    .form-group input::placeholder {
+      color: #b2a1a6;
+    }
+
+
+    .form-group input:focus {
+      border-color: #8d3f56;
+      box-shadow:
+        0 0 0 3px
+        rgba(141, 63, 86, 0.12);
+    }
+
+
+    /* =====================================================
+       LOGIN BUTTON
+    ====================================================== */
+
+    .admin-login-button {
+      width: 100%;
+      margin-top: 5px;
+      padding: 15px;
+      border: none;
+      border-radius: 9px;
+      cursor: pointer;
+      background:
+        linear-gradient(
+          135deg,
+          #5d1f32,
+          #8b3f55
+        );
+      color: #ffffff;
+      font-family:
+        "Montserrat",
+        sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+
+    .admin-login-button:hover {
+      transform:
+        translateY(-2px);
+      box-shadow:
+        0 10px 22px
+        rgba(93, 31, 50, 0.25);
+    }
+
+
+    .admin-login-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      transform: none;
+      box-shadow: none;
+    }
+
+
+    /* =====================================================
+       LOGIN MESSAGE
+    ====================================================== */
+
+    .login-message {
+      min-height: 22px;
+      margin-top: 18px;
+      padding: 0;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+
+    .login-message.success {
+      padding: 10px 12px;
+      background: #e8f6ed;
+      color: #23713f;
+    }
+
+
+    .login-message.error {
+      padding: 10px 12px;
+      background: #fdeaea;
+      color: #a22c2c;
+    }
+
+
+    /* =====================================================
+       BACK LINK
+    ====================================================== */
+
+    .admin-login-back {
+      display: inline-block;
+      margin-top: 24px;
+      color: #7a5861;
+      text-decoration: none;
+      font-size: 13px;
+      transition:
+        color 0.2s ease;
+    }
+
+
+    .admin-login-back:hover {
+      color: #5d1f32;
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ====================================================== */
+
+    @media (max-width: 520px) {
+
+      .admin-login-page {
+        padding: 20px 15px;
+      }
+
+
+      .admin-login-card {
+        padding:
+          45px
+          25px
+          32px;
+      }
+
+
+      .admin-login-logo {
+        font-size: 45px;
+      }
+
+
+      .admin-login-logo span {
+        font-size: 54px;
+      }
+
+
+      h1 {
+        font-size: 36px;
+      }
+
+    }
+
+  </style>
 
 </head>
 
@@ -72,6 +427,8 @@
       </h1>
 
 
+      <!-- DIVIDER -->
+
       <div class="section-divider">
 
         <span></span>
@@ -90,7 +447,9 @@
       </p>
 
 
-      <!-- LOGIN FORM -->
+      <!-- =================================================
+           LOGIN FORM
+      ================================================= -->
 
       <form
         id="loginForm"
@@ -138,7 +497,7 @@
         </div>
 
 
-        <!-- SUBMIT -->
+        <!-- LOGIN BUTTON -->
 
         <button
           type="submit"
@@ -176,21 +535,59 @@
   </main>
 
 
+
   <!-- =====================================================
        JAVASCRIPT
   ====================================================== -->
 
   <script>
 
+    /* =====================================================
+       REDIRECT IF ALREADY LOGGED IN
+    ====================================================== */
+
+    const existingToken =
+      localStorage.getItem(
+        "adminToken"
+      );
+
+
+    if (existingToken) {
+
+      window.location.replace(
+        "admin.html"
+      );
+
+    }
+
+
+
+    /* =====================================================
+       DOM ELEMENTS
+    ====================================================== */
+
     const loginForm =
-      document.getElementById("loginForm");
+      document.getElementById(
+        "loginForm"
+      );
+
 
     const loginButton =
-      document.getElementById("loginButton");
+      document.getElementById(
+        "loginButton"
+      );
+
 
     const loginMessage =
-      document.getElementById("loginMessage");
+      document.getElementById(
+        "loginMessage"
+      );
 
+
+
+    /* =====================================================
+       LOGIN SUBMISSION
+    ====================================================== */
 
     loginForm.addEventListener(
       "submit",
@@ -200,21 +597,32 @@
 
 
         const formData =
-          new FormData(loginForm);
+          new FormData(
+            loginForm
+          );
 
 
         const data = {
 
           username:
-            formData.get("username"),
+            formData
+              .get("username")
+              .trim(),
 
           password:
-            formData.get("password"),
+            formData
+              .get("password"),
 
         };
 
 
-        loginButton.disabled = true;
+        /* ===============================================
+           BUTTON LOADING STATE
+        =============================================== */
+
+        loginButton.disabled =
+          true;
+
 
         loginButton.textContent =
           "Signing In...";
@@ -223,8 +631,10 @@
         loginMessage.textContent =
           "";
 
+
         loginMessage.className =
           "login-message";
+
 
 
         try {
@@ -233,7 +643,8 @@
             await fetch(
               "/api/admin/login",
               {
-                method: "POST",
+                method:
+                  "POST",
 
                 headers: {
                   "Content-Type":
@@ -241,7 +652,9 @@
                 },
 
                 body:
-                  JSON.stringify(data),
+                  JSON.stringify(
+                    data
+                  ),
               }
             );
 
@@ -250,13 +663,44 @@
             await response.json();
 
 
+
+          /* =============================================
+             SUCCESS
+          ============================================= */
+
           if (
             response.ok &&
             result.success
           ) {
 
+            /*
+              Save the JWT token.
+
+              This is required because admin.html
+              reads adminToken from localStorage.
+            */
+
+            if (
+              result.token
+            ) {
+
+              localStorage.setItem(
+                "adminToken",
+                result.token
+              );
+
+            } else {
+
+              throw new Error(
+                "Login succeeded but no authentication token was returned."
+              );
+
+            }
+
+
             loginMessage.textContent =
               "Login successful. Redirecting...";
+
 
             loginMessage.classList.add(
               "success"
@@ -270,15 +714,20 @@
                   "admin.html";
 
               },
-              500
+              700
             );
 
 
           } else {
 
+            /* ===========================================
+               LOGIN ERROR
+            =========================================== */
+
             loginMessage.textContent =
               result.message ||
               "Invalid username or password.";
+
 
             loginMessage.classList.add(
               "error"
@@ -296,7 +745,9 @@
 
 
           loginMessage.textContent =
+            error.message ||
             "Unable to connect to the server.";
+
 
           loginMessage.classList.add(
             "error"
@@ -306,6 +757,7 @@
 
           loginButton.disabled =
             false;
+
 
           loginButton.textContent =
             "Sign In";
