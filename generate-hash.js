@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 
-const password = "CHANGE_THIS_TO_YOUR_PASSWORD";
+const password = "HannahLUMAGOD23";
 
 async function generateHash() {
   try {
