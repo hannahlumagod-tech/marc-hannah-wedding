@@ -6,7 +6,6 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-
 /* =========================================================
    DATABASE CONNECTION
 ========================================================= */
@@ -56,6 +55,7 @@ app.get(
   "/health",
   (req, res) => {
     res.json({
+      success: true,
       status: "ok",
       message:
         "Marc & Hannah Wedding Website is running.",
@@ -83,13 +83,12 @@ app.get(
 
 
 /* =========================================================
-   RSVP SUBMISSION
+   CREATE RSVP
 ========================================================= */
 
 app.post(
   "/api/rsvp",
   async (req, res) => {
-
     try {
 
       if (!pool) {
@@ -113,9 +112,9 @@ app.post(
       } = req.body;
 
 
-      /* =============================================
+      /* =====================================================
          VALIDATION
-      ============================================== */
+      ====================================================== */
 
       if (
         !fullName ||
@@ -174,9 +173,9 @@ app.post(
       }
 
 
-      /* =============================================
+      /* =====================================================
          INSERT RSVP
-      ============================================== */
+      ====================================================== */
 
       const query = `
         INSERT INTO rsvps (
@@ -195,7 +194,14 @@ app.post(
           $5,
           $6
         )
-        RETURNING id
+        RETURNING
+          id,
+          full_name,
+          email,
+          phone,
+          attendance,
+          guest_count,
+          message
       `;
 
 
@@ -260,7 +266,6 @@ app.post(
 app.get(
   "/api/rsvps",
   async (req, res) => {
-
     try {
 
       if (!pool) {
@@ -327,7 +332,6 @@ app.get(
 app.get(
   "/api/rsvps/:id",
   async (req, res) => {
-
     try {
 
       if (!pool) {
@@ -348,7 +352,8 @@ app.get(
 
 
       if (
-        Number.isNaN(id)
+        !Number.isInteger(id) ||
+        id < 1
       ) {
         return res
           .status(400)
@@ -421,13 +426,12 @@ app.get(
 
 
 /* =========================================================
-   DELETE RSVP
+   UPDATE RSVP
 ========================================================= */
 
-app.delete(
+app.put(
   "/api/rsvps/:id",
   async (req, res) => {
-
     try {
 
       if (!pool) {
@@ -448,7 +452,204 @@ app.delete(
 
 
       if (
-        Number.isNaN(id)
+        !Number.isInteger(id) ||
+        id < 1
+      ) {
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message:
+              "Invalid RSVP ID.",
+          });
+      }
+
+
+      const {
+        fullName,
+        email,
+        phone,
+        attendance,
+        guestCount,
+        message,
+      } = req.body;
+
+
+      /* =====================================================
+         VALIDATION
+      ====================================================== */
+
+      if (
+        !fullName ||
+        !email ||
+        !attendance ||
+        !guestCount
+      ) {
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message:
+              "Please complete all required fields.",
+          });
+      }
+
+
+      const validAttendance = [
+        "Attending",
+        "Not Attending",
+      ];
+
+
+      if (
+        !validAttendance.includes(
+          attendance
+        )
+      ) {
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message:
+              "Invalid attendance selection.",
+          });
+      }
+
+
+      const guestCountNumber =
+        Number(guestCount);
+
+
+      if (
+        Number.isNaN(
+          guestCountNumber
+        ) ||
+        guestCountNumber < 1
+      ) {
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message:
+              "Invalid number of guests.",
+          });
+      }
+
+
+      /* =====================================================
+         UPDATE RSVP
+      ====================================================== */
+
+      const result =
+        await pool.query(
+          `
+            UPDATE rsvps
+            SET
+              full_name = $1,
+              email = $2,
+              phone = $3,
+              attendance = $4,
+              guest_count = $5,
+              message = $6
+            WHERE id = $7
+            RETURNING
+              id,
+              full_name,
+              email,
+              phone,
+              attendance,
+              guest_count,
+              message
+          `,
+          [
+            fullName.trim(),
+            email.trim(),
+            phone
+              ? phone.trim()
+              : null,
+            attendance,
+            guestCountNumber,
+            message
+              ? message.trim()
+              : null,
+            id,
+          ]
+        );
+
+
+      if (
+        result.rows.length === 0
+      ) {
+        return res
+          .status(404)
+          .json({
+            success: false,
+            message:
+              "RSVP record not found.",
+          });
+      }
+
+
+      return res.json({
+        success: true,
+        message:
+          "RSVP updated successfully.",
+        rsvp:
+          result.rows[0],
+      });
+
+
+    } catch (error) {
+
+      console.error(
+        "Update RSVP error:",
+        error
+      );
+
+
+      return res
+        .status(500)
+        .json({
+          success: false,
+          message:
+            "Unable to update RSVP.",
+        });
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   DELETE RSVP
+========================================================= */
+
+app.delete(
+  "/api/rsvps/:id",
+  async (req, res) => {
+    try {
+
+      if (!pool) {
+        return res
+          .status(500)
+          .json({
+            success: false,
+            message:
+              "Database is not configured.",
+          });
+      }
+
+
+      const id =
+        Number(
+          req.params.id
+        );
+
+
+      if (
+        !Number.isInteger(id) ||
+        id < 1
       ) {
         return res
           .status(400)

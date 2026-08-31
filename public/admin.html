@@ -44,6 +44,136 @@
     href="css/style.css"
   >
 
+
+  <!-- =====================================================
+       EDIT RSVP MODAL STYLES
+  ====================================================== -->
+  <style>
+    .edit-modal-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 9999;
+    }
+
+    .edit-modal-overlay.active {
+      display: flex;
+    }
+
+    .edit-modal {
+      width: 100%;
+      max-width: 720px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .edit-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 28px;
+      border-bottom: 1px solid rgba(85, 30, 45, 0.15);
+    }
+
+    .edit-modal-header h3 {
+      margin: 0;
+    }
+
+    .edit-modal-close {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .edit-rsvp-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding: 28px;
+    }
+
+    .edit-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .edit-form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    .edit-form-group label {
+      font-weight: 600;
+    }
+
+    .edit-form-group input,
+    .edit-form-group select,
+    .edit-form-group textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      border: 1px solid rgba(85, 30, 45, 0.25);
+      border-radius: 8px;
+      font: inherit;
+    }
+
+    .edit-modal-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding-top: 8px;
+    }
+
+    .edit-cancel-button,
+    .edit-save-button,
+    .edit-rsvp-button,
+    .delete-rsvp-button {
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+    }
+
+    .edit-rsvp-button {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .edit-rsvp-form {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .edit-form-group-full {
+        grid-column: auto;
+      }
+
+      .edit-modal-actions {
+        grid-column: auto;
+        flex-direction: column-reverse;
+      }
+
+      .edit-modal-actions button {
+        width: 100%;
+      }
+    }
+  </style>
+
 </head>
 
 
@@ -346,6 +476,198 @@
 
 
 
+
+  <!-- =====================================================
+       EDIT RSVP MODAL
+  ====================================================== -->
+
+  <div
+    id="editModalOverlay"
+    class="edit-modal-overlay"
+    aria-hidden="true"
+  >
+
+    <div
+      class="edit-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="editModalTitle"
+    >
+
+      <div class="edit-modal-header">
+
+        <div>
+
+          <p class="admin-eyebrow">
+            RSVP MANAGEMENT
+          </p>
+
+          <h3 id="editModalTitle">
+            Edit Guest RSVP
+          </h3>
+
+        </div>
+
+        <button
+          type="button"
+          id="closeEditModal"
+          class="edit-modal-close"
+          aria-label="Close edit form"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form
+        id="editRsvpForm"
+        class="edit-rsvp-form"
+      >
+
+        <input
+          type="hidden"
+          id="editRsvpId"
+        >
+
+
+        <div class="edit-form-group">
+
+          <label for="editFullName">
+            Full Name *
+          </label>
+
+          <input
+            type="text"
+            id="editFullName"
+            required
+          >
+
+        </div>
+
+
+        <div class="edit-form-group">
+
+          <label for="editEmail">
+            Email Address *
+          </label>
+
+          <input
+            type="email"
+            id="editEmail"
+            required
+          >
+
+        </div>
+
+
+        <div class="edit-form-group">
+
+          <label for="editPhone">
+            Phone Number
+          </label>
+
+          <input
+            type="tel"
+            id="editPhone"
+          >
+
+        </div>
+
+
+        <div class="edit-form-group">
+
+          <label for="editAttendance">
+            Attendance *
+          </label>
+
+          <select
+            id="editAttendance"
+            required
+          >
+            <option value="Attending">
+              Attending
+            </option>
+
+            <option value="Not Attending">
+              Not Attending
+            </option>
+          </select>
+
+        </div>
+
+
+        <div class="edit-form-group">
+
+          <label for="editGuestCount">
+            Number of Guests *
+          </label>
+
+          <select
+            id="editGuestCount"
+            required
+          >
+            <option value="1">
+              1 Guest
+            </option>
+
+            <option value="2">
+              2 Guests
+            </option>
+
+            <option value="3">
+              3 Guests
+            </option>
+
+            <option value="4">
+              4 Guests
+            </option>
+          </select>
+
+        </div>
+
+
+        <div class="edit-form-group edit-form-group-full">
+
+          <label for="editMessage">
+            Message for the Couple
+          </label>
+
+          <textarea
+            id="editMessage"
+            rows="5"
+          ></textarea>
+
+        </div>
+
+
+        <div class="edit-modal-actions">
+
+          <button
+            type="button"
+            id="cancelEditButton"
+            class="edit-cancel-button"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            id="saveEditButton"
+            class="edit-save-button"
+          >
+            Save Changes
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
   <!-- =====================================================
        FOOTER
   ====================================================== -->
@@ -368,58 +690,76 @@
        JAVASCRIPT
   ====================================================== -->
 
-  <script>
+<script>
 
     /* =====================================================
        DOM ELEMENTS
     ====================================================== */
 
     const rsvpTableBody =
-      document.getElementById(
-        "rsvpTableBody"
-      );
-
+      document.getElementById("rsvpTableBody");
 
     const totalRsvpsElement =
-      document.getElementById(
-        "totalRsvps"
-      );
-
+      document.getElementById("totalRsvps");
 
     const totalAttendingElement =
-      document.getElementById(
-        "totalAttending"
-      );
-
+      document.getElementById("totalAttending");
 
     const totalNotAttendingElement =
-      document.getElementById(
-        "totalNotAttending"
-      );
-
+      document.getElementById("totalNotAttending");
 
     const totalGuestsElement =
-      document.getElementById(
-        "totalGuests"
-      );
-
+      document.getElementById("totalGuests");
 
     const rsvpStatus =
-      document.getElementById(
-        "rsvpStatus"
-      );
-
+      document.getElementById("rsvpStatus");
 
     const refreshButton =
-      document.getElementById(
-        "refreshButton"
-      );
-
+      document.getElementById("refreshButton");
 
     const searchInput =
-      document.getElementById(
-        "searchInput"
-      );
+      document.getElementById("searchInput");
+
+
+    /* =====================================================
+       EDIT MODAL ELEMENTS
+    ====================================================== */
+
+    const editModalOverlay =
+      document.getElementById("editModalOverlay");
+
+    const editRsvpForm =
+      document.getElementById("editRsvpForm");
+
+    const closeEditModalButton =
+      document.getElementById("closeEditModal");
+
+    const cancelEditButton =
+      document.getElementById("cancelEditButton");
+
+    const saveEditButton =
+      document.getElementById("saveEditButton");
+
+    const editRsvpId =
+      document.getElementById("editRsvpId");
+
+    const editFullName =
+      document.getElementById("editFullName");
+
+    const editEmail =
+      document.getElementById("editEmail");
+
+    const editPhone =
+      document.getElementById("editPhone");
+
+    const editAttendance =
+      document.getElementById("editAttendance");
+
+    const editGuestCount =
+      document.getElementById("editGuestCount");
+
+    const editMessage =
+      document.getElementById("editMessage");
 
 
     /* =====================================================
@@ -440,7 +780,6 @@
         rsvpStatus.textContent =
           "Loading RSVP records...";
 
-
         rsvpTableBody.innerHTML = `
           <tr>
             <td
@@ -454,9 +793,7 @@
 
 
         const response =
-          await fetch(
-            "/api/rsvps"
-          );
+          await fetch("/api/rsvps");
 
 
         const result =
@@ -467,12 +804,10 @@
           !response.ok ||
           !result.success
         ) {
-
           throw new Error(
             result.message ||
             "Unable to load RSVP records."
           );
-
         }
 
 
@@ -485,9 +820,7 @@
         );
 
 
-        displayRsvps(
-          allRsvps
-        );
+        applySearchFilter();
 
 
       } catch (error) {
@@ -547,16 +880,11 @@
 
       const totalGuests =
         attending.reduce(
-          (
-            total,
-            rsvp
-          ) =>
+          (total, rsvp) =>
             total +
             Number(
-              rsvp.guest_count ||
-              0
+              rsvp.guest_count || 0
             ),
-
           0
         );
 
@@ -564,14 +892,11 @@
       totalRsvpsElement.textContent =
         total;
 
-
       totalAttendingElement.textContent =
         attending.length;
 
-
       totalNotAttendingElement.textContent =
         notAttending.length;
-
 
       totalGuestsElement.textContent =
         totalGuests;
@@ -608,7 +933,6 @@
         rsvpStatus.textContent =
           "0 RSVP records";
 
-
         return;
 
       }
@@ -632,33 +956,22 @@
 
 
           const fullName =
-            rsvp.full_name ||
-            "";
-
+            rsvp.full_name || "";
 
           const email =
-            rsvp.email ||
-            "";
-
+            rsvp.email || "";
 
           const phone =
-            rsvp.phone ||
-            "—";
-
+            rsvp.phone || "—";
 
           const attendance =
-            rsvp.attendance ||
-            "";
-
+            rsvp.attendance || "";
 
           const guestCount =
-            rsvp.guest_count ||
-            0;
-
+            rsvp.guest_count || 0;
 
           const message =
-            rsvp.message ||
-            "—";
+            rsvp.message || "—";
 
 
           const attendanceClass =
@@ -670,112 +983,69 @@
 
           row.innerHTML = `
 
-            <!-- GUEST -->
-
             <td>
-
               <strong>
-
-                ${escapeHtml(
-                  fullName
-                )}
-
+                ${escapeHtml(fullName)}
               </strong>
-
             </td>
 
 
-
-            <!-- CONTACT -->
-
             <td>
-
               <div class="admin-contact">
 
                 <span>
-
-                  ${escapeHtml(
-                    email
-                  )}
-
+                  ${escapeHtml(email)}
                 </span>
 
-
                 <span>
-
-                  ${escapeHtml(
-                    phone
-                  )}
-
+                  ${escapeHtml(phone)}
                 </span>
 
               </div>
-
             </td>
 
 
-
-            <!-- ATTENDANCE -->
-
             <td>
-
               <span
                 class="admin-attendance-badge ${attendanceClass}"
               >
-
-                ${escapeHtml(
-                  attendance
-                )}
-
+                ${escapeHtml(attendance)}
               </span>
-
             </td>
 
-
-
-            <!-- GUEST COUNT -->
 
             <td>
-
               ${escapeHtml(
-                String(
-                  guestCount
-                )
+                String(guestCount)
               )}
-
             </td>
 
-
-
-            <!-- MESSAGE -->
 
             <td
               class="admin-message-cell"
             >
-
-              ${escapeHtml(
-                message
-              )}
-
+              ${escapeHtml(message)}
             </td>
 
-
-
-            <!-- ACTION -->
 
             <td>
 
               <button
                 type="button"
+                class="edit-rsvp-button"
+                data-id="${rsvp.id}"
+              >
+                Edit
+              </button>
+
+
+              <button
+                type="button"
                 class="delete-rsvp-button"
                 data-id="${rsvp.id}"
-                data-name="${escapeHtml(
-                  fullName
-                )}"
+                data-name="${escapeHtml(fullName)}"
               >
-
                 Delete
-
               </button>
 
             </td>
@@ -812,6 +1082,331 @@
       return div.innerHTML;
 
     }
+
+
+    /* =====================================================
+       SEARCH RSVP
+    ====================================================== */
+
+    function applySearchFilter() {
+
+      const searchValue =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+
+      const filteredRsvps =
+        allRsvps.filter(
+          (rsvp) => {
+
+            const fullName =
+              (
+                rsvp.full_name ||
+                ""
+              ).toLowerCase();
+
+            const email =
+              (
+                rsvp.email ||
+                ""
+              ).toLowerCase();
+
+            const phone =
+              (
+                rsvp.phone ||
+                ""
+              ).toLowerCase();
+
+            const attendance =
+              (
+                rsvp.attendance ||
+                ""
+              ).toLowerCase();
+
+
+            return (
+              fullName.includes(
+                searchValue
+              ) ||
+
+              email.includes(
+                searchValue
+              ) ||
+
+              phone.includes(
+                searchValue
+              ) ||
+
+              attendance.includes(
+                searchValue
+              )
+            );
+
+          }
+        );
+
+
+      displayRsvps(
+        filteredRsvps
+      );
+
+    }
+
+
+    /* =====================================================
+       OPEN EDIT MODAL
+    ====================================================== */
+
+    async function openEditModal(id) {
+
+      try {
+
+        const response =
+          await fetch(
+            `/api/rsvps/${id}`
+          );
+
+
+        const result =
+          await response.json();
+
+
+        if (
+          !response.ok ||
+          !result.success
+        ) {
+          throw new Error(
+            result.message ||
+            "Unable to load RSVP."
+          );
+        }
+
+
+        const rsvp =
+          result.rsvp;
+
+
+        editRsvpId.value =
+          rsvp.id;
+
+        editFullName.value =
+          rsvp.full_name || "";
+
+        editEmail.value =
+          rsvp.email || "";
+
+        editPhone.value =
+          rsvp.phone || "";
+
+        editAttendance.value =
+          rsvp.attendance || "Attending";
+
+        editGuestCount.value =
+          String(
+            rsvp.guest_count || 1
+          );
+
+        editMessage.value =
+          rsvp.message || "";
+
+
+        updateEditGuestCount();
+
+
+        editModalOverlay.classList.add(
+          "active"
+        );
+
+        editModalOverlay.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "Load RSVP for editing error:",
+          error
+        );
+
+
+        alert(
+          error.message ||
+          "Unable to load RSVP."
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       CLOSE EDIT MODAL
+    ====================================================== */
+
+    function closeEditModal() {
+
+      editModalOverlay.classList.remove(
+        "active"
+      );
+
+      editModalOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      editRsvpForm.reset();
+
+      editGuestCount.disabled =
+        false;
+
+    }
+
+
+    /* =====================================================
+       EDIT ATTENDANCE CHANGE
+    ====================================================== */
+
+    function updateEditGuestCount() {
+
+      if (
+        editAttendance.value ===
+        "Not Attending"
+      ) {
+
+        editGuestCount.value =
+          "1";
+
+        editGuestCount.disabled =
+          true;
+
+      } else {
+
+        editGuestCount.disabled =
+          false;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       SAVE EDITED RSVP
+    ====================================================== */
+
+    editRsvpForm.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
+
+
+        const id =
+          editRsvpId.value;
+
+
+        const data = {
+          fullName:
+            editFullName.value,
+
+          email:
+            editEmail.value,
+
+          phone:
+            editPhone.value,
+
+          attendance:
+            editAttendance.value,
+
+          guestCount:
+            editGuestCount.value,
+
+          message:
+            editMessage.value,
+        };
+
+
+        try {
+
+          saveEditButton.disabled =
+            true;
+
+          saveEditButton.textContent =
+            "Saving...";
+
+
+          const response =
+            await fetch(
+              `/api/rsvps/${id}`,
+              {
+                method: "PUT",
+
+                headers: {
+                  "Content-Type":
+                    "application/json",
+                },
+
+                body:
+                  JSON.stringify(
+                    data
+                  ),
+              }
+            );
+
+
+          const result =
+            await response.json();
+
+
+          if (
+            !response.ok ||
+            !result.success
+          ) {
+            throw new Error(
+              result.message ||
+              "Unable to update RSVP."
+            );
+          }
+
+
+          alert(
+            result.message
+          );
+
+
+          closeEditModal();
+
+
+          await loadRsvps();
+
+
+        } catch (error) {
+
+          console.error(
+            "Update RSVP Error:",
+            error
+          );
+
+
+          alert(
+            error.message ||
+            "Unable to update RSVP."
+          );
+
+        } finally {
+
+          saveEditButton.disabled =
+            false;
+
+          saveEditButton.textContent =
+            "Save Changes";
+
+        }
+
+      }
+    );
 
 
     /* =====================================================
@@ -854,12 +1449,10 @@
           !response.ok ||
           !result.success
         ) {
-
           throw new Error(
             result.message ||
             "Unable to delete RSVP."
           );
-
         }
 
 
@@ -868,12 +1461,7 @@
         );
 
 
-        /*
-          Reload the RSVP list
-          and dashboard statistics.
-        */
-
-        loadRsvps();
+        await loadRsvps();
 
 
       } catch (error) {
@@ -895,104 +1483,72 @@
 
 
     /* =====================================================
-       DELETE BUTTON CLICK
+       TABLE ACTIONS
     ====================================================== */
 
     rsvpTableBody.addEventListener(
       "click",
       (event) => {
 
-        const button =
+        const editButton =
+          event.target.closest(
+            ".edit-rsvp-button"
+          );
+
+
+        if (editButton) {
+
+          const id =
+            Number(
+              editButton.dataset.id
+            );
+
+
+          openEditModal(
+            id
+          );
+
+          return;
+
+        }
+
+
+        const deleteButton =
           event.target.closest(
             ".delete-rsvp-button"
           );
 
 
-        if (!button) {
-          return;
-        }
+        if (deleteButton) {
+
+          const id =
+            Number(
+              deleteButton.dataset.id
+            );
+
+          const name =
+            deleteButton.dataset.name;
 
 
-        const id =
-          Number(
-            button.dataset.id
+          deleteRsvp(
+            id,
+            name
           );
 
-
-        const name =
-          button.dataset.name;
-
-
-        deleteRsvp(
-          id,
-          name
-        );
+        }
 
       }
     );
 
 
     /* =====================================================
-       SEARCH RSVP
+       SEARCH EVENT
     ====================================================== */
 
     searchInput.addEventListener(
       "input",
       () => {
-
-        const searchValue =
-          searchInput.value
-            .trim()
-            .toLowerCase();
-
-
-        const filteredRsvps =
-          allRsvps.filter(
-            (rsvp) => {
-
-              const fullName =
-                (
-                  rsvp.full_name ||
-                  ""
-                ).toLowerCase();
-
-
-              const email =
-                (
-                  rsvp.email ||
-                  ""
-                ).toLowerCase();
-
-
-              const phone =
-                (
-                  rsvp.phone ||
-                  ""
-                ).toLowerCase();
-
-
-              return (
-                fullName.includes(
-                  searchValue
-                ) ||
-
-                email.includes(
-                  searchValue
-                ) ||
-
-                phone.includes(
-                  searchValue
-                )
-              );
-
-            }
-          );
-
-
-        displayRsvps(
-          filteredRsvps
-        );
-
+        applySearchFilter();
       }
     );
 
@@ -1003,13 +1559,66 @@
 
     refreshButton.addEventListener(
       "click",
-      () => {
+      async () => {
 
         searchInput.value =
           "";
 
+        await loadRsvps();
 
-        loadRsvps();
+      }
+    );
+
+
+    /* =====================================================
+       MODAL EVENTS
+    ====================================================== */
+
+    closeEditModalButton.addEventListener(
+      "click",
+      closeEditModal
+    );
+
+
+    cancelEditButton.addEventListener(
+      "click",
+      closeEditModal
+    );
+
+
+    editAttendance.addEventListener(
+      "change",
+      updateEditGuestCount
+    );
+
+
+    editModalOverlay.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target ===
+          editModalOverlay
+        ) {
+          closeEditModal();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape" &&
+          editModalOverlay.classList.contains(
+            "active"
+          )
+        ) {
+          closeEditModal();
+        }
 
       }
     );
