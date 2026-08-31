@@ -27,7 +27,6 @@ if (process.env.DATABASE_URL) {
   );
 }
 
-
 /* =========================================================
    MIDDLEWARE
 ========================================================= */
@@ -36,7 +35,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "public")));
-
 
 /* =========================================================
    HEALTH CHECK
@@ -49,7 +47,6 @@ app.get("/health", (req, res) => {
   });
 });
 
-
 /* =========================================================
    HOME PAGE
 ========================================================= */
@@ -57,7 +54,6 @@ app.get("/health", (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-
 
 /* =========================================================
    RSVP SUBMISSION
@@ -79,10 +75,8 @@ app.post("/api/rsvp", async (req, res) => {
       phone,
       attendance,
       guestCount,
-      dietaryRequirements,
       message,
     } = req.body;
-
 
     /* =========================
        VALIDATION
@@ -95,7 +89,6 @@ app.post("/api/rsvp", async (req, res) => {
       });
     }
 
-
     const validAttendance = ["Attending", "Not Attending"];
 
     if (!validAttendance.includes(attendance)) {
@@ -104,7 +97,6 @@ app.post("/api/rsvp", async (req, res) => {
         message: "Invalid attendance selection.",
       });
     }
-
 
     /* =========================
        INSERT RSVP
@@ -117,13 +109,11 @@ app.post("/api/rsvp", async (req, res) => {
         phone,
         attendance,
         guest_count,
-        dietary_requirements,
         message
       )
-      VALUES ($1, $2, $3, $4, $5, $6, $7)
-      RETURNING id, created_at
+      VALUES ($1, $2, $3, $4, $5, $6)
+      RETURNING id
     `;
-
 
     const values = [
       fullName.trim(),
@@ -131,20 +121,10 @@ app.post("/api/rsvp", async (req, res) => {
       phone ? phone.trim() : null,
       attendance,
       Number(guestCount),
-      dietaryRequirements
-        ? dietaryRequirements.trim()
-        : null,
-      message
-        ? message.trim()
-        : null,
+      message ? message.trim() : null,
     ];
 
-
-    const result = await pool.query(
-      query,
-      values
-    );
-
+    const result = await pool.query(query, values);
 
     return res.status(201).json({
       success: true,
@@ -152,14 +132,8 @@ app.post("/api/rsvp", async (req, res) => {
         "Thank you! Your RSVP has been received. We look forward to celebrating with you.",
       rsvp: result.rows[0],
     });
-
-
   } catch (error) {
-
-    console.error(
-      "RSVP submission error:",
-      error
-    );
+    console.error("RSVP submission error:", error);
 
     return res.status(500).json({
       success: false,
@@ -168,7 +142,6 @@ app.post("/api/rsvp", async (req, res) => {
     });
   }
 });
-
 
 /* =========================================================
    GET ALL RSVPS
@@ -184,7 +157,6 @@ app.get("/api/rsvps", async (req, res) => {
       });
     }
 
-
     const result = await pool.query(`
       SELECT
         id,
@@ -193,27 +165,18 @@ app.get("/api/rsvps", async (req, res) => {
         phone,
         attendance,
         guest_count,
-        dietary_requirements,
-        message,
-        created_at
+        message
       FROM rsvps
-      ORDER BY created_at DESC
+      ORDER BY id DESC
     `);
-
 
     return res.json({
       success: true,
       total: result.rows.length,
       rsvps: result.rows,
     });
-
-
   } catch (error) {
-
-    console.error(
-      "Error retrieving RSVPs:",
-      error
-    );
+    console.error("Error retrieving RSVPs:", error);
 
     return res.status(500).json({
       success: false,
@@ -222,13 +185,10 @@ app.get("/api/rsvps", async (req, res) => {
   }
 });
 
-
 /* =========================================================
    START SERVER
 ========================================================= */
 
 app.listen(PORT, () => {
-  console.log(
-    `Wedding website running on port ${PORT}`
-  );
+  console.log(`Wedding website running on port ${PORT}`);
 });
