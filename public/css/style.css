@@ -108,20 +108,24 @@ img {
 
 
 .navbar nav a {
-  color: var(--white);
+  color: #66704a;
 
   font-size: 12px;
+
   font-weight: 500;
 
   letter-spacing: 1.5px;
+
   text-transform: uppercase;
 
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
 }
 
 
 .navbar nav a:hover {
-  color: var(--champagne);
+  color: #7a1f2b;
 }
 
 
