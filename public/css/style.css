@@ -3137,3 +3137,86 @@ section:not(.hero) .section-divider {
   }
 
 }
+/* =========================================================
+   INNER PAGES - GREEN NAVBAR
+========================================================= */
+
+.inner-page .navbar {
+  background: #66704a;
+  background: linear-gradient(
+    135deg,
+    #596342,
+    #737d55
+  );
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* NAVIGATION LINKS */
+
+.inner-page .navbar nav a {
+  color: #ffffff;
+}
+
+
+.inner-page .navbar nav a:hover {
+  color: #e8dfc8;
+}
+
+
+/* LOGO */
+
+.inner-page .navbar .logo {
+  color: #ffffff;
+}
+
+
+.inner-page .navbar .logo span {
+  color: #e8dfc8;
+}
+
+
+/* ADMIN BUTTON */
+
+.inner-page .navbar .admin-nav-button {
+  border-color: #e8dfc8;
+  color: #ffffff;
+}
+
+
+.inner-page .navbar .admin-nav-button:hover {
+  background: #e8dfc8;
+  color: #596342;
+}
+
+
+/* MOBILE MENU BUTTON */
+
+.inner-page .navbar .menu-toggle {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  .inner-page .navbar nav {
+    background: #66704a;
+  }
+
+
+  .inner-page .navbar nav a {
+    color: #ffffff;
+  }
+
+
+  .inner-page .navbar nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e8dfc8;
+  }
+
+}
