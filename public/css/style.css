@@ -134,27 +134,22 @@ a {
 ========================= */
 
 .hero {
-  position: relative;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  min-height: 100vh;
+    background-image:
+        linear-gradient(
+            rgba(25, 8, 12, 0.45),
+            rgba(25, 8, 12, 0.65)
+        ),
+        url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png");
 
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-align: center;
-
-  color: var(--white);
-
-  background:
-    linear-gradient(
-      rgba(66, 16, 25, 0.72),
-      rgba(66, 16, 25, 0.82)
-    ),
-    url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85")
-    center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
