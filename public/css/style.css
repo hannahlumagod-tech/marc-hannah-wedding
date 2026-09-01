@@ -28,7 +28,6 @@
   --shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
 }
 
-
 /* =========================
    RESET
 ========================= */
@@ -39,11 +38,9 @@
   box-sizing: border-box;
 }
 
-
 html {
   scroll-behavior: smooth;
 }
-
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -52,18 +49,15 @@ body {
   overflow-x: hidden;
 }
 
-
 a {
   text-decoration: none;
   color: inherit;
 }
 
-
 img {
   max-width: 100%;
   display: block;
 }
-
 
 /* =========================================================
    NAVIGATION
@@ -85,7 +79,6 @@ img {
   z-index: 100;
 }
 
-
 .logo {
   font-family: "Great Vibes", cursive;
   font-size: 42px;
@@ -94,18 +87,15 @@ img {
   line-height: 1;
 }
 
-
 .logo span {
   color: var(--champagne);
 }
-
 
 .navbar nav {
   display: flex;
   align-items: center;
   gap: 28px;
 }
-
 
 .navbar nav a {
   color: #66704a;
@@ -123,11 +113,9 @@ img {
     opacity 0.3s ease;
 }
 
-
 .navbar nav a:hover {
   color: #7a1f2b;
 }
-
 
 .menu-toggle {
   display: none;
@@ -143,7 +131,6 @@ img {
   cursor: pointer;
 }
 
-
 /* =========================================================
    HERO SECTION
 ========================================================= */
@@ -158,27 +145,23 @@ img {
 
   overflow: hidden;
 
-  /*
-     DARKER ON THE LEFT FOR TEXT
-     LIGHTER ON THE RIGHT FOR THE COUPLE PHOTO
-  */
-
   background-image:
     linear-gradient(
       90deg,
-      rgba(30, 7, 12, 0.92) 0%,
-      rgba(35, 9, 15, 0.85) 35%,
-      rgba(35, 9, 15, 0.50) 55%,
-      rgba(35, 9, 15, 0.18) 75%,
-      rgba(35, 9, 15, 0.08) 100%
+      rgba(30, 7, 12, 0.4) 0%,
+      rgba(35, 9, 15, 0.3) 35%,
+      rgba(35, 9, 15, 0.15) 55%,
+      rgba(35, 9, 15, 0.05) 75%,
+      rgba(35, 9, 15, 0) 100%
     ),
     url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png");
 
   background-size: cover;
+
   background-position: center;
+
   background-repeat: no-repeat;
 }
-
 
 /* Additional subtle overlay */
 
@@ -188,16 +171,14 @@ img {
   position: absolute;
   inset: 0;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.10) 0%,
-      rgba(0, 0, 0, 0.25) 100%
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
 
   pointer-events: none;
 }
-
 
 /* Optional overlay layer from HTML */
 
@@ -205,16 +186,14 @@ img {
   position: absolute;
   inset: 0;
 
-  background:
-    radial-gradient(
-      circle at 70% 30%,
-      rgba(255, 255, 255, 0.06),
-      transparent 45%
-    );
+  background: radial-gradient(
+    circle at 70% 30%,
+    rgba(255, 255, 255, 0.06),
+    transparent 45%
+  );
 
   pointer-events: none;
 }
-
 
 /* HERO CONTENT */
 
@@ -235,7 +214,6 @@ img {
   text-align: left;
 }
 
-
 /* SAVE THE DATE */
 
 .hero .eyebrow {
@@ -249,10 +227,8 @@ img {
 
   margin-bottom: 22px;
 
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
-
 
 /* WEDDING NAMES */
 
@@ -266,17 +242,14 @@ img {
 
   color: var(--champagne-light);
 
-  text-shadow:
-    0 3px 18px rgba(0, 0, 0, 0.65);
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.65);
 }
-
 
 .hero h1 .name {
   display: block;
 
   color: var(--champagne-light);
 }
-
 
 /* AMPERSAND */
 
@@ -293,10 +266,8 @@ img {
 
   line-height: 0.7;
 
-  text-shadow:
-    0 3px 18px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.55);
 }
-
 
 /* HERO DIVIDER */
 
@@ -312,7 +283,6 @@ img {
   margin: 30px 0;
 }
 
-
 .hero-divider span:not(.divider-icon),
 .section-divider span {
   width: 90px;
@@ -323,12 +293,10 @@ img {
   opacity: 0.5;
 }
 
-
 .divider-icon {
   font-size: 20px;
   color: var(--champagne);
 }
-
 
 /* HERO DETAILS */
 
@@ -342,10 +310,8 @@ img {
 
   margin-bottom: 12px;
 
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
-
 
 .hero-time {
   color: var(--champagne-light);
@@ -357,10 +323,8 @@ img {
 
   margin-bottom: 12px;
 
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
-
 
 .hero-location {
   color: var(--champagne-light);
@@ -373,10 +337,8 @@ img {
 
   opacity: 1;
 
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
-
 
 /* =========================================================
    BUTTONS
@@ -405,7 +367,6 @@ img {
   cursor: pointer;
 }
 
-
 /* HERO / PRIMARY BUTTON */
 
 .primary-button {
@@ -415,17 +376,14 @@ img {
 
   border: 1px solid var(--champagne);
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
-
 
 .primary-button:hover {
   background: var(--olive);
 
   transform: translateY(-3px);
 }
-
 
 /* SECONDARY BUTTON */
 
@@ -437,7 +395,6 @@ img {
   background: transparent;
 }
 
-
 .secondary-button:hover {
   background: var(--burgundy);
 
@@ -445,7 +402,6 @@ img {
 
   transform: translateY(-3px);
 }
-
 
 /* TEXT BUTTON */
 
@@ -466,7 +422,6 @@ img {
 
   padding-bottom: 8px;
 }
-
 
 /* =========================================================
    SCROLL DOWN INDICATOR
@@ -489,7 +444,6 @@ img {
   animation: bounce 2s infinite;
 }
 
-
 @keyframes bounce {
   0%,
   100% {
@@ -501,7 +455,6 @@ img {
   }
 }
 
-
 /* =========================================================
    GENERAL SECTIONS
 ========================================================= */
@@ -509,7 +462,6 @@ img {
 section {
   padding: 100px 8%;
 }
-
 
 section h2 {
   font-family: "Cormorant Garamond", serif;
@@ -522,7 +474,6 @@ section h2 {
   color: var(--burgundy);
 }
 
-
 .section-eyebrow {
   color: var(--olive);
 
@@ -534,13 +485,11 @@ section h2 {
   margin-bottom: 22px;
 }
 
-
 /* Center section dividers */
 
 section:not(.hero) .section-divider {
   justify-content: center;
 }
-
 
 /* =========================================================
    COUNTDOWN
@@ -551,7 +500,6 @@ section:not(.hero) .section-divider {
 
   background: var(--champagne-light);
 }
-
 
 .countdown {
   display: flex;
@@ -564,7 +512,6 @@ section:not(.hero) .section-divider {
 
   flex-wrap: wrap;
 }
-
 
 .time-box {
   width: 135px;
@@ -580,11 +527,9 @@ section:not(.hero) .section-divider {
   transition: transform 0.3s ease;
 }
 
-
 .time-box:hover {
   transform: translateY(-5px);
 }
-
 
 .time-box span {
   display: block;
@@ -597,7 +542,6 @@ section:not(.hero) .section-divider {
   color: var(--burgundy);
 }
 
-
 .time-box small {
   font-size: 9px;
 
@@ -608,7 +552,6 @@ section:not(.hero) .section-divider {
 
   font-weight: 600;
 }
-
 
 /* =========================================================
    INTRODUCTION
@@ -624,16 +567,13 @@ section:not(.hero) .section-divider {
   background: var(--cream);
 }
 
-
 .introduction-content {
   max-width: 800px;
 }
 
-
 .introduction-content h2 {
   color: var(--burgundy);
 }
-
 
 .introduction-content p {
   line-height: 1.9;
@@ -642,7 +582,6 @@ section:not(.hero) .section-divider {
 
   margin-top: 18px;
 }
-
 
 /* =========================================================
    WEDDING DETAILS
@@ -653,7 +592,6 @@ section:not(.hero) .section-divider {
 
   background: #f3eee6;
 }
-
 
 .details-grid {
   display: grid;
@@ -666,7 +604,6 @@ section:not(.hero) .section-divider {
 
   margin: 50px auto 0;
 }
-
 
 .detail-card {
   background: var(--white);
@@ -682,20 +619,17 @@ section:not(.hero) .section-divider {
     border-color 0.3s ease;
 }
 
-
 .detail-card:hover {
   transform: translateY(-8px);
 
   border-color: var(--olive);
 }
 
-
 .detail-icon {
   font-size: 38px;
 
   margin-bottom: 20px;
 }
-
 
 .detail-card h3 {
   font-family: "Cormorant Garamond", serif;
@@ -708,7 +642,6 @@ section:not(.hero) .section-divider {
   margin-bottom: 20px;
 }
 
-
 .detail-card p {
   line-height: 1.8;
 
@@ -717,13 +650,11 @@ section:not(.hero) .section-divider {
   margin-top: 7px;
 }
 
-
 .detail-date {
   color: var(--burgundy) !important;
 
   font-weight: 600;
 }
-
 
 .detail-time {
   color: var(--olive) !important;
@@ -731,11 +662,9 @@ section:not(.hero) .section-divider {
   font-weight: 600;
 }
 
-
 .detail-location {
   margin-top: 20px !important;
 }
-
 
 /* =========================================================
    DRESS CODE
@@ -747,7 +676,6 @@ section:not(.hero) .section-divider {
   background: var(--cream);
 }
 
-
 .dress-description {
   max-width: 700px;
 
@@ -757,7 +685,6 @@ section:not(.hero) .section-divider {
 
   color: var(--muted-text);
 }
-
 
 .palette {
   display: flex;
@@ -771,11 +698,9 @@ section:not(.hero) .section-divider {
   flex-wrap: wrap;
 }
 
-
 .palette-item {
   text-align: center;
 }
-
 
 .color-circle {
   width: 110px;
@@ -788,21 +713,17 @@ section:not(.hero) .section-divider {
   box-shadow: var(--shadow);
 }
 
-
 .color-circle.champagne {
   background: var(--champagne);
 }
-
 
 .color-circle.olive {
   background: var(--olive);
 }
 
-
 .color-circle.burgundy {
   background: var(--burgundy);
 }
-
 
 .palette-item p {
   margin-top: 15px;
@@ -814,7 +735,6 @@ section:not(.hero) .section-divider {
 
   color: var(--text);
 }
-
 
 /* =========================================================
    RSVP PREVIEW
@@ -828,19 +748,14 @@ section:not(.hero) .section-divider {
   color: var(--white);
 
   background:
-    linear-gradient(
-      rgba(66, 16, 25, 0.88),
-      rgba(66, 16, 25, 0.88)
-    ),
+    linear-gradient(rgba(66, 16, 25, 0.88), rgba(66, 16, 25, 0.88)),
     url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85")
-    center/cover no-repeat;
+      center/cover no-repeat;
 }
-
 
 .rsvp-preview h2 {
   color: var(--white);
 }
-
 
 .rsvp-preview-content {
   position: relative;
@@ -852,11 +767,9 @@ section:not(.hero) .section-divider {
   margin: auto;
 }
 
-
 .rsvp-preview .section-eyebrow {
   color: var(--champagne);
 }
-
 
 .rsvp-preview-content p {
   line-height: 1.8;
@@ -865,7 +778,6 @@ section:not(.hero) .section-divider {
 
   color: rgba(255, 255, 255, 0.9);
 }
-
 
 /* =========================================================
    FOOTER
@@ -881,7 +793,6 @@ section:not(.hero) .section-divider {
   padding: 70px 20px;
 }
 
-
 .footer h2 {
   font-family: "Great Vibes", cursive;
 
@@ -891,11 +802,9 @@ section:not(.hero) .section-divider {
   color: var(--white);
 }
 
-
 .footer h2 span {
   color: var(--champagne);
 }
-
 
 .footer-date {
   margin-top: 20px;
@@ -906,7 +815,6 @@ section:not(.hero) .section-divider {
 
   color: var(--champagne);
 }
-
 
 .footer-message {
   max-width: 500px;
@@ -920,7 +828,6 @@ section:not(.hero) .section-divider {
   font-size: 13px;
 }
 
-
 .copyright {
   margin-top: 35px;
 
@@ -929,17 +836,14 @@ section:not(.hero) .section-divider {
   opacity: 0.5;
 }
 
-
 /* =========================================================
    MOBILE AND TABLET
 ========================================================= */
 
 @media (max-width: 850px) {
-
   .navbar {
     padding: 20px;
   }
-
 
   .menu-toggle {
     display: block;
@@ -948,7 +852,6 @@ section:not(.hero) .section-divider {
 
     z-index: 102;
   }
-
 
   .navbar nav {
     position: fixed;
@@ -972,69 +875,55 @@ section:not(.hero) .section-divider {
     z-index: 101;
   }
 
-
   .navbar nav.active {
     display: flex;
   }
-
 
   .navbar nav a {
     font-size: 14px;
   }
 
-
   .hero {
     background-position: 58% center;
   }
 
-
   .hero::before {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(30, 7, 12, 0.78),
-        rgba(30, 7, 12, 0.35)
-      );
+    background: linear-gradient(
+      90deg,
+      rgba(30, 7, 12, 0.78),
+      rgba(30, 7, 12, 0.35)
+    );
   }
-
 
   .hero-content {
     width: 100%;
 
     margin-left: 0;
 
-    padding:
-      150px 30px
-      100px;
+    padding: 150px 30px 100px;
   }
-
 
   section {
     padding: 75px 20px;
   }
 
-
   .details-grid {
     grid-template-columns: 1fr;
   }
-
 
   .time-box {
     width: 135px;
   }
 }
 
-
 /* =========================================================
    MOBILE PHONE
 ========================================================= */
 
 @media (max-width: 500px) {
-
   .logo {
     font-size: 36px;
   }
-
 
   .hero {
     min-height: 100svh;
@@ -1042,13 +931,9 @@ section:not(.hero) .section-divider {
     background-position: 62% center;
   }
 
-
   .hero-content {
-    padding:
-      135px 25px
-      90px;
+    padding: 135px 25px 90px;
   }
-
 
   .hero .eyebrow {
     font-size: 10px;
@@ -1056,13 +941,11 @@ section:not(.hero) .section-divider {
     letter-spacing: 4px;
   }
 
-
   .hero h1 {
     font-size: 58px;
 
     line-height: 0.9;
   }
-
 
   .ampersand {
     font-size: 60px;
@@ -1070,16 +953,13 @@ section:not(.hero) .section-divider {
     margin: 12px 0;
   }
 
-
   .hero-divider {
     margin: 25px 0;
   }
 
-
   .hero-divider span:not(.divider-icon) {
     width: 65px;
   }
-
 
   .hero-date {
     font-size: 13px;
@@ -1087,13 +967,11 @@ section:not(.hero) .section-divider {
     letter-spacing: 3px;
   }
 
-
   .hero-time {
     font-size: 12px;
 
     letter-spacing: 2px;
   }
-
 
   .hero-location {
     font-size: 10px;
@@ -1101,24 +979,20 @@ section:not(.hero) .section-divider {
     letter-spacing: 2.5px;
   }
 
-
   .primary-button {
     padding: 15px 28px;
 
     margin-top: 30px;
   }
 
-
   .time-box {
     width: 130px;
   }
-
 
   .color-circle {
     width: 90px;
     height: 90px;
   }
-
 
   .footer h2 {
     font-size: 50px;
@@ -1142,16 +1016,12 @@ section:not(.hero) .section-divider {
   padding: 150px 20px 80px;
 
   background:
-    linear-gradient(
-      rgba(66, 16, 25, 0.82),
-      rgba(66, 16, 25, 0.82)
-    ),
+    linear-gradient(rgba(66, 16, 25, 0.82), rgba(66, 16, 25, 0.82)),
     url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png");
 
   background-size: cover;
   background-position: center;
 }
-
 
 .rsvp-page-content {
   position: relative;
@@ -1163,7 +1033,6 @@ section:not(.hero) .section-divider {
   color: var(--white);
 }
 
-
 .rsvp-page-content h1 {
   font-family: "Cormorant Garamond", serif;
 
@@ -1173,13 +1042,11 @@ section:not(.hero) .section-divider {
   color: var(--champagne-light);
 }
 
-
 .rsvp-page-content p {
   line-height: 1.8;
 
   color: var(--champagne-light);
 }
-
 
 .rsvp-wedding-date {
   margin-top: 25px;
@@ -1191,7 +1058,6 @@ section:not(.hero) .section-divider {
   letter-spacing: 4px;
 }
 
-
 /* =========================================================
    RSVP FORM SECTION
 ========================================================= */
@@ -1200,14 +1066,12 @@ section:not(.hero) .section-divider {
   background: var(--cream);
 }
 
-
 .rsvp-container {
   width: 100%;
   max-width: 1000px;
 
   margin: auto;
 }
-
 
 .rsvp-intro {
   max-width: 700px;
@@ -1217,7 +1081,6 @@ section:not(.hero) .section-divider {
   text-align: center;
 }
 
-
 .rsvp-intro p {
   margin-top: 20px;
 
@@ -1226,7 +1089,6 @@ section:not(.hero) .section-divider {
   color: var(--muted-text);
 }
 
-
 /* =========================================================
    RSVP FORM
 ========================================================= */
@@ -1234,8 +1096,7 @@ section:not(.hero) .section-divider {
 .rsvp-form {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   gap: 25px;
 
@@ -1246,18 +1107,15 @@ section:not(.hero) .section-divider {
   box-shadow: var(--shadow);
 }
 
-
 .form-group {
   display: flex;
 
   flex-direction: column;
 }
 
-
 .form-group-full {
   grid-column: 1 / -1;
 }
-
 
 .form-group label {
   margin-bottom: 10px;
@@ -1273,11 +1131,9 @@ section:not(.hero) .section-divider {
   text-transform: uppercase;
 }
 
-
 .form-group label span {
   color: var(--burgundy-light);
 }
-
 
 .form-group input,
 .form-group select,
@@ -1286,9 +1142,7 @@ section:not(.hero) .section-divider {
 
   padding: 15px;
 
-  border:
-    1px solid
-    rgba(107, 31, 43, 0.2);
+  border: 1px solid rgba(107, 31, 43, 0.2);
 
   background: var(--cream);
 
@@ -1303,22 +1157,17 @@ section:not(.hero) .section-divider {
     box-shadow 0.3s ease;
 }
 
-
 .form-group textarea {
   resize: vertical;
 }
-
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--olive);
 
-  box-shadow:
-    0 0 0 3px
-    rgba(104, 115, 75, 0.12);
+  box-shadow: 0 0 0 3px rgba(104, 115, 75, 0.12);
 }
-
 
 .form-submit {
   grid-column: 1 / -1;
@@ -1327,7 +1176,6 @@ section:not(.hero) .section-divider {
 
   margin-top: 15px;
 }
-
 
 .rsvp-submit-button {
   border: none;
@@ -1355,13 +1203,11 @@ section:not(.hero) .section-divider {
     transform 0.3s ease;
 }
 
-
 .rsvp-submit-button:hover {
   background: var(--olive);
 
   transform: translateY(-3px);
 }
-
 
 .rsvp-submit-button:disabled {
   opacity: 0.7;
@@ -1370,7 +1216,6 @@ section:not(.hero) .section-divider {
 
   transform: none;
 }
-
 
 /* =========================================================
    RSVP MESSAGE
@@ -1388,44 +1233,33 @@ section:not(.hero) .section-divider {
   line-height: 1.7;
 }
 
-
 .rsvp-message.success {
   display: block;
 
-  background:
-    rgba(104, 115, 75, 0.12);
+  background: rgba(104, 115, 75, 0.12);
 
   color: var(--olive-dark);
 
-  border:
-    1px solid
-    rgba(104, 115, 75, 0.3);
+  border: 1px solid rgba(104, 115, 75, 0.3);
 }
-
 
 .rsvp-message.error {
   display: block;
 
-  background:
-    rgba(107, 31, 43, 0.08);
+  background: rgba(107, 31, 43, 0.08);
 
   color: var(--burgundy);
 
-  border:
-    1px solid
-    rgba(107, 31, 43, 0.2);
+  border: 1px solid rgba(107, 31, 43, 0.2);
 }
-
 
 /* =========================================================
    RSVP DETAILS
 ========================================================= */
 
 .rsvp-details {
-  background:
-    var(--champagne-light);
+  background: var(--champagne-light);
 }
-
 
 .rsvp-details-container {
   max-width: 900px;
@@ -1434,12 +1268,10 @@ section:not(.hero) .section-divider {
 
   display: grid;
 
-  grid-template-columns:
-    repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   gap: 30px;
 }
-
 
 .rsvp-detail {
   padding: 45px 30px;
@@ -1451,7 +1283,6 @@ section:not(.hero) .section-divider {
   box-shadow: var(--shadow);
 }
 
-
 .rsvp-detail-icon {
   margin-bottom: 15px;
 
@@ -1460,11 +1291,8 @@ section:not(.hero) .section-divider {
   color: var(--olive);
 }
 
-
 .rsvp-detail h3 {
-  font-family:
-    "Cormorant Garamond",
-    serif;
+  font-family: "Cormorant Garamond", serif;
 
   font-size: 35px;
 
@@ -1475,7 +1303,6 @@ section:not(.hero) .section-divider {
   margin-bottom: 20px;
 }
 
-
 .rsvp-detail p {
   margin: 8px 0;
 
@@ -1483,7 +1310,6 @@ section:not(.hero) .section-divider {
 
   line-height: 1.7;
 }
-
 
 .rsvp-detail strong {
   display: block;
@@ -1499,34 +1325,28 @@ section:not(.hero) .section-divider {
   text-transform: uppercase;
 }
 
-
 /* =========================================================
    RSVP MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
-
   .rsvp-form {
     grid-template-columns: 1fr;
 
     padding: 30px 20px;
   }
 
-
   .form-group-full {
     grid-column: auto;
   }
-
 
   .rsvp-details-container {
     grid-template-columns: 1fr;
   }
 
-
   .rsvp-page-hero {
     min-height: 50vh;
   }
-
 }
 /* =========================================================
    ADMIN DASHBOARD
@@ -1810,13 +1630,11 @@ section:not(.hero) .section-divider {
   opacity: 0.65;
 }
 
-
 /* =========================================================
    ADMIN RESPONSIVE
 ========================================================= */
 
 @media (max-width: 900px) {
-
   .admin-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1825,11 +1643,9 @@ section:not(.hero) .section-divider {
     align-items: flex-start;
     flex-direction: column;
   }
-
 }
 
 @media (max-width: 600px) {
-
   .admin-header-container {
     flex-direction: column;
     align-items: flex-start;
@@ -1861,7 +1677,6 @@ section:not(.hero) .section-divider {
   .admin-intro h2 {
     font-size: 34px;
   }
-
 }
 /* =========================================================
    ADMIN DASHBOARD
@@ -2159,22 +1974,17 @@ section:not(.hero) .section-divider {
   opacity: 0.8;
 }
 
-
 /* =========================================================
    MOBILE RESPONSIVE
 ========================================================= */
 
 @media (max-width: 900px) {
-
   .admin-statistics {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
-
 @media (max-width: 650px) {
-
   .admin-header-container,
   .admin-title-section,
   .admin-table-header {
@@ -2190,7 +2000,6 @@ section:not(.hero) .section-divider {
   .admin-search-container input {
     width: 100%;
   }
-
 }
 /* =========================================================
    ADMIN NAVIGATION BUTTON
@@ -2228,13 +2037,11 @@ section:not(.hero) .section-divider {
    RESPONSIVE DESIGN
 ========================================================= */
 
-
 /* =========================================================
    LARGE DESKTOP
 ========================================================= */
 
 @media (min-width: 1200px) {
-
   .hero-content {
     max-width: 1000px;
   }
@@ -2244,22 +2051,18 @@ section:not(.hero) .section-divider {
     margin-left: auto;
     margin-right: auto;
   }
-
 }
-
 
 /* =========================================================
    TABLET
 ========================================================= */
 
 @media (max-width: 992px) {
-
   /* NAVIGATION */
 
   .navbar {
     padding: 18px 40px;
   }
-
 
   /* HERO */
 
@@ -2267,16 +2070,13 @@ section:not(.hero) .section-divider {
     min-height: 90vh;
   }
 
-
   .hero-content {
     padding: 120px 30px 80px;
   }
 
-
   .hero-content h1 {
     font-size: clamp(3.5rem, 8vw, 6rem);
   }
-
 
   /* DETAILS */
 
@@ -2285,14 +2085,12 @@ section:not(.hero) .section-divider {
     padding: 0 30px;
   }
 
-
   /* INTRODUCTION */
 
   .introduction-content {
     padding-left: 30px;
     padding-right: 30px;
   }
-
 
   /* SECTIONS */
 
@@ -2302,16 +2100,13 @@ section:not(.hero) .section-divider {
     padding-left: 30px;
     padding-right: 30px;
   }
-
 }
-
 
 /* =========================================================
    MOBILE NAVIGATION
 ========================================================= */
 
 @media (max-width: 768px) {
-
   /* NAVBAR */
 
   .navbar {
@@ -2329,13 +2124,11 @@ section:not(.hero) .section-divider {
     align-items: center;
   }
 
-
   /* LOGO */
 
   .logo {
     font-size: 1.8rem;
   }
-
 
   /* MENU BUTTON */
 
@@ -2352,11 +2145,9 @@ section:not(.hero) .section-divider {
     z-index: 10000;
   }
 
-
   /* MOBILE MENU */
 
   #navMenu {
-
     position: absolute;
 
     top: 100%;
@@ -2376,28 +2167,21 @@ section:not(.hero) .section-divider {
 
     background: rgba(255, 255, 255, 0.98);
 
-    box-shadow:
-      0 10px 25px
-      rgba(0, 0, 0, 0.08);
-
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   }
-
 
   #navMenu.active {
     display: flex;
   }
-
 
   #navMenu a {
     font-size: 0.85rem;
     letter-spacing: 1.5px;
   }
 
-
   .admin-nav-button {
     margin-top: 5px;
   }
-
 
   /* HERO */
 
@@ -2405,243 +2189,145 @@ section:not(.hero) .section-divider {
     min-height: 100svh;
   }
 
-
   .hero-content {
-
-    padding:
-      120px
-      20px
-      80px;
+    padding: 120px 20px 80px;
 
     width: 100%;
-
   }
-
 
   .eyebrow {
     font-size: 0.7rem;
     letter-spacing: 3px;
   }
 
-
   .hero-content h1 {
-
-    font-size:
-      clamp(
-        3.2rem,
-        13vw,
-        5.5rem
-      );
+    font-size: clamp(3.2rem, 13vw, 5.5rem);
 
     line-height: 0.9;
-
   }
-
 
   .hero-content .name {
     display: block;
   }
 
-
   .hero-content .ampersand {
-
     display: block;
 
-    margin:
-      10px
-      0;
-
+    margin: 10px 0;
   }
 
-
   .hero-date {
-
     font-size: 0.8rem;
 
     letter-spacing: 2px;
-
   }
-
 
   .hero-time {
-
     font-size: 0.9rem;
-
   }
 
-
   .hero-location {
-
     font-size: 0.75rem;
 
     letter-spacing: 2px;
-
   }
-
 
   /* BUTTONS */
 
   .primary-button,
   .secondary-button {
-
     width: 100%;
 
     max-width: 320px;
 
-    padding:
-      16px
-      20px;
+    padding: 16px 20px;
 
     text-align: center;
-
   }
-
 
   /* SECTION HEADINGS */
 
   h2 {
-
-    font-size:
-      clamp(
-        2.2rem,
-        9vw,
-        3.5rem
-      );
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
 
     line-height: 1.1;
-
   }
-
 
   /* COUNTDOWN */
 
   .countdown {
-
     display: grid;
 
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 15px;
 
     max-width: 380px;
 
-    margin:
-      35px
-      auto
-      0;
-
+    margin: 35px auto 0;
   }
-
 
   .time-box {
-
     width: 100%;
 
-    padding:
-      20px
-      10px;
-
+    padding: 20px 10px;
   }
-
 
   .time-box span {
-
-    font-size:
-      clamp(
-        2rem,
-        9vw,
-        3.5rem
-      );
-
+    font-size: clamp(2rem, 9vw, 3.5rem);
   }
-
 
   /* INTRODUCTION */
 
   .introduction {
-
-    padding:
-      80px
-      20px;
-
+    padding: 80px 20px;
   }
 
-
   .introduction-content {
-
     max-width: 100%;
 
     padding: 0;
-
   }
 
-
   .introduction-content p {
-
     font-size: 0.95rem;
 
     line-height: 1.9;
-
   }
-
 
   /* WEDDING DETAILS */
 
   .wedding-preview {
-
-    padding:
-      80px
-      20px;
-
+    padding: 80px 20px;
   }
 
-
   .details-grid {
-
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
     gap: 20px;
 
     padding: 0;
-
   }
-
 
   .detail-card {
-
     width: 100%;
 
-    padding:
-      35px
-      25px;
-
+    padding: 35px 25px;
   }
-
 
   /* DRESS CODE */
 
   .dress-code {
-
-    padding:
-      80px
-      20px;
-
+    padding: 80px 20px;
   }
 
-
   .dress-description {
-
     font-size: 0.95rem;
 
     line-height: 1.8;
-
   }
 
-
   .palette {
-
     display: flex;
 
     flex-wrap: wrap;
@@ -2649,136 +2335,78 @@ section:not(.hero) .section-divider {
     justify-content: center;
 
     gap: 25px;
-
   }
-
 
   .palette-item {
-
     min-width: 80px;
-
   }
 
-
   .color-circle {
-
     width: 65px;
 
     height: 65px;
-
   }
-
 
   /* RSVP PREVIEW */
 
   .rsvp-preview {
-
     min-height: 600px;
-
   }
-
 
   .rsvp-preview-content {
-
-    padding:
-      80px
-      20px;
+    padding: 80px 20px;
 
     width: 100%;
-
   }
-
 
   /* FOOTER */
 
   .footer {
-
-    padding:
-      60px
-      20px;
-
+    padding: 60px 20px;
   }
-
 
   .footer h2 {
-
-    font-size:
-      clamp(
-        2.5rem,
-        10vw,
-        4rem
-      );
-
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
-
 }
-
 
 /* =========================================================
    SMALL MOBILE PHONES
 ========================================================= */
 
 @media (max-width: 480px) {
-
   /* NAVBAR */
 
   .navbar {
-
-    padding:
-      14px
-      16px;
-
+    padding: 14px 16px;
   }
-
 
   /* HERO */
 
   .hero-content {
-
     padding-left: 16px;
     padding-right: 16px;
-
   }
-
 
   .hero-content h1 {
-
-    font-size:
-      clamp(
-        2.8rem,
-        14vw,
-        4.5rem
-      );
-
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
   }
-
 
   /* COUNTDOWN */
 
   .countdown {
-
     gap: 10px;
-
   }
-
 
   .time-box {
-
-    padding:
-      16px
-      8px;
-
+    padding: 16px 8px;
   }
 
-
   .time-box small {
-
     font-size: 0.6rem;
 
     letter-spacing: 1px;
-
   }
-
 
   /* SECTION SPACING */
 
@@ -2786,95 +2414,61 @@ section:not(.hero) .section-divider {
   .introduction,
   .wedding-preview,
   .dress-code {
-
     padding-top: 65px;
     padding-bottom: 65px;
-
   }
-
 
   /* CARDS */
 
   .detail-card {
-
-    padding:
-      30px
-      18px;
-
+    padding: 30px 18px;
   }
-
 
   .detail-card h3 {
-
     font-size: 1.5rem;
-
   }
-
 
   /* PALETTE */
 
   .palette {
-
     gap: 18px;
-
   }
-
 
   .color-circle {
-
     width: 55px;
     height: 55px;
-
   }
-
 
   /* BUTTONS */
 
   .primary-button,
   .secondary-button {
-
     font-size: 0.7rem;
 
     letter-spacing: 1.5px;
-
   }
-
 }
-
 
 /* =========================================================
    VERY SMALL PHONES
 ========================================================= */
 
 @media (max-width: 360px) {
-
   .hero-content h1 {
-
     font-size: 2.6rem;
-
   }
-
 
   .countdown {
-
     gap: 8px;
-
   }
-
 
   .time-box span {
-
     font-size: 1.8rem;
-
   }
-
 
   .time-box small {
-
     font-size: 0.55rem;
-
   }
-
 }
 /* =========================================================
    GLOBAL SCROLL ANIMATIONS
@@ -2886,17 +2480,13 @@ section:not(.hero) .section-divider {
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
-  will-change:
-    opacity,
-    transform;
+  will-change: opacity, transform;
 }
-
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 /* =========================================================
    REVEAL FROM LEFT
@@ -2908,17 +2498,13 @@ section:not(.hero) .section-divider {
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
-  will-change:
-    opacity,
-    transform;
+  will-change: opacity, transform;
 }
-
 
 .reveal-left.active {
   opacity: 1;
   transform: translateX(0);
 }
-
 
 /* =========================================================
    REVEAL FROM RIGHT
@@ -2930,11 +2516,8 @@ section:not(.hero) .section-divider {
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
-  will-change:
-    opacity,
-    transform;
+  will-change: opacity, transform;
 }
-
 
 /* =========================================================
    ZOOM REVEAL
@@ -2946,17 +2529,13 @@ section:not(.hero) .section-divider {
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
-  will-change:
-    opacity,
-    transform;
+  will-change: opacity, transform;
 }
-
 
 .reveal-zoom.active {
   opacity: 1;
   transform: scale(1);
 }
-
 
 /* =========================================================
    STAGGER ANIMATION
@@ -2966,26 +2545,21 @@ section:not(.hero) .section-divider {
   transition-delay: 0.1s;
 }
 
-
 .delay-2 {
   transition-delay: 0.2s;
 }
-
 
 .delay-3 {
   transition-delay: 0.3s;
 }
 
-
 .delay-4 {
   transition-delay: 0.4s;
 }
 
-
 .delay-5 {
   transition-delay: 0.5s;
 }
-
 
 /* =========================================================
    REDUCE MOTION
@@ -2993,7 +2567,6 @@ section:not(.hero) .section-divider {
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   .reveal,
   .reveal-left,
   .reveal-right,
@@ -3002,7 +2575,6 @@ section:not(.hero) .section-divider {
     transform: none;
     transition: none;
   }
-
 }
 /* =========================================================
    HERO ENTRANCE ANIMATIONS
@@ -3016,130 +2588,80 @@ section:not(.hero) .section-divider {
   opacity: 0;
 }
 
-
 /* SAVE THE DATE */
 
 .hero-content .eyebrow {
-  animation:
-    heroFadeUp
-    0.8s
-    ease
-    forwards;
+  animation: heroFadeUp 0.8s ease forwards;
 
-  animation-delay:
-    0.2s;
+  animation-delay: 0.2s;
 }
-
 
 /* NAMES */
 
 .hero-content h1 {
-  animation:
-    heroFadeUp
-    1s
-    ease
-    forwards;
+  animation: heroFadeUp 1s ease forwards;
 
-  animation-delay:
-    0.5s;
+  animation-delay: 0.5s;
 }
-
 
 /* DIVIDER */
 
 .hero-content .hero-divider {
-  animation:
-    heroFadeUp
-    0.8s
-    ease
-    forwards;
+  animation: heroFadeUp 0.8s ease forwards;
 
-  animation-delay:
-    0.9s;
+  animation-delay: 0.9s;
 }
-
 
 /* DATE / TIME / LOCATION */
 
 .hero-content .hero-event-details {
-  animation:
-    heroFadeUp
-    0.8s
-    ease
-    forwards;
+  animation: heroFadeUp 0.8s ease forwards;
 
-  animation-delay:
-    1.2s;
+  animation-delay: 1.2s;
 }
-
 
 /* RSVP BUTTON */
 
 .hero-content .primary-button {
-  animation:
-    heroFadeUp
-    0.8s
-    ease
-    forwards;
+  animation: heroFadeUp 0.8s ease forwards;
 
-  animation-delay:
-    1.5s;
+  animation-delay: 1.5s;
 }
-
 
 /* =========================================================
    HERO ANIMATION KEYFRAMES
 ========================================================= */
 
 @keyframes heroFadeUp {
-
   from {
-
     opacity: 0;
 
-    transform:
-      translateY(30px);
-
+    transform: translateY(30px);
   }
-
 
   to {
-
     opacity: 1;
 
-    transform:
-      translateY(0);
-
+    transform: translateY(0);
   }
-
 }
-
 
 /* =========================================================
    RESPECT REDUCED MOTION
 ========================================================= */
 
-@media (
-  prefers-reduced-motion: reduce
-) {
-
+@media (prefers-reduced-motion: reduce) {
   .hero-content .eyebrow,
   .hero-content h1,
   .hero-content .hero-divider,
   .hero-content .hero-event-details,
   .hero-content .primary-button {
+    animation: none;
 
-    animation:
-      none;
+    opacity: 1;
 
-    opacity:
-      1;
-
-    transform:
-      none;
-
+    transform: none;
   }
-
 }
 /* =========================================================
    INNER PAGES - GREEN NAVBAR
@@ -3147,15 +2669,9 @@ section:not(.hero) .section-divider {
 
 .inner-page .navbar {
   background: #66704a;
-  background: linear-gradient(
-    135deg,
-    #596342,
-    #737d55
-  );
-  box-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #596342, #737d55);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
-
 
 /* NAVIGATION LINKS */
 
@@ -3163,11 +2679,9 @@ section:not(.hero) .section-divider {
   color: #871c1c;
 }
 
-
 .inner-page .navbar nav a:hover {
   color: #e8dfc8;
 }
-
 
 /* LOGO */
 
@@ -3175,11 +2689,9 @@ section:not(.hero) .section-divider {
   color: #ffffff;
 }
 
-
 .inner-page .navbar .logo span {
   color: #e8dfc8;
 }
-
 
 /* ADMIN BUTTON */
 
@@ -3188,12 +2700,10 @@ section:not(.hero) .section-divider {
   color: #ffffff;
 }
 
-
 .inner-page .navbar .admin-nav-button:hover {
   background: #e8dfc8;
   color: #596342;
 }
-
 
 /* MOBILE MENU BUTTON */
 
@@ -3201,40 +2711,33 @@ section:not(.hero) .section-divider {
   color: #c11c1c;
 }
 
-
 /* =========================================================
    MOBILE NAVIGATION
 ========================================================= */
 
 @media screen and (max-width: 768px) {
-
   .inner-page .navbar nav {
     background: #66704a;
   }
-
 
   .inner-page .navbar nav a {
     color: #942828;
   }
 
-
   .inner-page .navbar nav a:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #e8dfc8;
   }
-
 }
 /* =========================================================
    MOBILE NAVIGATION - GREEN INNER PAGES
 ========================================================= */
 
 @media (max-width: 768px) {
-
   /* Keep the navbar green */
   .inner-page .navbar {
     background: #66704a !important;
   }
-
 
   /* Mobile dropdown navigation */
   .inner-page .navbar nav,
@@ -3243,12 +2746,10 @@ section:not(.hero) .section-divider {
     background: #66704a !important;
   }
 
-
   /* Navigation links */
   .inner-page .navbar nav a {
     color: #ffffff !important;
   }
-
 
   /* Hover / active effect */
   .inner-page .navbar nav a:hover {
@@ -3256,27 +2757,23 @@ section:not(.hero) .section-divider {
     color: #f3ead7 !important;
   }
 
-
   /* Hamburger menu */
   .inner-page .menu-toggle {
     color: #ffffff !important;
     background: transparent;
   }
 
-
   /* Admin button */
   .inner-page .admin-nav-button {
     color: #ffffff !important;
     border-color: #f3ead7 !important;
   }
-
 }
 /* =========================================================
    ADMIN DASHBOARD - MOBILE LOGOUT BUTTON
 ========================================================= */
 
 @media (max-width: 768px) {
-
   .admin-header {
     position: relative;
     display: flex;
@@ -3284,7 +2781,6 @@ section:not(.hero) .section-divider {
     justify-content: space-between;
     gap: 12px;
   }
-
 
   .logout-button,
   #logoutButton {
@@ -3303,5 +2799,4 @@ section:not(.hero) .section-divider {
 
     margin: 0;
   }
-
 }
