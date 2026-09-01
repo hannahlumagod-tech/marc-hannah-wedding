@@ -163,38 +163,6 @@ img {
   background-repeat: no-repeat;
 }
 
-/* Additional subtle overlay */
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.25) 100%
-  );
-
-  pointer-events: none;
-}
-
-/* Optional overlay layer from HTML */
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(
-    circle at 70% 30%,
-    rgba(255, 255, 255, 0.06),
-    transparent 45%
-  );
-
-  pointer-events: none;
-}
-
 /* HERO CONTENT */
 
 .hero-content {
