@@ -204,7 +204,7 @@ a {
   left: 9%;
 
   width: 82%;
-  height: 80%;
+  height: 90%;
 
   z-index: 3;
 
@@ -1073,9 +1073,9 @@ h2 {
   }
 
   .save-date {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 
-    font-size: 12px;
+    font-size: 14px;
 
     letter-spacing: 3px;
   }
@@ -1104,7 +1104,7 @@ h2 {
     left: 6%;
 
     width: 88%;
-    height: 76%;
+    height: 86%;
 
     padding: 28px 15px 20px;
 
@@ -1132,7 +1132,7 @@ h2 {
   */
 
   .invitation h1 {
-    font-size: clamp(30px, 10vw, 48px);
+    font-size: clamp(20px, 10vw, 48px);
 
     line-height: 1.02;
   }
