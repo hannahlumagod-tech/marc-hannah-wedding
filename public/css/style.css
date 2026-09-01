@@ -741,7 +741,7 @@ a {
 .eyebrow {
   margin-bottom: 20px;
 
-  color: var(--champagne);
+  color: var(--white);
 
   font-size: 11px;
 
@@ -1120,9 +1120,9 @@ h2 {
   }
 
   .invitation-eyebrow {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 
-    font-size: 7px;
+    font-size: 8px;
 
     letter-spacing: 1.8px;
   }
