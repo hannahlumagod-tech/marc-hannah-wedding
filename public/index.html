@@ -398,83 +398,105 @@
       }
 
       /* =====================================================
-   MOBILE FIX
+   MOBILE INVITATION - FIX TOP CLIPPING
 ====================================================== */
 
       @media (max-width: 768px) {
         .invitation {
-          width: 90%;
+          position: absolute;
 
+          width: 90%;
           left: 5%;
 
+          /*
+      FIX TOP POSITION
+      Prevents the invitation from going above
+      the envelope/container
+    */
+          top: 5%;
+          bottom: auto;
+
+          /*
+      Allow the card to grow naturally
+    */
           height: auto;
-          min-height: 72%;
+          min-height: 0;
 
-          bottom: 8%;
+          padding: 35px 15px 25px;
 
-          padding: 25px 15px;
-        }
+          box-sizing: border-box;
 
-        .invitation::before {
-          inset: 8px;
+          /*
+      Prevent text and names from being clipped
+    */
+          overflow: visible;
         }
 
         .invitation-content {
-          padding: 0 10px;
+          width: 100%;
+
+          padding: 10px 15px 15px;
+
+          box-sizing: border-box;
+
+          overflow: visible;
         }
 
         .invitation-eyebrow {
+          margin-top: 8px;
+          margin-bottom: 15px;
+
           font-size: 8px;
 
           letter-spacing: 2px;
         }
 
         .invitation h1 {
-          /*
-      Smaller font for long names
-      on mobile screens
-    */
-          font-size: clamp(32px, 10vw, 50px);
+          width: 100%;
+
+          margin: 0;
+
+          font-size: clamp(32px, 9vw, 52px);
 
           line-height: 1.05;
+
+          overflow: visible;
         }
 
         .invitation h1 span {
-          /*
-      Allow wrapping on very small
-      screens instead of cutting text
-    */
           white-space: normal;
+
+          overflow: visible;
         }
 
         .invitation .and {
-          font-size: 24px;
+          margin: 8px 0;
 
-          margin: 5px 0;
+          font-size: 24px;
         }
 
         .invitation-divider {
-          margin: 14px 0;
-        }
-
-        .invitation-divider::before,
-        .invitation-divider::after {
-          width: 40px;
+          margin: 15px 0;
         }
 
         .invitation-date {
-          font-size: 18px;
+          font-size: clamp(16px, 4vw, 22px);
 
           letter-spacing: 1.5px;
         }
 
         .invitation-location {
+          margin-top: 8px;
+
           font-size: 8px;
 
           letter-spacing: 1.5px;
         }
-      }
 
+        .invitation::before {
+          inset: 10px;
+        }
+      }
       /* =====================================================
    SMALL MOBILE FIX
 ====================================================== */
