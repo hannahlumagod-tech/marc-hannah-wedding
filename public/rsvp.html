@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- =====================================================
-       META
-  ====================================================== -->
-
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -36,7 +32,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <body>
+  <body class="inner-page">
     <!-- =====================================================
        NAVIGATION
   ====================================================== -->
@@ -63,7 +59,7 @@
         ☰
       </button>
 
-      <!-- NAVIGATION MENU -->
+      <!-- NAVIGATION -->
 
       <nav id="navMenu" aria-label="Main Navigation">
         <a href="index.html"> Home </a>
@@ -81,7 +77,7 @@
     </header>
 
     <!-- =====================================================
-       MAIN CONTENT
+       MAIN
   ====================================================== -->
 
     <main>
@@ -90,14 +86,14 @@
     ==================================================== -->
 
       <section class="rsvp-page-hero">
-        <div class="rsvp-page-overlay" aria-hidden="true"></div>
+        <div class="rsvp-page-overlay"></div>
 
         <div class="rsvp-page-content">
           <p class="section-eyebrow">WE WOULD LOVE TO CELEBRATE WITH YOU</p>
 
           <h1>RSVP</h1>
 
-          <div class="section-divider" aria-hidden="true">
+          <div class="section-divider">
             <span></span>
 
             <span class="divider-icon"> ❦ </span>
@@ -114,7 +110,7 @@
       </section>
 
       <!-- ===================================================
-         RSVP FORM
+         RSVP SECTION
     ==================================================== -->
 
       <section class="rsvp-section">
@@ -126,7 +122,7 @@
 
             <h2>Will You Join Us?</h2>
 
-            <div class="section-divider" aria-hidden="true">
+            <div class="section-divider">
               <span></span>
 
               <span class="divider-icon"> ❦ </span>
@@ -140,7 +136,9 @@
             </p>
           </div>
 
-          <!-- RSVP FORM -->
+          <!-- ===============================================
+             RSVP FORM
+        ================================================ -->
 
           <form id="rsvpForm" class="rsvp-form" novalidate>
             <!-- FULL NAME -->
@@ -149,7 +147,7 @@
               <label for="fullName">
                 Full Name
 
-                <span aria-hidden="true"> * </span>
+                <span> * </span>
               </label>
 
               <input
@@ -168,7 +166,7 @@
               <label for="email">
                 Email Address
 
-                <span aria-hidden="true"> * </span>
+                <span> * </span>
               </label>
 
               <input
@@ -200,9 +198,9 @@
 
             <div class="form-group">
               <label for="attendance">
-                Will you attend?
+                Will You Attend?
 
-                <span aria-hidden="true"> * </span>
+                <span> * </span>
               </label>
 
               <select id="attendance" name="attendance" required>
@@ -214,13 +212,13 @@
               </select>
             </div>
 
-            <!-- NUMBER OF GUESTS -->
+            <!-- GUEST COUNT -->
 
             <div class="form-group" id="guestCountGroup">
               <label for="guestCount">
                 Number of Guests
 
-                <span id="guestCountRequired" aria-hidden="true"> * </span>
+                <span id="guestCountRequired"> * </span>
               </label>
 
               <select id="guestCount" name="guestCount" required>
@@ -257,17 +255,17 @@
                 id="submitButton"
                 class="rsvp-submit-button"
               >
-                Confirm RSVP
+                CONFIRM RSVP
               </button>
             </div>
           </form>
 
-          <!-- SUCCESS / ERROR MESSAGE -->
+          <!-- ERROR MESSAGE -->
 
           <div
             id="rsvpMessage"
             class="rsvp-message"
-            role="status"
+            role="alert"
             aria-live="polite"
           ></div>
         </div>
@@ -282,7 +280,7 @@
           <!-- CEREMONY -->
 
           <article class="rsvp-detail">
-            <div class="rsvp-detail-icon" aria-hidden="true">♡</div>
+            <div class="rsvp-detail-icon">♡</div>
 
             <h3>Ceremony</h3>
 
@@ -296,7 +294,7 @@
           <!-- RECEPTION -->
 
           <article class="rsvp-detail">
-            <div class="rsvp-detail-icon" aria-hidden="true">✦</div>
+            <div class="rsvp-detail-icon">✦</div>
 
             <h3>Reception</h3>
 
@@ -330,7 +328,7 @@
     </footer>
 
     <!-- =====================================================
-       RSVP SUCCESS POPUP
+       SUCCESS POPUP
   ====================================================== -->
 
     <div id="rsvpSuccessPopup" class="rsvp-success-popup" aria-hidden="true">
@@ -353,9 +351,9 @@
         <div class="success-icon-wrapper">
           <div class="success-icon">
             <svg viewBox="0 0 52 52" aria-hidden="true">
-              <circle class="success-circle" cx="26" cy="26" r="24" />
+              <circle class="success-circle" cx="26" cy="26" r="24"></circle>
 
-              <path class="success-check" d="M14 27 L22 35 L38 18" />
+              <path class="success-check" d="M14 27 L22 35 L38 18"></path>
             </svg>
           </div>
         </div>
@@ -395,13 +393,13 @@
     </div>
 
     <!-- =====================================================
-       JAVASCRIPT
+       MAIN JAVASCRIPT
   ====================================================== -->
 
     <script src="js/script.js"></script>
 
     <!-- =====================================================
-       RSVP VALIDATION
+       RSVP JAVASCRIPT
   ====================================================== -->
 
     <script>
@@ -416,6 +414,8 @@
 
         const email = document.getElementById("email");
 
+        const phone = document.getElementById("phone");
+
         const attendance = document.getElementById("attendance");
 
         const guestCount = document.getElementById("guestCount");
@@ -424,6 +424,8 @@
 
         const guestCountRequired =
           document.getElementById("guestCountRequired");
+
+        const message = document.getElementById("message");
 
         const submitButton = document.getElementById("submitButton");
 
@@ -434,52 +436,97 @@
         const closeSuccessPopup = document.getElementById("closeSuccessPopup");
 
         /* ================================================
-           UPDATE GUEST COUNT
+           ATTENDANCE HANDLING
         ================================================= */
 
-        function updateGuestCountField() {
+        function updateGuestCount() {
+          /* ==============================================
+             ATTENDING
+          ============================================== */
+
           if (attendance.value === "Attending") {
             guestCountGroup.style.display = "";
 
             guestCount.required = true;
 
+            guestCount.disabled = false;
+
             guestCountRequired.style.display = "";
 
-            guestCount.disabled = false;
-          } else if (attendance.value === "Not Attending") {
+            return;
+          }
+
+          /* ==============================================
+             NOT ATTENDING
+          ============================================== */
+
+          if (attendance.value === "Not Attending") {
+            /* Automatically save zero guests */
+
             guestCount.value = "0";
+
+            /* Remove required validation */
 
             guestCount.required = false;
 
+            /* Keep enabled so value can exist */
+
             guestCount.disabled = false;
 
-            guestCountRequired.style.display = "none";
+            /* Hide field */
 
             guestCountGroup.style.display = "none";
-          } else {
-            guestCount.value = "";
 
-            guestCount.required = true;
-
-            guestCount.disabled = false;
-
-            guestCountRequired.style.display = "";
-
-            guestCountGroup.style.display = "";
+            return;
           }
+
+          /* ==============================================
+             NO SELECTION
+          ============================================== */
+
+          guestCount.value = "";
+
+          guestCount.required = true;
+
+          guestCount.disabled = false;
+
+          guestCountGroup.style.display = "";
+
+          guestCountRequired.style.display = "";
+        }
+
+        attendance.addEventListener("change", updateGuestCount);
+
+        /* ================================================
+           SHOW ERROR
+        ================================================= */
+
+        function showError(errorMessage) {
+          rsvpMessage.textContent = errorMessage;
+
+          rsvpMessage.className = "rsvp-message error";
+
+          rsvpMessage.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+          });
         }
 
         /* ================================================
-           ATTENDANCE CHANGE
+           CLEAR ERROR
         ================================================= */
 
-        attendance.addEventListener("change", updateGuestCountField);
+        function clearMessage() {
+          rsvpMessage.textContent = "";
+
+          rsvpMessage.className = "rsvp-message";
+        }
 
         /* ================================================
            SHOW SUCCESS POPUP
         ================================================= */
 
-        function showRsvpSuccessPopup() {
+        function showSuccessPopup() {
           successPopup.classList.add("active");
 
           successPopup.setAttribute("aria-hidden", "false");
@@ -491,7 +538,7 @@
            HIDE SUCCESS POPUP
         ================================================= */
 
-        function hideRsvpSuccessPopup() {
+        function hideSuccessPopup() {
           successPopup.classList.remove("active");
 
           successPopup.setAttribute("aria-hidden", "true");
@@ -500,36 +547,30 @@
         }
 
         /* ================================================
-           CLOSE SUCCESS POPUP
+           CLOSE BUTTON
         ================================================= */
 
-        if (closeSuccessPopup) {
-          closeSuccessPopup.addEventListener("click", hideRsvpSuccessPopup);
-        }
+        closeSuccessPopup.addEventListener("click", hideSuccessPopup);
 
         /* ================================================
-           CLOSE WHEN CLICKING BACKDROP
+           BACKDROP CLICK
         ================================================= */
 
         successPopup.addEventListener("click", function (event) {
-          if (
-            event.target === successPopup ||
-            event.target.classList.contains("rsvp-success-backdrop")
-          ) {
-            hideRsvpSuccessPopup();
+          if (event.target === successPopup) {
+            hideSuccessPopup();
           }
         });
 
         /* ================================================
-           ESCAPE KEY
+           ESC KEY
         ================================================= */
 
         document.addEventListener("keydown", function (event) {
-          if (
-            event.key === "Escape" &&
-            successPopup.classList.contains("active")
-          ) {
-            hideRsvpSuccessPopup();
+          if (event.key === "Escape") {
+            if (successPopup.classList.contains("active")) {
+              hideSuccessPopup();
+            }
           }
         });
 
@@ -540,16 +581,10 @@
         rsvpForm.addEventListener("submit", async function (event) {
           event.preventDefault();
 
-          /* ============================================
-               CLEAR MESSAGE
-            ============================================ */
-
-          rsvpMessage.textContent = "";
-
-          rsvpMessage.className = "rsvp-message";
+          clearMessage();
 
           /* ============================================
-               BASIC VALIDATION
+               VALIDATE NAME
             ============================================ */
 
           if (fullName.value.trim() === "") {
@@ -559,6 +594,10 @@
 
             return;
           }
+
+          /* ============================================
+               VALIDATE EMAIL
+            ============================================ */
 
           if (email.value.trim() === "") {
             showError("Please enter your email address.");
@@ -576,6 +615,10 @@
             return;
           }
 
+          /* ============================================
+               VALIDATE ATTENDANCE
+            ============================================ */
+
           if (attendance.value === "") {
             showError("Please select your attendance.");
 
@@ -585,94 +628,136 @@
           }
 
           /* ============================================
-               GUEST COUNT VALIDATION
+               VALIDATE GUEST COUNT
 
-               ONLY REQUIRED WHEN ATTENDING
+               Only required for Attending.
             ============================================ */
 
-          if (attendance.value === "Attending" && guestCount.value === "") {
-            showError("Please select the number of guests.");
+          if (attendance.value === "Attending") {
+            if (guestCount.value === "") {
+              showError("Please select the number of guests.");
 
-            guestCount.focus();
+              guestCount.focus();
 
-            return;
+              return;
+            }
           }
 
           /* ============================================
-               DECLINED RSVP
+               SET GUEST COUNT
 
-               AUTOMATICALLY SAVE AS ZERO GUESTS
+               Declined RSVP = 0 guests
             ============================================ */
+
+          let finalGuestCount;
 
           if (attendance.value === "Not Attending") {
-            guestCount.value = "0";
+            finalGuestCount = 0;
+          } else {
+            finalGuestCount = Number(guestCount.value);
           }
 
           /* ============================================
-               FORM DATA
+               DATA FOR API
+
+               This matches the structure used by
+               your admin RSVP system.
             ============================================ */
 
-          const formData = new FormData(rsvpForm);
+          const rsvpData = {
+            fullName: fullName.value.trim(),
 
-          /* ENSURE DECLINED RSVP SAVES ZERO */
+            email: email.value.trim(),
 
-          if (attendance.value === "Not Attending") {
-            formData.set("guestCount", "0");
-          }
+            phone: phone.value.trim(),
+
+            attendance: attendance.value,
+
+            guestCount: finalGuestCount,
+
+            message: message.value.trim(),
+          };
 
           /* ============================================
-               LOADING STATE
+               BUTTON LOADING STATE
             ============================================ */
 
           const originalButtonText = submitButton.textContent;
 
           submitButton.disabled = true;
 
-          submitButton.textContent = "Submitting...";
+          submitButton.textContent = "SUBMITTING...";
 
           try {
             /* ==========================================
-                 SEND RSVP TO YOUR PHP FILE
+                 SEND RSVP TO API
 
-                 CHANGE rsvp_process.php TO YOUR ACTUAL
-                 PHP/API FILE IF NEEDED.
+                 IMPORTANT:
+                 Your admin dashboard already uses:
+
+                 /api/rsvps
+
+                 So this form now uses the same API.
               ========================================== */
 
-            const response = await fetch("rsvp_process.php", {
+            const response = await fetch("/api/rsvps", {
               method: "POST",
-              body: formData,
+
+              headers: {
+                "Content-Type": "application/json",
+              },
+
+              body: JSON.stringify(rsvpData),
             });
 
             /* ==========================================
-                 READ RESPONSE
+                 READ RESPONSE SAFELY
               ========================================== */
 
-            const data = await response.json();
+            const responseText = await response.text();
+
+            let result;
+
+            try {
+              result = JSON.parse(responseText);
+            } catch (jsonError) {
+              console.error("Server response:", responseText);
+
+              throw new Error("The server returned an invalid response.");
+            }
+
+            /* ==========================================
+                 CHECK SERVER RESPONSE
+              ========================================== */
+
+            if (!response.ok || !result.success) {
+              throw new Error(result.message || "Unable to submit your RSVP.");
+            }
 
             /* ==========================================
                  SUCCESS
               ========================================== */
 
-            if (data.success) {
-              rsvpForm.reset();
+            rsvpForm.reset();
 
-              updateGuestCountField();
+            updateGuestCount();
 
-              showRsvpSuccessPopup();
-            } else {
-
-            /* ==========================================
-                 ERROR FROM SERVER
-              ========================================== */
-              showError(
-                data.message || "Unable to submit your RSVP. Please try again.",
-              );
-            }
+            showSuccessPopup();
           } catch (error) {
-            console.error("RSVP submission error:", error);
+            /* ============================================
+               ERROR
+            ============================================ */
 
-            showError("Unable to connect to the server. Please try again.");
+            console.error("RSVP Submission Error:", error);
+
+            showError(
+              error.message || "Unable to submit your RSVP. Please try again.",
+            );
           } finally {
+            /* ============================================
+               RESTORE BUTTON
+            ============================================ */
+
             submitButton.disabled = false;
 
             submitButton.textContent = originalButtonText;
@@ -680,20 +765,10 @@
         });
 
         /* ================================================
-           SHOW ERROR
-        ================================================= */
-
-        function showError(message) {
-          rsvpMessage.textContent = message;
-
-          rsvpMessage.className = "rsvp-message error";
-        }
-
-        /* ================================================
            INITIALIZE
         ================================================= */
 
-        updateGuestCountField();
+        updateGuestCount();
       });
     </script>
   </body>
