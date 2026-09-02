@@ -38,8 +38,8 @@
 
   <body>
     <!-- =====================================================
-     NAVIGATION
-====================================================== -->
+       NAVIGATION
+  ====================================================== -->
 
     <header class="navbar">
       <a
@@ -220,7 +220,7 @@
               <label for="guestCount">
                 Number of Guests
 
-                <span aria-hidden="true"> * </span>
+                <span id="guestCountRequired" aria-hidden="true"> * </span>
               </label>
 
               <select id="guestCount" name="guestCount" required>
@@ -328,9 +328,10 @@
         <p class="copyright">© 2027 Marc & Hannah Wedding</p>
       </div>
     </footer>
+
     <!-- =====================================================
-     RSVP SUCCESS POPUP
-===================================================== -->
+       RSVP SUCCESS POPUP
+  ====================================================== -->
 
     <div id="rsvpSuccessPopup" class="rsvp-success-popup" aria-hidden="true">
       <div class="rsvp-success-backdrop"></div>
@@ -398,5 +399,302 @@
   ====================================================== -->
 
     <script src="js/script.js"></script>
+
+    <!-- =====================================================
+       RSVP VALIDATION
+  ====================================================== -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        /* ================================================
+           ELEMENTS
+        ================================================= */
+
+        const rsvpForm = document.getElementById("rsvpForm");
+
+        const fullName = document.getElementById("fullName");
+
+        const email = document.getElementById("email");
+
+        const attendance = document.getElementById("attendance");
+
+        const guestCount = document.getElementById("guestCount");
+
+        const guestCountGroup = document.getElementById("guestCountGroup");
+
+        const guestCountRequired =
+          document.getElementById("guestCountRequired");
+
+        const submitButton = document.getElementById("submitButton");
+
+        const rsvpMessage = document.getElementById("rsvpMessage");
+
+        const successPopup = document.getElementById("rsvpSuccessPopup");
+
+        const closeSuccessPopup = document.getElementById("closeSuccessPopup");
+
+        /* ================================================
+           UPDATE GUEST COUNT
+        ================================================= */
+
+        function updateGuestCountField() {
+          if (attendance.value === "Attending") {
+            guestCountGroup.style.display = "";
+
+            guestCount.required = true;
+
+            guestCountRequired.style.display = "";
+
+            guestCount.disabled = false;
+          } else if (attendance.value === "Not Attending") {
+            guestCount.value = "0";
+
+            guestCount.required = false;
+
+            guestCount.disabled = false;
+
+            guestCountRequired.style.display = "none";
+
+            guestCountGroup.style.display = "none";
+          } else {
+            guestCount.value = "";
+
+            guestCount.required = true;
+
+            guestCount.disabled = false;
+
+            guestCountRequired.style.display = "";
+
+            guestCountGroup.style.display = "";
+          }
+        }
+
+        /* ================================================
+           ATTENDANCE CHANGE
+        ================================================= */
+
+        attendance.addEventListener("change", updateGuestCountField);
+
+        /* ================================================
+           SHOW SUCCESS POPUP
+        ================================================= */
+
+        function showRsvpSuccessPopup() {
+          successPopup.classList.add("active");
+
+          successPopup.setAttribute("aria-hidden", "false");
+
+          document.body.style.overflow = "hidden";
+        }
+
+        /* ================================================
+           HIDE SUCCESS POPUP
+        ================================================= */
+
+        function hideRsvpSuccessPopup() {
+          successPopup.classList.remove("active");
+
+          successPopup.setAttribute("aria-hidden", "true");
+
+          document.body.style.overflow = "";
+        }
+
+        /* ================================================
+           CLOSE SUCCESS POPUP
+        ================================================= */
+
+        if (closeSuccessPopup) {
+          closeSuccessPopup.addEventListener("click", hideRsvpSuccessPopup);
+        }
+
+        /* ================================================
+           CLOSE WHEN CLICKING BACKDROP
+        ================================================= */
+
+        successPopup.addEventListener("click", function (event) {
+          if (
+            event.target === successPopup ||
+            event.target.classList.contains("rsvp-success-backdrop")
+          ) {
+            hideRsvpSuccessPopup();
+          }
+        });
+
+        /* ================================================
+           ESCAPE KEY
+        ================================================= */
+
+        document.addEventListener("keydown", function (event) {
+          if (
+            event.key === "Escape" &&
+            successPopup.classList.contains("active")
+          ) {
+            hideRsvpSuccessPopup();
+          }
+        });
+
+        /* ================================================
+           FORM SUBMISSION
+        ================================================= */
+
+        rsvpForm.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          /* ============================================
+               CLEAR MESSAGE
+            ============================================ */
+
+          rsvpMessage.textContent = "";
+
+          rsvpMessage.className = "rsvp-message";
+
+          /* ============================================
+               BASIC VALIDATION
+            ============================================ */
+
+          if (fullName.value.trim() === "") {
+            showError("Please enter your full name.");
+
+            fullName.focus();
+
+            return;
+          }
+
+          if (email.value.trim() === "") {
+            showError("Please enter your email address.");
+
+            email.focus();
+
+            return;
+          }
+
+          if (!email.validity.valid) {
+            showError("Please enter a valid email address.");
+
+            email.focus();
+
+            return;
+          }
+
+          if (attendance.value === "") {
+            showError("Please select your attendance.");
+
+            attendance.focus();
+
+            return;
+          }
+
+          /* ============================================
+               GUEST COUNT VALIDATION
+
+               ONLY REQUIRED WHEN ATTENDING
+            ============================================ */
+
+          if (attendance.value === "Attending" && guestCount.value === "") {
+            showError("Please select the number of guests.");
+
+            guestCount.focus();
+
+            return;
+          }
+
+          /* ============================================
+               DECLINED RSVP
+
+               AUTOMATICALLY SAVE AS ZERO GUESTS
+            ============================================ */
+
+          if (attendance.value === "Not Attending") {
+            guestCount.value = "0";
+          }
+
+          /* ============================================
+               FORM DATA
+            ============================================ */
+
+          const formData = new FormData(rsvpForm);
+
+          /* ENSURE DECLINED RSVP SAVES ZERO */
+
+          if (attendance.value === "Not Attending") {
+            formData.set("guestCount", "0");
+          }
+
+          /* ============================================
+               LOADING STATE
+            ============================================ */
+
+          const originalButtonText = submitButton.textContent;
+
+          submitButton.disabled = true;
+
+          submitButton.textContent = "Submitting...";
+
+          try {
+            /* ==========================================
+                 SEND RSVP TO YOUR PHP FILE
+
+                 CHANGE rsvp_process.php TO YOUR ACTUAL
+                 PHP/API FILE IF NEEDED.
+              ========================================== */
+
+            const response = await fetch("rsvp_process.php", {
+              method: "POST",
+              body: formData,
+            });
+
+            /* ==========================================
+                 READ RESPONSE
+              ========================================== */
+
+            const data = await response.json();
+
+            /* ==========================================
+                 SUCCESS
+              ========================================== */
+
+            if (data.success) {
+              rsvpForm.reset();
+
+              updateGuestCountField();
+
+              showRsvpSuccessPopup();
+            } else {
+
+            /* ==========================================
+                 ERROR FROM SERVER
+              ========================================== */
+              showError(
+                data.message || "Unable to submit your RSVP. Please try again.",
+              );
+            }
+          } catch (error) {
+            console.error("RSVP submission error:", error);
+
+            showError("Unable to connect to the server. Please try again.");
+          } finally {
+            submitButton.disabled = false;
+
+            submitButton.textContent = originalButtonText;
+          }
+        });
+
+        /* ================================================
+           SHOW ERROR
+        ================================================= */
+
+        function showError(message) {
+          rsvpMessage.textContent = message;
+
+          rsvpMessage.className = "rsvp-message error";
+        }
+
+        /* ================================================
+           INITIALIZE
+        ================================================= */
+
+        updateGuestCountField();
+      });
+    </script>
   </body>
 </html>
