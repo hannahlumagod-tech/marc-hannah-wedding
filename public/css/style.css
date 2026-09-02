@@ -5108,3 +5108,498 @@ h2 {
     font-size: 13px;
   }
 }
+/* =====================================================
+   RSVP SUCCESS POPUP
+===================================================== */
+
+.rsvp-success-popup {
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  visibility: hidden;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+}
+
+/* ACTIVE POPUP */
+
+.rsvp-success-popup.active {
+  visibility: visible;
+
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+/* =====================================================
+   BACKDROP
+===================================================== */
+
+.rsvp-success-backdrop {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(42, 8, 15, 0.72);
+
+  backdrop-filter: blur(7px);
+
+  opacity: 0;
+
+  transition: opacity 0.5s ease;
+}
+
+.rsvp-success-popup.active .rsvp-success-backdrop {
+  opacity: 1;
+}
+
+/* =====================================================
+   SUCCESS CARD
+===================================================== */
+
+.rsvp-success-card {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(500px, 100%);
+
+  padding: 60px 50px 50px;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  background: linear-gradient(145deg, #fffdf9, #f7efe5);
+
+  border: 1px solid rgba(176, 138, 90, 0.25);
+
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+
+  transform: translateY(50px) scale(0.92);
+
+  opacity: 0;
+
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.45s ease;
+}
+
+/* ACTIVE CARD */
+
+.rsvp-success-popup.active .rsvp-success-card {
+  transform: translateY(0) scale(1);
+
+  opacity: 1;
+}
+
+/* =====================================================
+   CARD TOP BORDER
+===================================================== */
+
+.rsvp-success-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 120px;
+  height: 3px;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* =====================================================
+   BACKGROUND DECORATION
+===================================================== */
+
+.rsvp-success-card::after {
+  content: "❦";
+
+  position: absolute;
+
+  right: -60px;
+  bottom: -130px;
+
+  color: rgba(111, 29, 43, 0.045);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 320px;
+
+  pointer-events: none;
+}
+
+/* =====================================================
+   FLOATING DECORATIONS
+===================================================== */
+
+.success-decoration {
+  position: absolute;
+
+  color: rgba(111, 29, 43, 0.12);
+
+  pointer-events: none;
+}
+
+.decoration-one {
+  top: 25px;
+  left: 28px;
+
+  font-size: 42px;
+
+  animation: successFloat 4s ease-in-out infinite;
+}
+
+.decoration-two {
+  right: 35px;
+  top: 70px;
+
+  font-size: 30px;
+
+  animation: successFloat 5s ease-in-out infinite reverse;
+}
+
+/* =====================================================
+   SUCCESS ICON
+===================================================== */
+
+.success-icon-wrapper {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  margin-bottom: 25px;
+}
+
+.success-icon {
+  width: 90px;
+  height: 90px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, var(--burgundy), var(--burgundy-dark));
+
+  box-shadow: 0 12px 30px rgba(111, 29, 43, 0.28);
+
+  animation: successIconPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  animation-play-state: paused;
+}
+
+.rsvp-success-popup.active .success-icon {
+  animation-play-state: running;
+}
+
+.success-icon svg {
+  width: 52px;
+  height: 52px;
+
+  fill: none;
+
+  stroke: var(--champagne);
+
+  stroke-width: 3;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+/* =====================================================
+   ANIMATED CIRCLE
+===================================================== */
+
+.success-circle {
+  stroke-dasharray: 151;
+
+  stroke-dashoffset: 151;
+
+  transition: stroke-dashoffset 0.7s ease;
+}
+
+.rsvp-success-popup.active .success-circle {
+  stroke-dashoffset: 0;
+}
+
+/* =====================================================
+   ANIMATED CHECKMARK
+===================================================== */
+
+.success-check {
+  stroke-dasharray: 35;
+
+  stroke-dashoffset: 35;
+
+  transition: stroke-dashoffset 0.5s ease 0.45s;
+}
+
+.rsvp-success-popup.active .success-check {
+  stroke-dashoffset: 0;
+}
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.success-eyebrow {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 0 0 14px;
+
+  color: var(--dark-gold);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.rsvp-success-card h2 {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 0;
+
+  color: var(--burgundy-dark);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(52px, 8vw, 70px);
+
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.success-divider {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin: 22px auto;
+}
+
+.success-divider span:first-child,
+.success-divider span:last-child {
+  width: 55px;
+  height: 1px;
+
+  background: linear-gradient(90deg, transparent, rgba(176, 138, 90, 0.7));
+}
+
+.success-divider span:last-child {
+  background: linear-gradient(90deg, rgba(176, 138, 90, 0.7), transparent);
+}
+
+.success-divider span:nth-child(2) {
+  color: var(--gold);
+
+  font-size: 20px;
+}
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+.success-message {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 340px;
+
+  margin: 0 auto 25px;
+
+  color: #756b62;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+/* =====================================================
+   COUPLE NAME
+===================================================== */
+
+.success-couple {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 0 0 30px;
+
+  color: var(--burgundy);
+
+  font-family: "Great Vibes", cursive;
+
+  font-size: 36px;
+}
+
+.success-couple span {
+  color: var(--gold);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px;
+}
+
+/* =====================================================
+   CONTINUE BUTTON
+===================================================== */
+
+.success-close-button {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 180px;
+
+  padding: 15px 28px;
+
+  border: 1px solid var(--burgundy);
+
+  background: var(--burgundy);
+
+  color: var(--white);
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.success-close-button:hover {
+  background: var(--burgundy-dark);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 25px rgba(61, 15, 25, 0.2);
+}
+
+.success-close-button:active {
+  transform: translateY(0);
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes successIconPop {
+  0% {
+    opacity: 0;
+
+    transform: scale(0.4);
+  }
+
+  70% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+@keyframes successFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(8deg);
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+  .rsvp-success-popup {
+    padding: 15px;
+  }
+
+  .rsvp-success-card {
+    padding: 50px 25px 40px;
+  }
+
+  .success-icon {
+    width: 78px;
+    height: 78px;
+  }
+
+  .success-icon svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .rsvp-success-card h2 {
+    font-size: 55px;
+  }
+
+  .success-message {
+    font-size: 13px;
+  }
+
+  .success-couple {
+    font-size: 32px;
+  }
+}
