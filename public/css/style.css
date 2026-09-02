@@ -2302,7 +2302,8 @@ h2 {
 
   text-align: center;
 
-  background: url("../images/story-hero.jpg") center / cover no-repeat;
+  background: url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png")
+    center / cover no-repeat;
 
   background-color: var(--burgundy-dark);
 }
@@ -2873,7 +2874,8 @@ h2 {
 
   text-align: center;
 
-  background: url("../images/rsvp-hero.jpg") center / cover no-repeat;
+  background: url("https://res.cloudinary.com/gitmeqyt/image/upload/v1788163174/60474c25-1fb9-463d-b24d-20dd6a9d7ddc.png")
+    center / cover no-repeat;
 
   background-color: var(--burgundy-dark);
 }
