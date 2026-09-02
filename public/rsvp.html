@@ -46,8 +46,6 @@
         M <span>&</span> H
       </a>
 
-      <!-- MOBILE MENU BUTTON -->
-
       <button
         class="menu-toggle"
         id="menuToggle"
@@ -58,8 +56,6 @@
       >
         ☰
       </button>
-
-      <!-- NAVIGATION -->
 
       <nav id="navMenu" aria-label="Main Navigation">
         <a href="index.html"> Home </a>
@@ -110,7 +106,7 @@
       </section>
 
       <!-- ===================================================
-         RSVP SECTION
+         RSVP FORM SECTION
     ==================================================== -->
 
       <section class="rsvp-section">
@@ -136,9 +132,9 @@
             </p>
           </div>
 
-          <!-- ===============================================
+          <!-- =================================================
              RSVP FORM
-        ================================================ -->
+        ================================================== -->
 
           <form id="rsvpForm" class="rsvp-form" novalidate>
             <!-- FULL NAME -->
@@ -147,7 +143,7 @@
               <label for="fullName">
                 Full Name
 
-                <span> * </span>
+                <span>*</span>
               </label>
 
               <input
@@ -166,7 +162,7 @@
               <label for="email">
                 Email Address
 
-                <span> * </span>
+                <span>*</span>
               </label>
 
               <input
@@ -200,7 +196,7 @@
               <label for="attendance">
                 Will You Attend?
 
-                <span> * </span>
+                <span>*</span>
               </label>
 
               <select id="attendance" name="attendance" required>
@@ -260,7 +256,7 @@
             </div>
           </form>
 
-          <!-- ERROR MESSAGE -->
+          <!-- MESSAGE AREA -->
 
           <div
             id="rsvpMessage"
@@ -340,8 +336,6 @@
         aria-modal="true"
         aria-labelledby="successTitle"
       >
-        <!-- DECORATION -->
-
         <span class="success-decoration decoration-one"> ❦ </span>
 
         <span class="success-decoration decoration-two"> ♡ </span>
@@ -357,8 +351,6 @@
             </svg>
           </div>
         </div>
-
-        <!-- CONTENT -->
 
         <p class="success-eyebrow">RSVP CONFIRMED</p>
 
@@ -404,7 +396,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        /* ================================================
+        /* =================================================
            ELEMENTS
         ================================================= */
 
@@ -435,14 +427,12 @@
 
         const closeSuccessPopup = document.getElementById("closeSuccessPopup");
 
-        /* ================================================
-           ATTENDANCE HANDLING
+        /* =================================================
+           UPDATE GUEST COUNT
         ================================================= */
 
         function updateGuestCount() {
-          /* ==============================================
-             ATTENDING
-          ============================================== */
+          /* ATTENDING */
 
           if (attendance.value === "Attending") {
             guestCountGroup.style.display = "";
@@ -453,36 +443,26 @@
 
             guestCountRequired.style.display = "";
 
+            guestCount.value = "";
+
             return;
           }
 
-          /* ==============================================
-             NOT ATTENDING
-          ============================================== */
+          /* NOT ATTENDING */
 
           if (attendance.value === "Not Attending") {
-            /* Automatically save zero guests */
-
             guestCount.value = "0";
-
-            /* Remove required validation */
 
             guestCount.required = false;
 
-            /* Keep enabled so value can exist */
-
-            guestCount.disabled = false;
-
-            /* Hide field */
+            guestCount.disabled = true;
 
             guestCountGroup.style.display = "none";
 
             return;
           }
 
-          /* ==============================================
-             NO SELECTION
-          ============================================== */
+          /* NO SELECTION */
 
           guestCount.value = "";
 
@@ -497,7 +477,7 @@
 
         attendance.addEventListener("change", updateGuestCount);
 
-        /* ================================================
+        /* =================================================
            SHOW ERROR
         ================================================= */
 
@@ -512,8 +492,8 @@
           });
         }
 
-        /* ================================================
-           CLEAR ERROR
+        /* =================================================
+           CLEAR MESSAGE
         ================================================= */
 
         function clearMessage() {
@@ -522,7 +502,7 @@
           rsvpMessage.className = "rsvp-message";
         }
 
-        /* ================================================
+        /* =================================================
            SHOW SUCCESS POPUP
         ================================================= */
 
@@ -534,7 +514,7 @@
           document.body.style.overflow = "hidden";
         }
 
-        /* ================================================
+        /* =================================================
            HIDE SUCCESS POPUP
         ================================================= */
 
@@ -546,13 +526,13 @@
           document.body.style.overflow = "";
         }
 
-        /* ================================================
-           CLOSE BUTTON
+        /* =================================================
+           CLOSE SUCCESS POPUP
         ================================================= */
 
         closeSuccessPopup.addEventListener("click", hideSuccessPopup);
 
-        /* ================================================
+        /* =================================================
            BACKDROP CLICK
         ================================================= */
 
@@ -562,19 +542,17 @@
           }
         });
 
-        /* ================================================
+        /* =================================================
            ESC KEY
         ================================================= */
 
         document.addEventListener("keydown", function (event) {
           if (event.key === "Escape") {
-            if (successPopup.classList.contains("active")) {
-              hideSuccessPopup();
-            }
+            hideSuccessPopup();
           }
         });
 
-        /* ================================================
+        /* =================================================
            FORM SUBMISSION
         ================================================= */
 
@@ -583,9 +561,9 @@
 
           clearMessage();
 
-          /* ============================================
-               VALIDATE NAME
-            ============================================ */
+          /* =============================================
+               VALIDATE FULL NAME
+            ============================================== */
 
           if (fullName.value.trim() === "") {
             showError("Please enter your full name.");
@@ -595,9 +573,9 @@
             return;
           }
 
-          /* ============================================
+          /* =============================================
                VALIDATE EMAIL
-            ============================================ */
+            ============================================== */
 
           if (email.value.trim() === "") {
             showError("Please enter your email address.");
@@ -615,9 +593,9 @@
             return;
           }
 
-          /* ============================================
+          /* =============================================
                VALIDATE ATTENDANCE
-            ============================================ */
+            ============================================== */
 
           if (attendance.value === "") {
             showError("Please select your attendance.");
@@ -627,42 +605,33 @@
             return;
           }
 
-          /* ============================================
+          /* =============================================
                VALIDATE GUEST COUNT
 
-               Only required for Attending.
-            ============================================ */
+               Required only when attending.
+            ============================================== */
 
-          if (attendance.value === "Attending") {
-            if (guestCount.value === "") {
-              showError("Please select the number of guests.");
+          if (attendance.value === "Attending" && guestCount.value === "") {
+            showError("Please select the number of guests.");
 
-              guestCount.focus();
+            guestCount.focus();
 
-              return;
-            }
+            return;
           }
 
-          /* ============================================
-               SET GUEST COUNT
+          /* =============================================
+               FINAL GUEST COUNT
+            ============================================== */
 
-               Declined RSVP = 0 guests
-            ============================================ */
+          let finalGuestCount = 0;
 
-          let finalGuestCount;
-
-          if (attendance.value === "Not Attending") {
-            finalGuestCount = 0;
-          } else {
+          if (attendance.value === "Attending") {
             finalGuestCount = Number(guestCount.value);
           }
 
-          /* ============================================
-               DATA FOR API
-
-               This matches the structure used by
-               your admin RSVP system.
-            ============================================ */
+          /* =============================================
+               CREATE DATA
+            ============================================== */
 
           const rsvpData = {
             fullName: fullName.value.trim(),
@@ -678,9 +647,9 @@
             message: message.value.trim(),
           };
 
-          /* ============================================
-               BUTTON LOADING STATE
-            ============================================ */
+          /* =============================================
+               BUTTON LOADING
+            ============================================== */
 
           const originalButtonText = submitButton.textContent;
 
@@ -689,18 +658,14 @@
           submitButton.textContent = "SUBMITTING...";
 
           try {
-            /* ==========================================
-                 SEND RSVP TO API
+            /* ===========================================
+                 SEND RSVP
 
                  IMPORTANT:
-                 Your admin dashboard already uses:
+                 Public RSVP endpoint
+              ============================================ */
 
-                 /api/rsvps
-
-                 So this form now uses the same API.
-              ========================================== */
-
-            const response = await fetch("/api/rsvps", {
+            const response = await fetch("/api/rsvp", {
               method: "POST",
 
               headers: {
@@ -710,33 +675,51 @@
               body: JSON.stringify(rsvpData),
             });
 
-            /* ==========================================
-                 READ RESPONSE SAFELY
-              ========================================== */
+            /* ===========================================
+                 READ RESPONSE
+              ============================================ */
 
             const responseText = await response.text();
 
-            let result;
+            let result = null;
+
+            /* ===========================================
+                 PARSE JSON
+              ============================================ */
 
             try {
               result = JSON.parse(responseText);
-            } catch (jsonError) {
-              console.error("Server response:", responseText);
+            } catch (parseError) {
+              console.error("Invalid server response:", responseText);
 
               throw new Error("The server returned an invalid response.");
             }
 
-            /* ==========================================
-                 CHECK SERVER RESPONSE
-              ========================================== */
+            /* ===========================================
+                 CHECK RESULT
+              ============================================ */
 
-            if (!response.ok || !result.success) {
+            if (!response.ok) {
               throw new Error(result.message || "Unable to submit your RSVP.");
             }
 
-            /* ==========================================
+            /* ===========================================
+                 SUCCESS CHECK
+
+                 Supports both:
+
+                 { success: true }
+
+                 and a normal successful JSON response.
+              ============================================ */
+
+            if (result.success === false) {
+              throw new Error(result.message || "Unable to submit your RSVP.");
+            }
+
+            /* ===========================================
                  SUCCESS
-              ========================================== */
+              ============================================ */
 
             rsvpForm.reset();
 
@@ -744,9 +727,9 @@
 
             showSuccessPopup();
           } catch (error) {
-            /* ============================================
+            /* =============================================
                ERROR
-            ============================================ */
+            ============================================== */
 
             console.error("RSVP Submission Error:", error);
 
@@ -754,9 +737,9 @@
               error.message || "Unable to submit your RSVP. Please try again.",
             );
           } finally {
-            /* ============================================
+            /* =============================================
                RESTORE BUTTON
-            ============================================ */
+            ============================================== */
 
             submitButton.disabled = false;
 
@@ -764,7 +747,7 @@
           }
         });
 
-        /* ================================================
+        /* =================================================
            INITIALIZE
         ================================================= */
 
