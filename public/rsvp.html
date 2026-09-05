@@ -324,8 +324,8 @@
     </footer>
 
     <!-- =====================================================
-       SUCCESS POPUP
-  ====================================================== -->
+   ELEGANT RSVP SUCCESS POPUP
+====================================================== -->
 
     <div id="rsvpSuccessPopup" class="rsvp-success-popup" aria-hidden="true">
       <div class="rsvp-success-backdrop"></div>
@@ -336,51 +336,73 @@
         aria-modal="true"
         aria-labelledby="successTitle"
       >
-        <span class="success-decoration decoration-one"> ❦ </span>
+        ```
+        <!-- Decorative elements -->
+        <span class="success-flower flower-one">❦</span>
+        <span class="success-flower flower-two">❦</span>
+        <span class="success-heart heart-one">♡</span>
+        <span class="success-heart heart-two">♡</span>
 
-        <span class="success-decoration decoration-two"> ♡ </span>
+        <!-- Top ornament -->
+        <div class="success-top-ornament">
+          <span></span>
+          <i>✦</i>
+          <span></span>
+        </div>
 
-        <!-- SUCCESS ICON -->
-
+        <!-- Animated Check -->
         <div class="success-icon-wrapper">
           <div class="success-icon">
-            <svg viewBox="0 0 52 52" aria-hidden="true">
-              <circle class="success-circle" cx="26" cy="26" r="24"></circle>
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle class="success-circle" cx="32" cy="32" r="28"></circle>
 
-              <path class="success-check" d="M14 27 L22 35 L38 18"></path>
+              <path class="success-check" d="M18 33 L27 42 L47 22"></path>
             </svg>
           </div>
         </div>
 
+        <!-- Small heading -->
         <p class="success-eyebrow">RSVP CONFIRMED</p>
 
+        <!-- Main title -->
         <h2 id="successTitle">Thank You!</h2>
 
+        <!-- Divider -->
         <div class="success-divider">
           <span></span>
-
-          <span> ❦ </span>
-
+          <i>❦</i>
           <span></span>
         </div>
 
+        <!-- Message -->
         <p class="success-message">
-          Your RSVP has been successfully received.
-
+          Your RSVP has been beautifully received.
           <br />
-
-          Thank you for being part of our beautiful journey.
+          <span>
+            We are so happy to celebrate this special moment with you.
+          </span>
         </p>
 
-        <p class="success-couple">Marc <span>&</span> Hannah</p>
+        <!-- Couple -->
+        <div class="success-couple">
+          <span>Marc</span>
+          <b>&amp;</b>
+          <span>Hannah</span>
+        </div>
 
+        <!-- Wedding date -->
+        <p class="success-date">FEBRUARY 22, 2027</p>
+
+        <!-- Button -->
         <button
           type="button"
           id="closeSuccessPopup"
           class="success-close-button"
         >
-          CONTINUE
+          <span>CONTINUE</span>
+          <i>→</i>
         </button>
+        ```
       </div>
     </div>
 
